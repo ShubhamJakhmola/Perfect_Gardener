@@ -10,8 +10,39 @@
   const contactForm = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
   const breadcrumbs = document.getElementById('breadcrumbs');
+  const navToggle = document.querySelector('.nav-toggle');
+  const mainNav = document.getElementById('primary-navigation');
 
-  year.textContent = new Date().getFullYear().toString();
+  year && (year.textContent = new Date().getFullYear().toString());
+  // Back to top smooth scroll
+  document.querySelectorAll('.to-top').forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (el.getAttribute('href') === '#top') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Single light theme; remove theme handling
+  document.documentElement.removeAttribute('data-theme');
+
+  // Hamburger
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    // Close on link click (mobile UX)
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { mainNav.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); }
+    });
+  }
 
   // EmailJS init - replace with your own keys in README instructions
   // eslint-disable-next-line no-undef
@@ -67,14 +98,9 @@
       return;
     }
     toggleEmptyState(false);
-    // Feature the newest (first) on home if container exists
-    if (featuredProduct && products.length > 0) {
-      const featured = createProductCard(products[0]);
-      featuredProduct.innerHTML = '';
-      featuredProduct.appendChild(featured);
-    }
-    const startIndex = featuredProduct ? 1 : 0;
-    for (let i = startIndex; i < products.length; i++) {
+    // No special featured card to keep uniform grid
+    featuredProduct && (featuredProduct.innerHTML = '');
+    for (let i = 0; i < products.length; i++) {
       const product = products[i];
       const card = createProductCard(product);
       productsGrid.appendChild(card);
@@ -249,7 +275,8 @@
       const sliced = typeof limit === 'number' ? posts.slice(0, limit) : posts;
       postsEmpty && (postsEmpty.hidden = true);
       for (const post of sliced) {
-        const card = await createPostCard(post);
+        const enriched = await enrichPostWithCover(post);
+        const card = await createPostCard(enriched);
         postsGrid.appendChild(card);
       }
     } catch (e) {
@@ -269,13 +296,31 @@
         for (const f of mdFiles) {
           const slug = f.name.replace(/\.md$/,'');
           const post = { slug, title: slug.replace(/[-_]/g,' ').replace(/\b\w/g, c => c.toUpperCase()), excerpt: '' };
-          const card = await createPostCard(post);
+          const enriched = await enrichPostWithCover(post);
+          const card = await createPostCard(enriched);
           postsGrid.appendChild(card);
         }
       } catch(_) {
         postsEmpty && (postsEmpty.hidden = false);
       }
     }
+  }
+
+  async function enrichPostWithCover(post) {
+    // Try posts/<slug>.png/.jpg else fallback to sequential posts/postN.png
+    const tryUrls = [`posts/${post.slug}.png`, `posts/${post.slug}.jpg`];
+    // Probe sequential numbers based on index in manifest not always known; try 1..20
+    for (let i = 1; i <= 20; i++) {
+      tryUrls.push(`posts/post${i}.png`);
+      tryUrls.push(`posts/post${i}.jpg`);
+    }
+    for (const u of tryUrls) {
+      try {
+        const r = await fetch(u, { method: 'HEAD' });
+        if (r.ok) return { ...post, cover: u };
+      } catch(_){}
+    }
+    return post;
   }
 
   async function createPostCard(post) {
@@ -346,7 +391,23 @@
         media.innerHTML = '';
         media.appendChild(iframe);
       });
+      const view = document.createElement('a');
+      view.className = 'btn ghost';
+      view.href = `https://www.youtube.com/watch?v=${id}`;
+      view.target = '_blank';
+      view.rel = 'noopener';
+      view.textContent = 'View on YouTube';
+      const fs = document.createElement('button');
+      fs.className = 'btn ghost';
+      fs.type = 'button';
+      fs.textContent = 'Fullscreen';
+      fs.addEventListener('click', () => {
+        const iframe = media.querySelector('iframe');
+        if (iframe && iframe.requestFullscreen) { iframe.requestFullscreen(); }
+      });
       actions.appendChild(play);
+      actions.appendChild(view);
+      actions.appendChild(fs);
       body.appendChild(actions);
       card.appendChild(media);
       card.appendChild(body);
@@ -383,6 +444,65 @@
     renderCrumb();
     window.addEventListener('scroll', () => { renderCrumb(); }, { passive: true });
     window.addEventListener('hashchange', renderCrumb);
+  }
+
+  // Comments (home and post) — localStorage only
+  const commentForm = document.getElementById('commentForm');
+  const commentsList = document.getElementById('commentsList');
+  if (commentForm && commentsList) {
+    const params = new URLSearchParams(location.search);
+    const slug = params.get('slug') || 'home';
+    const key = `pg:comments:${slug}`;
+    function readComments(){
+      try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch(_) { return []; }
+    }
+    function writeComments(list){ localStorage.setItem(key, JSON.stringify(list)); }
+    function renderComments(){
+      const list = readComments();
+      list.sort((a,b) => b.stars - a.stars);
+      commentsList.innerHTML = '';
+      for (const c of list) {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${escapeHtml(c.name)}</strong> — <span class="stars" aria-label="${c.stars} out of 5">${'★'.repeat(c.stars)}${'☆'.repeat(5-c.stars)}</span><br>${escapeHtml(c.comment)}`;
+        commentsList.appendChild(li);
+      }
+    }
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m])); }
+    // Star rating: clickable stars
+    const starsContainer = document.createElement('div');
+    starsContainer.className = 'star-picker';
+    const select = document.getElementById('cStars');
+    const starButtons = [];
+    for (let i = 1; i <= 5; i++) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = '★';
+      b.setAttribute('aria-label', `${i} star`);
+      b.style.fontSize = '24px';
+      b.style.color = '#b3b3b3';
+      b.addEventListener('click', () => { select.value = String(i); paintStars(i); });
+      starButtons.push(b);
+      starsContainer.appendChild(b);
+    }
+    const starsField = select?.parentElement;
+    if (starsField) { starsField.appendChild(starsContainer); select.style.display = 'none'; }
+    function paintStars(n){ starButtons.forEach((b,idx) => { b.style.color = idx < n ? '#FFD700' : '#b3b3b3'; }); }
+    paintStars(parseInt(select?.value || '5',10));
+
+    commentForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('cName').value.trim() || 'Anonymous';
+      const stars = parseInt(document.getElementById('cStars').value || '5', 10);
+      const comment = document.getElementById('cText').value.trim();
+      if (!comment) return;
+      const list = readComments();
+      list.push({ name, stars: Math.max(1, Math.min(5, stars)), comment, ts: Date.now() });
+      writeComments(list);
+      commentForm.reset();
+      paintStars(5);
+      renderComments();
+    });
+    renderComments();
   }
 })();
 

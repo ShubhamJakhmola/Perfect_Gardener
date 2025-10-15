@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles.css" />
     <style> html { scroll-behavior: smooth; } .post-content{ max-width: 800px; margin: 28px auto; padding: 0 4%; } .post-header{ text-align:center; margin: 18px 0 12px; } .post-header h1{ margin: 0 0 6px; } .post-cover{ width:100%; border-radius: 12px; border:1px solid var(--ring); box-shadow: var(--shadow); } .prose{ line-height:1.75; } .prose h2{ margin-top: 1.2em; } .prose img{ max-width:100%; border-radius: 10px; } </style>
     <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script defer src="script.js"></script>
     <script defer>
       (async () => {
         const params = new URLSearchParams(location.search);
@@ -25,11 +26,12 @@
           const firstLine = md.split('\n')[0];
           const title = firstLine.startsWith('# ') ? firstLine.replace('# ', '').trim() : slug;
           titleEl.textContent = title;
-          // simple cover convention: if posts/${slug}.jpg exists, use it
-          try {
-            const imgRes = await fetch(`posts/${slug}.jpg`, { method: 'HEAD' });
-            if (imgRes.ok) { coverEl.src = `posts/${slug}.jpg`; coverEl.hidden = false; }
-          } catch(_){}
+          // Try multiple cover options and sequential post images
+          const tryCovers = [`posts/${slug}.png`, `posts/${slug}.jpg`];
+          for (let i = 1; i <= 20; i++) { tryCovers.push(`posts/post${i}.png`, `posts/post${i}.jpg`); }
+          for (const u of tryCovers) {
+            try { const r = await fetch(u, { method: 'HEAD' }); if (r.ok) { coverEl.src = u; coverEl.hidden = false; break; } } catch(_){}
+          }
           const html = window.marked.parse(md);
           container.innerHTML = `<div class="prose">${html}</div>`;
         } catch (e) {
@@ -42,10 +44,22 @@
     <header class="site-header" id="top">
       <div class="container header-inner">
         <div class="brand">
-          <img src="Avtar.png" alt="Perfect Gardener logo" class="logo" width="28" height="28" />
+          <img src="Avtar.png" alt="Perfect Gardener logo" class="logo" width="44" height="44" />
           <a class="brand-name" href="./" style="text-decoration:none; color: inherit;">Perfect Gardener</a>
         </div>
-        <nav class="main-nav">
+        <div class="header-actions" style="display:flex; align-items:center; gap:10px;">
+          <div class="theme-switcher" aria-label="Theme">
+            <button type="button" data-theme="light" aria-label="Light theme">☀️</button>
+            <button type="button" data-theme="" aria-label="Green theme">🌿</button>
+            <button type="button" data-theme="sky" aria-label="Sky theme">🌈</button>
+          </div>
+          <button class="nav-toggle" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+        <nav class="main-nav" id="primary-navigation">
           <a href="products.html">Products</a>
           <a href="posts/">Posts</a>
           <a href="./#youtube">YouTube</a>
@@ -60,11 +74,36 @@
           <img id="postCover" class="post-cover" alt="Post cover" hidden />
         </div>
         <div id="postContainer"></div>
+        <section id="comments" style="margin-top:24px;">
+          <h3>Comments</h3>
+          <form id="commentForm" class="contact-form" style="margin:12px 0;">
+            <div class="form-field">
+              <label for="cName">Name</label>
+              <input id="cName" type="text" placeholder="Your name" />
+            </div>
+            <div class="form-field">
+              <label for="cStars">Rating</label>
+              <select id="cStars">
+                <option value="5">★★★★★</option>
+                <option value="4">★★★★☆</option>
+                <option value="3">★★★☆☆</option>
+                <option value="2">★★☆☆☆</option>
+                <option value="1">★☆☆☆☆</option>
+              </select>
+            </div>
+            <div class="form-field" style="grid-column:1 / -1;">
+              <label for="cText">Comment</label>
+              <textarea id="cText" rows="3" placeholder="Share your feedback" required></textarea>
+            </div>
+            <button class="btn primary" type="submit">Submit</button>
+          </form>
+          <ul id="commentsList" class="footer-list"></ul>
+        </section>
       </div>
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© <span id="year"></span> Perfect Gardener</p>
+        <div class="brand"><img src="Avtar.png" alt="logo" class="logo" width="24" height="24" /><span class="brand-name" style="margin-left:8px;">Perfect Gardener</span></div>
         <a class="to-top" href="#top">Back to top ↑</a>
       </div>
     </footer>

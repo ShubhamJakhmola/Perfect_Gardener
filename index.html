@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Affiliate Product Listings — Perfect Gardener</title>
     <link rel="icon" href="Avtar.png" type="image/png" />
+    <meta name="theme-color" content="#27ae60" />
     <meta name="description" content="Modern, responsive affiliate product listings with auto image fetch, YouTube channel highlight, and contact form." />
     <link rel="canonical" href="./" />
     <meta name="robots" content="index, follow" />
@@ -55,14 +56,23 @@
     <header class="site-header" id="top">
       <div class="container header-inner">
         <div class="brand">
-          <img src="Avtar.png" alt="Perfect Gardener logo" class="logo" width="28" height="28" />
+          <img src="Avtar.png" alt="Perfect Gardener logo" class="logo" width="44" height="44" />
           <a href="./" class="brand-name" style="text-decoration:none; color:inherit;">Perfect Gardener</a>
         </div>
-        <nav class="main-nav">
+        <div class="header-actions" style="display:flex; align-items:center; gap:10px;">
+          
+          <button class="nav-toggle" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+        <nav class="main-nav" id="primary-navigation">
           <a href="./">Home</a>
           <a href="products.html">Products</a>
           <a href="posts/">Posts</a>
           <a href="#youtube">YouTube</a>
+          <a href="contact.html">Contact</a>
           <a href="about.html">About</a>
           <a href="privacy.html">Privacy</a>
         </nav>
@@ -76,12 +86,18 @@
           <div class="hero-copy">
             <h1>Perfect Gardener</h1>
             <p>Hello everyone, this channel is all about nature, flowers, plants, care, and helping them grow better.</p>
+            <p class="subtle">lets have some gardening</p>
             <p>Curated gardening tools and accessories to help your plants thrive. Products import automatically from your CSV or Excel file.</p>
             <div class="hero-actions">
               <a href="#products" class="btn primary">Browse Products</a>
             </div>
           </div>
-          <div class="hero-visual" aria-hidden="true"></div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="sprout s1"><div class="leaf l1"></div><div class="leaf l2"></div></div>
+            <div class="sprout s2"><div class="leaf l1"></div><div class="leaf l2"></div></div>
+            <div class="sprout s3"><div class="leaf l1"></div><div class="leaf l2"></div></div>
+            <div class="bee" title="Bee"></div>
+          </div>
         </div>
       </section>
 
@@ -89,7 +105,7 @@
         <div class="container">
           <div class="section-head">
             <h2>Featured Products</h2>
-            <p class="muted">Images are auto-fetched from product pages when possible.</p>
+            
           </div>
 
           <!-- AdSense disabled -->
@@ -113,6 +129,31 @@
             <p class="muted">Insights and tips from Perfect Gardener.</p>
           </div>
           <div id="postsGrid" class="products-grid" aria-live="polite"></div>
+          <section id="homeComments" style="margin-top:24px;">
+            <h3>Comments</h3>
+            <form id="commentForm" class="contact-form" style="margin:12px 0;">
+              <div class="form-field">
+                <label for="cName">Name</label>
+                <input id="cName" type="text" placeholder="Your name" />
+              </div>
+              <div class="form-field">
+                <label for="cStars">Rating</label>
+                <select id="cStars">
+                  <option value="5">★★★★★</option>
+                  <option value="4">★★★★☆</option>
+                  <option value="3">★★★☆☆</option>
+                  <option value="2">★★☆☆☆</option>
+                  <option value="1">★☆☆☆☆</option>
+                </select>
+              </div>
+              <div class="form-field" style="grid-column:1 / -1;">
+                <label for="cText">Comment</label>
+                <textarea id="cText" rows="3" placeholder="Share your feedback" required></textarea>
+              </div>
+              <button class="btn primary" type="submit">Submit</button>
+            </form>
+            <ul id="commentsList" class="footer-list"></ul>
+          </section>
           <div id="postsEmpty" class="empty-state" hidden>
             <p>No posts yet. Add markdown files in <code>posts/</code> and update <code>posts/index.json</code>.</p>
           </div>
@@ -149,22 +190,10 @@
       <section id="contact" class="contact-section">
         <div class="container contact-inner">
           <h2>Contact Me</h2>
-          <form id="contactForm" class="contact-form">
-            <div class="form-field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
-            </div>
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
-            </div>
-            <div class="form-field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="How can I help?" required></textarea>
-            </div>
-            <button class="btn primary" type="submit">Submit</button>
-            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
-          </form>
+          <p class="muted">We've moved the contact form to a dedicated page for a better experience.</p>
+          <div class="section-actions" style="margin-top:14px;">
+            <a class="btn primary" href="contact.html">Open contact page</a>
+          </div>
         </div>
       </section>
     </main>
@@ -172,7 +201,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-col">
-          <div class="brand"><span class="logo">🌿</span><span class="brand-name">Perfect Gardener</span></div>
+          <div class="brand"><img src="Avtar.png" alt="logo" class="logo" width="24" height="24" /><span class="brand-name">Perfect Gardener</span></div>
           <p class="muted">Nature, flowers, plants, care — helping them grow better.</p>
         </div>
         <div class="footer-col">
