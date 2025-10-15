@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Affiliate Product Listings — Perfect Gardener</title>
+    <link rel="icon" href="Avtar.png" type="image/png" />
+    <meta name="description" content="Modern, responsive affiliate product listings with auto image fetch, YouTube channel highlight, and contact form." />
+    <link rel="canonical" href="./" />
+    <meta name="robots" content="index, follow" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://cdn.jsdelivr.net https://pagead2.googlesyndication.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.youtube.com https://youtube.com; connect-src 'self' https://api.microlink.io https://api.github.com https://raw.githubusercontent.com;" />
+
+    <!-- Open Graph / SEO -->
+    <meta property="og:title" content="Affiliate Product Listings — Perfect Gardener" />
+    <meta property="og:description" content="Modern, responsive affiliate product listings with auto image fetch, YouTube channel highlight, and contact form." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- CSV & Excel parsers -->
+    <script defer src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <!-- EmailJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Our code -->
+    <script defer src="script.js"></script>
+
+    <style>
+      /* Smooth scrolling */
+      html { scroll-behavior: smooth; }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Perfect Gardener",
+        "url": "",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <div class="brand">
+          <img src="Avtar.png" alt="Perfect Gardener logo" class="logo" width="28" height="28" />
+          <a href="./" class="brand-name" style="text-decoration:none; color:inherit;">Perfect Gardener</a>
+        </div>
+        <nav class="main-nav">
+          <a href="./">Home</a>
+          <a href="products.html">Products</a>
+          <a href="posts/">Posts</a>
+          <a href="#youtube">YouTube</a>
+          <a href="about.html">About</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <nav id="breadcrumbs" class="breadcrumbs" aria-label="Breadcrumb"></nav>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <h1>Perfect Gardener</h1>
+            <p>Hello everyone, this channel is all about nature, flowers, plants, care, and helping them grow better.</p>
+            <p>Curated gardening tools and accessories to help your plants thrive. Products import automatically from your CSV or Excel file.</p>
+            <div class="hero-actions">
+              <a href="#products" class="btn primary">Browse Products</a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section id="products" class="products-section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Featured Products</h2>
+            <p class="muted">Images are auto-fetched from product pages when possible.</p>
+          </div>
+
+          <!-- AdSense disabled -->
+          <div id="featuredProduct" class="featured-product" aria-live="polite"></div>
+          <div id="productsGrid" class="products-grid" aria-live="polite"></div>
+
+          <div id="emptyState" class="empty-state" hidden>
+            <p>No products found yet. Ensure <code>products.csv</code> or <code>products.xlsx</code> exists, or import a file above.</p>
+          </div>
+
+          <div class="section-actions" style="margin-top:14px;">
+            <a class="btn ghost" href="products.html">View all products</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="posts-section" id="posts">
+        <div class="container">
+          <div class="section-head">
+            <h2>Latest Posts</h2>
+            <p class="muted">Insights and tips from Perfect Gardener.</p>
+          </div>
+          <div id="postsGrid" class="products-grid" aria-live="polite"></div>
+          <div id="postsEmpty" class="empty-state" hidden>
+            <p>No posts yet. Add markdown files in <code>posts/</code> and update <code>posts/index.json</code>.</p>
+          </div>
+          <div class="section-actions" style="margin-top:14px;">
+            <a class="btn ghost" href="posts/">View all posts</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="youtube" class="youtube-section">
+        <div class="container youtube-inner">
+          <div class="yt-copy">
+            <h2>Perfect Gardener on YouTube</h2>
+            <p>Hello everyone, this channel is all about nature, flowers, plants, care, and helping them grow better.</p>
+            <a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/@perfect.gardener">Subscribe on YouTube</a>
+          </div>
+          <div class="yt-embed">
+            <iframe class="yt-frame" src="https://www.youtube.com/embed?listType=user_uploads&list=PerfectGardener" title="Perfect Gardener uploads" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="videos" class="youtube-section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Latest Videos</h2>
+            <p class="muted">Featured videos from our channel.</p>
+          </div>
+          <div id="videosGrid" class="products-grid"></div>
+          <!-- AdSense disabled -->
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="container contact-inner">
+          <h2>Contact Me</h2>
+          <form id="contactForm" class="contact-form">
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="How can I help?" required></textarea>
+            </div>
+            <button class="btn primary" type="submit">Submit</button>
+            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <div class="brand"><span class="logo">🌿</span><span class="brand-name">Perfect Gardener</span></div>
+          <p class="muted">Nature, flowers, plants, care — helping them grow better.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-list">
+            <li><a href="./">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#posts">Posts</a></li>
+            <li><a href="#youtube">YouTube</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-list">
+            <li>Email: hello@perfectgardener.example</li>
+            <li>Phone: +91 90000 00000</li>
+            <li>City: Chandigarh, India</li>
+          </ul>
+          <a class="btn ghost" target="_blank" rel="noopener" href="https://www.youtube.com/@perfect.gardener">Subscribe on YouTube</a>
+          <div class="footer-social">
+            <a aria-label="YouTube" href="https://www.youtube.com/@perfect.gardener" target="_blank" rel="noopener">▶</a>
+            <a aria-label="Instagram" href="#" target="_blank" rel="noopener">⌁</a>
+            <a aria-label="Facebook" href="#" target="_blank" rel="noopener">f</a>
+            <a aria-label="Twitter/X" href="#" target="_blank" rel="noopener">𝕏</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span id="year"></span> Perfect Gardener • All rights reserved.</p>
+        <a class="to-top" href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+    <!-- AdSense placeholders (hidden) -->
+    <aside class="ad-slot ad-left" aria-hidden="true" hidden></aside>
+    <aside class="ad-slot ad-right" aria-hidden="true" hidden></aside>
+    <!-- AdSense disabled -->
+  </body>
+  </html>
+
+

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Posts — Perfect Gardener</title>
+    <link rel="icon" href="../Avtar.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script defer src="../script.js"></script>
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <div class="brand">
+          <img src="../Avtar.png" alt="Perfect Gardener logo" class="logo" width="28" height="28" />
+          <a href="../" class="brand-name" style="text-decoration:none; color:inherit;">Perfect Gardener</a>
+        </div>
+        <nav class="main-nav">
+          <a href="../">Home</a>
+          <a href="../products.html">Products</a>
+          <a href="./">Posts</a>
+          <a href="../#youtube">YouTube</a>
+          <a href="../about.html">About</a>
+          <a href="../privacy.html">Privacy</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <nav class="breadcrumbs"><div class="container"><a href="../">Home</a> › Posts</div></nav>
+      <section class="products-section">
+        <div class="container">
+          <div class="section-head">
+            <h2>All Posts</h2>
+            <p class="muted">Latest articles and updates.</p>
+          </div>
+          <div id="postsGrid" class="products-grid" aria-live="polite"></div>
+          <div id="postsEmpty" class="empty-state" hidden>
+            <p>No posts yet. Add markdown files in <code>posts/</code> and update <code>posts/index.json</code>.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-bottom">
+        <p>© <span id="year"></span> Perfect Gardener</p>
+        <a class="to-top" href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+    <aside class="ad-slot ad-left" aria-hidden="true" hidden></aside>
+    <aside class="ad-slot ad-right" aria-hidden="true" hidden></aside>
+  </body>
+  </html>
+
+
