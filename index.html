@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Affiliate Product Listings — Perfect Gardener</title>
+    <title>Lets Have Some Gardening — Perfect Gardener</title>
     <link rel="icon" href="Avtar.png" type="image/png" />
     <meta name="theme-color" content="#27ae60" />
     <meta name="description" content="Modern, responsive affiliate product listings with auto image fetch, YouTube channel highlight, and contact form." />
@@ -14,7 +14,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://cdn.jsdelivr.net https://pagead2.googlesyndication.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.youtube.com https://youtube.com; connect-src 'self' https://api.microlink.io https://api.github.com https://raw.githubusercontent.com;" />
 
     <!-- Open Graph / SEO -->
-    <meta property="og:title" content="Affiliate Product Listings — Perfect Gardener" />
+    <meta property="og:title" content="Lets Have Some Gardening — Perfect Gardener" />
     <meta property="og:description" content="Modern, responsive affiliate product listings with auto image fetch, YouTube channel highlight, and contact form." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="" />
@@ -85,9 +85,10 @@
         <div class="container hero-inner">
           <div class="hero-copy">
             <h1>Perfect Gardener</h1>
-            <p>Hello everyone, this channel is all about nature, flowers, plants, care, and helping them grow better.</p>
+            <p>Welcome to Perfect Gardener, your green companion for everything plants!
+              From nurturing tiny saplings to creating lush home gardens, we help you grow with nature beautifully, simply, and sustainably. 🌿</p>
             <p class="subtle">lets have some gardening</p>
-            <p>Curated gardening tools and accessories to help your plants thrive. Products import automatically from your CSV or Excel file.</p>
+            
             <div class="hero-actions">
               <a href="#products" class="btn primary">Browse Products</a>
             </div>
@@ -128,7 +129,14 @@
             <h2>Latest Posts</h2>
             <p class="muted">Insights and tips from Perfect Gardener.</p>
           </div>
+          
           <div id="postsGrid" class="products-grid" aria-live="polite"></div>
+          <div id="postsEmpty" class="empty-state" hidden>
+            <p>No posts yet. Add markdown files in <code>posts/</code> and update <code>posts/index.json</code>.</p>
+          </div>
+          <div class="section-actions" style="margin-top:14px;">
+            <a class="btn ghost" href="posts/">View all posts</a>
+          </div>
           <section id="homeComments" style="margin-top:24px;">
             <h3>Comments</h3>
             <form id="commentForm" class="contact-form" style="margin:12px 0;">
@@ -154,12 +162,7 @@
             </form>
             <ul id="commentsList" class="footer-list"></ul>
           </section>
-          <div id="postsEmpty" class="empty-state" hidden>
-            <p>No posts yet. Add markdown files in <code>posts/</code> and update <code>posts/index.json</code>.</p>
-          </div>
-          <div class="section-actions" style="margin-top:14px;">
-            <a class="btn ghost" href="posts/">View all posts</a>
-          </div>
+          
         </div>
       </section>
 
@@ -171,7 +174,8 @@
             <a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/@perfect.gardener">Subscribe on YouTube</a>
           </div>
           <div class="yt-embed">
-            <iframe class="yt-frame" src="https://www.youtube.com/embed?listType=user_uploads&list=PerfectGardener" title="Perfect Gardener uploads" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe class="yt-frame" src="https://www.youtube.com/embed/ds2Ozajh5zs
+" title="Perfect Gardener uploads" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
       </section>
@@ -180,22 +184,14 @@
         <div class="container">
           <div class="section-head">
             <h2>Latest Videos</h2>
-            <p class="muted">Featured videos from our channel.</p>
+           
           </div>
           <div id="videosGrid" class="products-grid"></div>
           <!-- AdSense disabled -->
         </div>
       </section>
 
-      <section id="contact" class="contact-section">
-        <div class="container contact-inner">
-          <h2>Contact Me</h2>
-          <p class="muted">We've moved the contact form to a dedicated page for a better experience.</p>
-          <div class="section-actions" style="margin-top:14px;">
-            <a class="btn primary" href="contact.html">Open contact page</a>
-          </div>
-        </div>
-      </section>
+     
     </main>
 
     <footer class="site-footer">
