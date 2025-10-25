@@ -13,7 +13,12 @@
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.getElementById('primary-navigation');
 
+  // Determine which page we're on
+  const isProductsPage = window.location.pathname.includes('products.html');
+  const isHomePage = !isProductsPage && (window.location.pathname === '/' || window.location.pathname.includes('index.html'));
+
   year && (year.textContent = new Date().getFullYear().toString());
+  
   // Back to top smooth scroll
   document.querySelectorAll('.to-top').forEach(el => {
     el.addEventListener('click', (e) => {
@@ -100,8 +105,17 @@
     toggleEmptyState(false);
     // No special featured card to keep uniform grid
     featuredProduct && (featuredProduct.innerHTML = '');
-    for (let i = 0; i < products.length; i++) {
-      const product = products[i];
+    
+    // Task 1: Show 6 random products on homepage, all products on products page
+    let productsToShow = products;
+    if (isHomePage && products.length > 6) {
+      // Randomly select 6 products
+      const shuffled = [...products].sort(() => Math.random() - 0.5);
+      productsToShow = shuffled.slice(0, 6);
+    }
+    
+    for (let i = 0; i < productsToShow.length; i++) {
+      const product = productsToShow[i];
       const card = createProductCard(product);
       productsGrid.appendChild(card);
     }
@@ -114,11 +128,18 @@
     const name = map['product name'] || map['name'] || map['title'] || '';
     const url = map['product url'] || map['url'] || map['link'] || '';
     const price = map['price'] || map['cost'] || '';
-    return { name: String(name).trim(), url: String(url).trim(), price: String(price).trim() };
+    // Task 2: Extract image column
+    const image = map['image'] || map['image url'] || map['img'] || map['thumbnail'] || '';
+    return { 
+      name: String(name).trim(), 
+      url: String(url).trim(), 
+      price: String(price).trim(),
+      image: String(image).trim()
+    };
   }
 
   function createProductCard(product) {
-    const { name, url, price } = product;
+    const { name, url, price, image } = product;
     const card = document.createElement('article');
     card.className = 'product-card';
 
@@ -128,12 +149,17 @@
     img.alt = name || 'Product image';
     img.loading = 'lazy';
     img.decoding = 'async';
-    // Defer image source resolution
-    resolveImage(url).then(src => {
-      img.src = src;
-    }).catch(() => {
+    
+    // Task 2: Use image column if available, otherwise use placeholder
+    if (image) {
+      img.src = image;
+      img.onerror = () => {
+        img.src = placeholderImage(name);
+      };
+    } else {
       img.src = placeholderImage(name);
-    });
+    }
+    
     media.appendChild(img);
 
     const body = document.createElement('div');
@@ -149,7 +175,14 @@
     actions.className = 'product-actions';
     const link = document.createElement('a');
     link.className = 'btn primary';
-    link.href = url || '#';
+    
+    // Task 3: Wrap product links with redirect page
+    if (url) {
+      link.href = `redirect.html?url=${encodeURIComponent(url)}`;
+    } else {
+      link.href = '#';
+    }
+    
     link.target = '_self';
     link.rel = 'nofollow noopener sponsored';
     link.textContent = 'View Product';
@@ -167,44 +200,6 @@
   function placeholderImage(text) {
     const label = encodeURIComponent((text || 'Product').slice(0, 20));
     return `https://dummyimage.com/640x400/0f141a/ffffff.png&text=${label}`;
-  }
-
-  async function resolveImage(productUrl) {
-    if (!productUrl) throw new Error('No URL');
-    const cacheKey = `img:${productUrl}`;
-    const cached = sessionStorage.getItem(cacheKey);
-    if (cached) return cached;
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 4000);
-    try {
-      const u = new URL('https://api.microlink.io/');
-      u.searchParams.set('url', productUrl);
-      u.searchParams.set('screenshot', 'false');
-      const res = await fetch(u.toString(), { signal: controller.signal });
-      clearTimeout(timeoutId);
-      if (res.ok) {
-        const data = await res.json();
-        const og = data && data.data && data.data.image && (data.data.image.url || data.data.image);
-        if (og) { sessionStorage.setItem(cacheKey, og); return og; }
-        // Fallback: request a lightweight screenshot thumbnail
-        try {
-          const s = new URL('https://api.microlink.io/');
-          s.searchParams.set('url', productUrl);
-          s.searchParams.set('screenshot', 'true');
-          s.searchParams.set('meta', 'false');
-          s.searchParams.set('embed', 'screenshot.url');
-          const sr = await fetch(s.toString());
-          if (sr.ok) {
-            const sd = await sr.json();
-            const shot = sd && sd.data && sd.data.screenshot && sd.data.screenshot.url;
-            if (shot) { sessionStorage.setItem(cacheKey, shot); return shot; }
-          }
-        } catch(_){}
-      }
-    } catch (_) { /* ignore */ }
-    const ph = placeholderImage('Product');
-    sessionStorage.setItem(cacheKey, ph);
-    return ph;
   }
 
   async function handleFileBlob(blob, fileName) {
@@ -360,54 +355,62 @@
 
   async function loadVideos() {
     if (!videosGrid) return;
-    const featured = ['dQw4w9WgXcQ','M7lc1UVf-VE','ysz5S6PUM-U'];
+  
+    // Your actual YouTube video IDs
+    const featured = ['FrFZk8MCyI0', '6jtBTaDtaMc', 'U--tJMQeNzc'];
+  
     for (const id of featured) {
       const card = document.createElement('article');
       card.className = 'product-card post-card';
+  
       const media = document.createElement('div');
       media.className = 'product-media';
+  
+      // Dynamic thumbnail for each video
       const img = document.createElement('img');
       img.loading = 'lazy';
       img.decoding = 'async';
-      img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-      img.alt = 'YouTube thumbnail';
+      img.src = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+      img.alt = `YouTube thumbnail for video ${id}`;
+      img.onerror = () => {
+        img.src = `https://img.youtube.com/vi/${id}/0.jpg`;
+      };
       media.appendChild(img);
+  
       const body = document.createElement('div');
       body.className = 'product-body';
+  
       const actions = document.createElement('div');
       actions.className = 'product-actions';
+  
       const play = document.createElement('button');
       play.className = 'btn primary';
       play.type = 'button';
-      play.textContent = 'Play';
+      play.textContent = 'Play Now';
+  
+      // Embed uses the same ID
       play.addEventListener('click', () => {
         const iframe = document.createElement('iframe');
         iframe.className = 'yt-frame';
         iframe.loading = 'lazy';
         iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
-        iframe.title = 'YouTube video';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.title = `YouTube video ${id}`;
+        iframe.allow =
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
         iframe.allowFullscreen = true;
         media.innerHTML = '';
         media.appendChild(iframe);
       });
+  
       const view = document.createElement('a');
       view.className = 'btn ghost';
       view.href = `https://www.youtube.com/watch?v=${id}`;
       view.target = '_blank';
       view.rel = 'noopener';
-      view.textContent = 'View on YouTube';
-      const fs = document.createElement('button');
-      fs.className = 'btn ghost';
-      fs.type = 'button';
-      fs.textContent = 'Fullscreen';
-      fs.addEventListener('click', () => {
-        const iframe = media.querySelector('iframe');
-        if (iframe && iframe.requestFullscreen) { iframe.requestFullscreen(); }
-      });
+      view.textContent = 'Watch on YouTube';
+  
       actions.appendChild(play);
       actions.appendChild(view);
-      actions.appendChild(fs);
       body.appendChild(actions);
       card.appendChild(media);
       card.appendChild(body);
@@ -505,5 +508,3 @@
     renderComments();
   }
 })();
-
-

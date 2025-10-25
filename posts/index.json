@@ -4,16 +4,13 @@
       "slug": "post1",
       "title": "Getting Started With Balcony Gardening",
       "excerpt": "Simple steps to grow herbs and flowers in small spaces.",
-      "cover": "posts/post1.jpg"
+      "cover": "thumbnail/Avtar.png"
     },
     {
       "slug": "welcome-to-perfect-gardener",
       "title": "Welcome to Perfect Gardener",
       "excerpt": "A quick hello and what you can expect from our gardening tips.",
-      "cover": "posts/welcome-to-perfect-gardener.jpg"
+      "cover": "thumbnail/Avtar.png"
     }
   ]
 }
-
-
-

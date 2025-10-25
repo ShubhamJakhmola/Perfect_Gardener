@@ -7,109 +7,133 @@
     <link rel="icon" href="Avtar.png" type="image/png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-    <style> html { scroll-behavior: smooth; } .post-content{ max-width: 800px; margin: 28px auto; padding: 0 4%; } .post-header{ text-align:center; margin: 18px 0 12px; } .post-header h1{ margin: 0 0 6px; } .post-cover{ width:100%; border-radius: 12px; border:1px solid var(--ring); box-shadow: var(--shadow); } .prose{ line-height:1.75; } .prose h2{ margin-top: 1.2em; } .prose img{ max-width:100%; border-radius: 10px; } </style>
-    <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script defer src="script.js"></script>
-    <script defer>
-      (async () => {
-        const params = new URLSearchParams(location.search);
-        const slug = params.get('slug');
-        const container = document.getElementById('postContainer');
-        const titleEl = document.getElementById('postTitle');
-        const coverEl = document.getElementById('postCover');
-        if (!slug) { container.innerHTML = '<p class="muted">No post specified.</p>'; return; }
-        try {
-          const res = await fetch(`posts/${slug}.md`, { cache: 'no-store' });
-          if (!res.ok) throw new Error('not found');
-          const md = await res.text();
-          // naive frontmatter extraction: first line starting with '# '
-          const firstLine = md.split('\n')[0];
-          const title = firstLine.startsWith('# ') ? firstLine.replace('# ', '').trim() : slug;
-          titleEl.textContent = title;
-          // Try multiple cover options and sequential post images
-          const tryCovers = [`posts/${slug}.png`, `posts/${slug}.jpg`];
-          for (let i = 1; i <= 20; i++) { tryCovers.push(`posts/post${i}.png`, `posts/post${i}.jpg`); }
-          for (const u of tryCovers) {
-            try { const r = await fetch(u, { method: 'HEAD' }); if (r.ok) { coverEl.src = u; coverEl.hidden = false; break; } } catch(_){}
-          }
-          const html = window.marked.parse(md);
-          container.innerHTML = `<div class="prose">${html}</div>`;
-        } catch (e) {
-          container.innerHTML = '<p class="muted">Post not found.</p>';
-        }
-      })();
-    </script>
+    <style>
+      html { scroll-behavior: smooth; }
+
+      .post-wrapper {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .post-header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .post-header h1 {
+        margin: 0 0 10px;
+      }
+
+      .post-cover {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--ring, #ccc);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      }
+
+      .prose {
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+
+      .prose img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin: 10px 0;
+      }
+
+      .muted {
+        color: gray;
+        text-align: center;
+        margin-top: 50px;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
+
   <body>
+    <!-- 🔹 Header -->
     <header class="site-header" id="top">
       <div class="container header-inner">
         <div class="brand">
-          <img src="Avtar.png" alt="Perfect Gardener logo" class="logo" width="44" height="44" />
-          <a class="brand-name" href="./" style="text-decoration:none; color: inherit;">Perfect Gardener</a>
+          <img src="Avtar.png" alt="Perfect Gardener logo" class="logo" width="28" height="28" />
+          <a class="brand-name" href="index.html" style="text-decoration:none; color: inherit;">Perfect Gardener</a>
         </div>
-        <div class="header-actions" style="display:flex; align-items:center; gap:10px;">
-          <div class="theme-switcher" aria-label="Theme">
-            <button type="button" data-theme="light" aria-label="Light theme">☀️</button>
-            <button type="button" data-theme="" aria-label="Green theme">🌿</button>
-            <button type="button" data-theme="sky" aria-label="Sky theme">🌈</button>
-          </div>
-          <button class="nav-toggle" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </button>
-        </div>
-        <nav class="main-nav" id="primary-navigation">
+        <nav class="main-nav">
           <a href="products.html">Products</a>
-          <a href="posts/">Posts</a>
-          <a href="./#youtube">YouTube</a>
-          <a href="./#contact">Contact</a>
+          <a href="posts/index.html">Posts</a>
+          <a href="#youtube">YouTube</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
+
+    <!-- 🔹 Main post area -->
     <main>
-      <div class="post-content">
-        <div class="post-header">
-          <h1 id="postTitle">Loading…</h1>
-          <img id="postCover" class="post-cover" alt="Post cover" hidden />
+      <div class="post-wrapper">
+        <div id="loading" class="muted">Loading...</div>
+
+        <div id="postContainer" hidden>
+          <div class="post-header">
+            <h1 id="postTitle">Loading…</h1>
+            <img id="postCover" class="post-cover" alt="Post cover" />
+          </div>
+          <div id="postBody" class="prose"></div>
         </div>
-        <div id="postContainer"></div>
-        <section id="comments" style="margin-top:24px;">
-          <h3>Comments</h3>
-          <form id="commentForm" class="contact-form" style="margin:12px 0;">
-            <div class="form-field">
-              <label for="cName">Name</label>
-              <input id="cName" type="text" placeholder="Your name" />
-            </div>
-            <div class="form-field">
-              <label for="cStars">Rating</label>
-              <select id="cStars">
-                <option value="5">★★★★★</option>
-                <option value="4">★★★★☆</option>
-                <option value="3">★★★☆☆</option>
-                <option value="2">★★☆☆☆</option>
-                <option value="1">★☆☆☆☆</option>
-              </select>
-            </div>
-            <div class="form-field" style="grid-column:1 / -1;">
-              <label for="cText">Comment</label>
-              <textarea id="cText" rows="3" placeholder="Share your feedback" required></textarea>
-            </div>
-            <button class="btn primary" type="submit">Submit</button>
-          </form>
-          <ul id="commentsList" class="footer-list"></ul>
-        </section>
       </div>
     </main>
+
+    <!-- 🔹 Footer -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div class="brand"><img src="Avtar.png" alt="logo" class="logo" width="24" height="24" /><span class="brand-name" style="margin-left:8px;">Perfect Gardener</span></div>
+        <p>© <span id="year"></span> Perfect Gardener</p>
         <a class="to-top" href="#top">Back to top ↑</a>
       </div>
     </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get("slug");
+
+        const loadingEl = document.getElementById("loading");
+        const postContainer = document.getElementById("postContainer");
+        const postTitle = document.getElementById("postTitle");
+        const postCover = document.getElementById("postCover");
+        const postBody = document.getElementById("postBody");
+
+        if (!slug) {
+          loadingEl.textContent = "No post specified.";
+          return;
+        }
+
+        try {
+          const res = await fetch("posts/index.json");
+          if (!res.ok) throw new Error("Failed to fetch posts index");
+
+          const data = await res.json();
+          const post = data.posts.find(p => p.slug === slug);
+          if (!post) throw new Error("Post not found in index.json");
+
+          const mdRes = await fetch(`posts/${slug}.md`);
+          if (!mdRes.ok) throw new Error("Markdown file not found");
+          const markdown = await mdRes.text();
+
+          loadingEl.hidden = true;
+          postContainer.hidden = false;
+
+          postTitle.textContent = post.title;
+          postCover.src = post.cover;
+          postBody.innerHTML = marked.parse(markdown);
+
+        } catch (err) {
+          console.error("Error loading post:", err);
+          loadingEl.textContent = "Failed to load post.";
+        }
+      });
+    </script>
   </body>
-  </html>
-
-
-
+</html>
