@@ -234,9 +234,9 @@
       const message = document.getElementById('message').value;
 
       // Replace with your serviceId and templateId in README
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
+      const serviceId = 'service_cs4dvq9';
+      const templateId = 'template_33rmq6e';
+      const publicKey = 'x31pET_IQ84b00AN-';
       window.emailjs.init(publicKey);
       await window.emailjs.send(serviceId, templateId, { from_name: name, reply_to: email, message });
       formStatus.textContent = 'Thanks! Your message has been sent.';
