@@ -49,9 +49,9 @@ body{
 .theme-switcher button:hover{ opacity:1; }
 
 /* Breadcrumbs (mobile) */
-.breadcrumbs{ display:none; border-bottom: 1px solid var(--ring); background: rgba(255,255,255,.02); }
+/*.breadcrumbs{ display:none; border-bottom: 1px solid var(--ring); background: rgba(255,255,255,.02); }
 .breadcrumbs .container{ padding: 8px 0; font-size: 14px; color: var(--muted); }
-.breadcrumbs a{ color: var(--text); text-decoration:none; }
+.breadcrumbs a{ color: var(--text); text-decoration:none; }*/
 
 /* Buttons */
 .btn{ display:inline-flex; align-items:center; gap:10px; padding: 12px 16px; border-radius: 10px; text-decoration:none; border:1px solid var(--ring); color:var(--text); transition: transform .15s ease, background .2s ease, box-shadow .2s ease; cursor: pointer; }
