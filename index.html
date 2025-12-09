@@ -24,7 +24,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/hero_style.css" />
+
 
     <!-- CSV & Excel parsers -->
     <script defer src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
@@ -32,7 +34,7 @@
     <!-- EmailJS -->
     <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- Our code -->
-    <script defer src="js/script.js"></script>
+    <script defer src="assets/js/script.js"></script>
 
     <style>
       /* Smooth scrolling */
@@ -52,57 +54,106 @@
       }
     </script>
   </head>
-  <body>
-    <header class="site-header" id="top">
-      <div class="container header-inner">
-        <div class="brand">
-          <img src="Avtar.png" alt="Perfect Gardener logo" class="logo" width="44" height="44" />
-          <a href="./" class="brand-name" style="text-decoration:none; color:inherit;">Perfect Gardener</a>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+
+      <div class="brand">
+        <div class="logo-wrap">
+          <img src="assets/images/Avtar.png" alt="Perfect Gardener logo" class="logo-img">
         </div>
-        <div class="header-actions" style="display:flex; align-items:center; gap:10px;">
-          
-          <button class="nav-toggle" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </button>
-        </div>
-        <nav class="main-nav" id="primary-navigation">
-          <a href="./">Home</a>
-          <a href="products.html">Products</a>
-          <a href="posts/">Posts</a>
-          <a href="#youtube">YouTube</a>
-          <a href="contact.html">Contact us</a>
-          <a href="about.html">About</a>
-          <a href="privacy.html">Privacy</a>
-        </nav>
+        <span class="logo-text">Perfect Gardener</span>
       </div>
-    </header>
 
-    <main>
-      <nav id="breadcrumbs" class="breadcrumbs" aria-label="Breadcrumb"></nav>
-      <section class="hero">
-        <div class="container hero-inner">
-          <div class="hero-copy">
-            <h1>Perfect Gardener</h1>
-            <p>Welcome to Perfect Gardener, your green companion for everything plants!
-              From nurturing tiny saplings to creating lush home gardens, we help you grow with nature beautifully, simply, and sustainably. 🌿</p>
-            <p class="subtle">lets have some gardening</p>
-            
-            <div class="hero-actions">
-              <a href="#products" class="btn primary">Browse Products</a>
-            </div>
-          </div>
-          <div class="hero-visual" aria-hidden="true">
-            <div class="sprout s1"><div class="leaf l1"></div><div class="leaf l2"></div></div>
-            <div class="sprout s2"><div class="leaf l1"></div><div class="leaf l2"></div></div>
-            <div class="sprout s3"><div class="leaf l1"></div><div class="leaf l2"></div></div>
-            <div class="bee" title="Bee"></div>
-          </div>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="main-nav">
+        <a href="./">Home</a>
+        <a href="products.html">Products</a>
+        <a href="posts/">Posts</a>
+        <a href="#youtube">YouTube</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+  <div class="container hero-inner">
+
+    <!-- LEFT SIDE: TEXT + BUTTONS + STATS -->
+    <div class="content">
+      <div class="badge">
+        ✿ <span>Your Green Companion</span>
+      </div>
+
+      <h1>
+        <span class="perfect">Perfect</span>
+        <span class="gardener">Gardener</span>
+      </h1>
+
+      <p class="description">
+        Welcome to Perfect Gardener, from tiny saplings to lush home gardens, we help you grow with nature beautifully.
+      </p>
+
+      <div class="buttons">
+        <a class="btn primary" href="products.html">Browse Products →</a>
+        <a class="btn ghost" href="posts/">Read Posts</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <h3>50+</h3>
+          <p>Products curated</p>
         </div>
-      </section>
+        <div class="stat">
+          <h3>10K+</h3>
+          <p>Happy Gardeners</p>
+        </div>
+      </div>
+    </div>
 
-      <section id="products" class="products-section">
+
+    <!-- RIGHT SIDE: VISUALIZATION -->
+    <div class="visualization">
+      <div class="outer-ring"></div>
+
+      <div class="dotted-circle dotted-circle-1"></div>
+      <div class="dotted-circle dotted-circle-2"></div>
+
+      <div class="center-circle">
+        <img src="assets/images/tree.gif" class="tree-gif" alt="growing tree" />
+      </div>
+
+      <div class="card card-1">
+        <div>Organic Seeds</div>
+      </div>
+
+      <div class="card card-2">
+        <div>Garden Tools</div>
+      </div>
+
+      <div class="card card-3">
+        <div>Fresh Plants</div>
+      </div>
+
+      <div class="card card-4">
+        <div>Expert Tips</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="products-section">
         <div class="container">
           <div class="section-head">
             <h2>Featured Products</h2>
@@ -132,7 +183,7 @@
           
           <div id="postsGrid" class="products-grid" aria-live="polite"></div>
           <div id="postsEmpty" class="empty-state" hidden>
-            <p>No posts yet. Add markdown files in <code>posts/</code> and update <code>posts/index.json</code>.</p>
+            <p>No posts yet. Add markdown files in <code>assets/data/</code> and update <code>assets/data/index.json</code>.</p>
           </div>
           <div class="section-actions" style="margin-top:14px;">
             <a class="btn ghost" href="posts/">View all posts</a>
@@ -142,11 +193,19 @@
             <form id="commentForm" class="contact-form" style="margin:12px 0;">
               <div class="form-field">
                 <label for="cName">Name</label>
-                <input id="cName" type="text" placeholder="Your name" />
+                <input id="cName" name="name" type="text" placeholder="Your name" />
+              </div>
+              <div class="form-field">
+                <label for="cEmail">Email</label>
+                <input id="cEmail" name="email" type="email" placeholder="you@example.com" />
+              </div>
+              <div class="form-field">
+                <label for="cPhone">Phone</label>
+                <input id="cPhone" name="phone" type="tel" placeholder="Optional phone" />
               </div>
               <div class="form-field">
                 <label for="cStars">Rating</label>
-                <select id="cStars">
+                <select id="cStars" name="rating">
                   <option value="5">★★★★★</option>
                   <option value="4">★★★★☆</option>
                   <option value="3">★★★☆☆</option>
@@ -154,9 +213,9 @@
                   <option value="1">★☆☆☆☆</option>
                 </select>
               </div>
-              <div class="form-field" style="grid-column:1 / -1;">
+              <div class="form-field full">
                 <label for="cText">Comment</label>
-                <textarea id="cText" rows="3" placeholder="Share your feedback" required></textarea>
+                <textarea id="cText" name="comment" rows="3" placeholder="Share your feedback" required></textarea>
               </div>
               <button class="btn primary" type="submit">Submit</button>
             </form>
@@ -197,7 +256,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-col">
-          <div class="brand"><img src="Avtar.png" alt="logo" class="logo" width="24" height="24" /><span class="brand-name">Perfect Gardener</span></div>
+          <div class="brand"><img src="assets/images/Avtar.png" alt="logo" class="logo" width="24" height="24" /><span class="brand-name">Perfect Gardener</span></div>
           <p class="muted">Nature, flowers, plants, care — helping them grow better.</p>
         </div>
         <div class="footer-col">
@@ -206,7 +265,7 @@
             <li><a href="./">Home</a></li>
             <li><a href="#products">Products</a></li>
             <li><a href="#posts">Posts</a></li>
-            <li><a href="#youtube">YouTube</a></li>
+            <li><a href="contact.html">Contact us</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
@@ -218,7 +277,7 @@
             
             <li>Location: Uttarakhand,India</li>
           </ul>
-          <a class="btn ghost" target="_blank" rel="noopener" href="https://www.youtube.com/@perfect.gardener">Subscribe on YouTube</a>
+          <a class="btn primary " target="_blank" rel="noopener" href="https://www.youtube.com/@perfect.gardener">Subscribe on YouTube</a>
           <div class="footer-social">
             <a aria-label="YouTube" href="https://www.youtube.com/@perfect.gardener" target="_blank" rel="noopener">▶</a>
             <a aria-label="Instagram" href="#" target="_blank" rel="noopener">⌁</a>
@@ -227,15 +286,16 @@
           </div>
         </div>
       </div>
-      <div class="container footer-bottom">
+      <div class="container footer-bottom center">
         <p>© <span id="year"></span> Perfect Gardener • All rights reserved.</p>
-        <a class="to-top" href="#top">Back to top ↑</a>
+        
       </div>
     </footer>
     <!-- AdSense placeholders (hidden) -->
     <aside class="ad-slot ad-left" aria-hidden="true" hidden></aside>
     <aside class="ad-slot ad-right" aria-hidden="true" hidden></aside>
     <!-- AdSense disabled -->
+    <a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
   </body>
   </html>
 

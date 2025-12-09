@@ -55,9 +55,13 @@ body {
   background-repeat: no-repeat;
   filter: blur(6px) brightness(.75) saturate(.9);
   opacity: .95;
-  transform: scale(1.06);
   z-index: 0;
   pointer-events: none;
+  padding: 0px;
+  height: 100% !important; 
+  top: 0 !important;
+  bottom: 0 !important;
+  transform: none !important; /* remove the scaling causing extra space */
 }
 .site-header > .container { position: relative; z-index: 2; }
 
@@ -99,49 +103,46 @@ main, .hero-inner, .section-head, .section-actions, .yt-copy, .posts-section .se
   backdrop-filter: saturate(180%) blur(10px);
   background: rgba(255, 255, 255, 0.85);
   border-bottom: 1px solid var(--ring);
+  padding: 3px 0 !important;
 }
 
+/* HEADER HEIGHT */
+
+.site-header,
+.header-inner,
+.brand,
+.logo-wrap {
+    overflow: visible !important;
+}
+
+/* Maintain header height */
 .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6px 0;
-  min-height: 80px;
+    min-height: 50px !important;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
+/* Wrapper controls real size */
+.logo-wrap {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.logo {
-  font-size: 18px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.brand img.logo {
+/* Scaled visible logo */
+.logo-wrap .logo-img {
+  width: 60px !important;
+  height: 60px !important;
+  object-fit: contain;
   display: block;
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
+  margin-top: -30px;       /* <-- This pushes logo down visually */
+  transform: scale(2.9);  /* enlarge without increasing layout space */
+  transform-origin: center top;
 }
-
-@media (max-width: 960px) {
-  .brand img.logo { width: 56px; height: 56px; }
+/* NO overflow hidden anywhere */
+.brand img, .logo-img {
+  overflow: visible !important;
 }
-
-@media (max-width: 520px) {
-  .brand img.logo { width: 44px; height: 44px; }
-  .header-inner { min-height: 64px; }
-}
-
-.brand-name {
-  letter-spacing: .2px;
-}
-
 .main-nav a {
   color: var(--text);
   text-decoration: none;
@@ -172,7 +173,7 @@ select:focus-visible {
   background: transparent;
   border: 1px solid var(--ring);
   color: var(--text);
-  padding: 8px 10px;
+  padding: 8px 2px;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -277,6 +278,23 @@ body,
   grid-template-columns: 1.1fr .9fr;
   gap: 30px;
   align-items: center;
+}
+
+/* Stats (homepage): keep numeric badges side-by-side */
+.stats {
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 18px;
+  padding-right: 12px;
+}
+.stat { text-align: center; min-width: 120px; }
+.stat h3 { margin: 0; font-size: 1.6rem; }
+.stat p { margin: 4px 0 0; color: var(--muted); }
+
+@media (max-width: 720px) {
+  .stats { flex-direction: column; gap: 12px; }
 }
 
 .hero-copy h1 {
@@ -440,13 +458,15 @@ body,
 
 /* Products */
 .products-section {
-  padding: 20px 0 40px;
+  padding: 60px 0;
+  background: linear-gradient(180deg, rgba(46,139,87,0.04) 0%, transparent 100%);
 }
 
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  gap: 24px;
+  margin-bottom: 28px;
 }
 
 .featured-product {
@@ -619,11 +639,8 @@ body,
 
 /* YouTube */
 .youtube-section {
-  padding: 40px 0;
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02)), var(--bg-section);
-  background-size: cover, cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  padding: 60px 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(46,139,87,0.02) 100%);
   border-top: 1px solid var(--ring);
   border-bottom: 1px solid var(--ring);
 }
@@ -653,14 +670,16 @@ body,
 }
 
 .contact-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
   background: #d1fddf;
   border: 1px solid var(--ring);
   padding: 20px;
   border-radius: 16px;
   box-shadow: var(--shadow);
+  max-width: 540px;
+  margin: 0 auto;
 }
 
 .form-field {
@@ -711,15 +730,13 @@ textarea::placeholder {
 
 /* Fix submit button stretch: keep it compact and centered in form */
 .contact-form button[type="submit"] {
-  grid-column: 2 / 3;
-  justify-self: center;
+  align-self: center;
   min-width: 140px;
   padding: 10px 18px;
 }
 
 @media (max-width: 700px) {
-  .contact-form { grid-template-columns: 1fr; }
-  .contact-form button[type="submit"] { grid-column: 1 / -1; justify-self: center; }
+  .contact-form { gap: 12px; }
 }
 
 /* Footer */
@@ -746,6 +763,9 @@ textarea::placeholder {
   padding: 12px 0;
   border-top: 1px solid var(--ring);
 }
+
+/* When footer has .center class, center its content */
+.footer-bottom.center { justify-content: center; text-align: center; }
 
 .footer-col h4 {
   margin: 0 0 8px;

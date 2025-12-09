@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const postsEmpty = document.getElementById("postsEmpty");
   
     try {
-      const res = await fetch("index.json");
+      const res = await fetch("../assets/data/index.json");
       if (!res.ok) throw new Error("Failed to fetch posts JSON");
   
       const data = await res.json();

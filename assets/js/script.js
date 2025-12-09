@@ -29,6 +29,37 @@
     });
   });
 
+  // Floating back-to-top visibility: show after scrolling down
+  const floatingBack = document.querySelector('.back-to-top');
+  if (floatingBack) {
+    // Smooth click
+    floatingBack.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const toggleBack = () => {
+      if (window.scrollY > 220) floatingBack.classList.add('visible');
+      else floatingBack.classList.remove('visible');
+    };
+
+    window.addEventListener('scroll', toggleBack, { passive: true });
+    // initial state
+    toggleBack();
+  }
+
+  // Parallax for hero visualization elements (dotted circles and tree) — subtle movement on scroll
+  const dot1 = document.querySelector('.dotted-circle-1');
+  const dot2 = document.querySelector('.dotted-circle-2');
+  const treeGif = document.querySelector('.tree-gif');
+  function parallax() {
+    const y = window.scrollY || window.pageYOffset;
+    if (dot1) dot1.style.transform = `translateY(${y * 0.02}px) rotate(${y * 0.01}deg)`;
+    if (dot2) dot2.style.transform = `translateY(${y * -0.015}px) rotate(${y * -0.01}deg)`;
+    if (treeGif) treeGif.style.transform = `translateY(${Math.min(40, y * 0.03)}px)`;
+  }
+  window.addEventListener('scroll', parallax, { passive: true });
+
   // Single light theme; remove theme handling
   document.documentElement.removeAttribute('data-theme');
 
@@ -56,8 +87,8 @@
   }
 
   async function tryAutoLoadLocalFile() {
-    // First priority: local products/ folder (when served via HTTP)
-    const candidates = ['products/products.csv', 'products/products.xlsx'];
+    // First priority: local products data in assets/data/ (when served via HTTP)
+    const candidates = ['assets/data/products.csv', 'assets/data/products.xlsx'];
     for (const path of candidates) {
       try {
         const res = await fetch(path, { cache: 'no-store' });
@@ -194,7 +225,88 @@
 
     card.appendChild(media);
     card.appendChild(body);
+
+    // Make entire card clickable to open product modal
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      // ignore clicks on links inside the card
+      if (e.target.closest('.product-actions') || e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+      openProductModal(product);
+    });
+
     return card;
+  }
+
+  // Create and open product modal with details. Attempts to fetch rating/comments from product URL (best-effort).
+  function openProductModal(product) {
+    // remove existing modal
+    document.querySelectorAll('.pg-modal').forEach(n => n.remove());
+
+    const modal = document.createElement('div');
+    modal.className = 'pg-modal';
+    modal.innerHTML = `
+      <div class="pg-modal-backdrop" tabindex="-1"></div>
+      <div class="pg-modal-panel">
+        <button class="pg-modal-close" aria-label="Close">✕</button>
+        <div class="pg-modal-body">
+          <div class="pg-media"><img src="${product.image || ''}" alt="${product.name || ''}" onerror="this.src='${placeholderImage(product.name)}'"></div>
+          <div class="pg-info">
+            <h3 class="pg-title">${product.name || 'Product'}</h3>
+            <div class="pg-price">${product.price || ''}</div>
+            <div class="pg-rating">Loading rating…</div>
+            <div class="pg-comments"><h4>Top comments</h4><div class="pg-comments-list">Loading…</div></div>
+            <div class="pg-actions"><a class="btn primary" target="_blank" rel="noopener noreferrer" href="redirect.html?url=${encodeURIComponent(product.url || '#')}">Buy it</a></div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const close = () => modal.remove();
+    modal.querySelector('.pg-modal-close').addEventListener('click', close);
+    modal.querySelector('.pg-modal-backdrop').addEventListener('click', close);
+
+    // Try fetching product URL to extract JSON-LD aggregateRating or comments (best-effort - may be blocked by CORS)
+    (async () => {
+      try {
+        if (!product.url) throw new Error('no url');
+        const res = await fetch(product.url, { method: 'GET' });
+        const text = await res.text();
+        // look for application/ld+json
+        const ldMatches = text.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
+        if (ldMatches) {
+          for (const m of ldMatches) {
+            try {
+              const js = m.replace(/<script[^>]*>|<\/script>/gi, '');
+              const obj = JSON.parse(js);
+              const ar = obj && obj.aggregateRating;
+              if (ar && (ar.ratingValue || ar.ratingCount)) {
+                const ratingEl = modal.querySelector('.pg-rating');
+                ratingEl.textContent = `Rating: ${ar.ratingValue || '—'} (${ar.ratingCount || 0} reviews)`;
+                break;
+              }
+            } catch(_){}
+          }
+        }
+
+        // naive comments extraction: look for common comment class fragments (best-effort)
+        const commentSnippets = [];
+        const commentMatches = text.match(/<comment[\s\S]*?>[\s\S]*?<\/comment>/gi) || [];
+        for (const c of commentMatches.slice(0,5)) commentSnippets.push(c.replace(/<[^>]+>/g,'').trim());
+        const commentsList = modal.querySelector('.pg-comments-list');
+        if (commentSnippets.length) {
+          commentsList.innerHTML = commentSnippets.map(s => `<div class="pg-comment">${s}</div>`).join('');
+        } else {
+          commentsList.textContent = 'Comments not available.';
+        }
+      } catch (err) {
+        const ratingEl = modal.querySelector('.pg-rating');
+        ratingEl.textContent = 'Rating not available';
+        const commentsList = modal.querySelector('.pg-comments-list');
+        commentsList.textContent = 'Comments not available (CORS or no data).';
+      }
+    })();
   }
 
   function placeholderImage(text) {
@@ -262,7 +374,7 @@
     const limit = opts && typeof opts.limit === 'number' ? opts.limit : undefined;
     if (!postsGrid) return;
     try {
-      const res = await fetch('posts/index.json', { cache: 'no-store' });
+      const res = await fetch('assets/data/index.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('no manifest');
       const manifest = await res.json();
       const posts = Array.isArray(manifest) ? manifest : manifest.posts;
@@ -302,12 +414,12 @@
   }
 
   async function enrichPostWithCover(post) {
-    // Try posts/<slug>.png/.jpg else fallback to sequential posts/postN.png
-    const tryUrls = [`posts/${post.slug}.png`, `posts/${post.slug}.jpg`];
+    // Try assets/images/<slug>.png/.jpg else fallback to sequential assets/images/postN.png
+    const tryUrls = [`assets/images/${post.slug}.png`, `assets/images/${post.slug}.jpg`];
     // Probe sequential numbers based on index in manifest not always known; try 1..20
     for (let i = 1; i <= 20; i++) {
-      tryUrls.push(`posts/post${i}.png`);
-      tryUrls.push(`posts/post${i}.jpg`);
+      tryUrls.push(`assets/images/post${i}.png`);
+      tryUrls.push(`assets/images/post${i}.jpg`);
     }
     for (const u of tryUrls) {
       try {
@@ -463,11 +575,21 @@
     function renderComments(){
       const list = readComments();
       list.sort((a,b) => b.stars - a.stars);
+      // Display only top 3 comments
+      const topThree = list.slice(0, 3);
       commentsList.innerHTML = '';
-      for (const c of list) {
+      for (const c of topThree) {
         const li = document.createElement('li');
         li.innerHTML = `<strong>${escapeHtml(c.name)}</strong> — <span class="stars" aria-label="${c.stars} out of 5">${'★'.repeat(c.stars)}${'☆'.repeat(5-c.stars)}</span><br>${escapeHtml(c.comment)}`;
         commentsList.appendChild(li);
+      }
+      // Show total comment count
+      if (list.length > 3) {
+        const moreInfo = document.createElement('li');
+        moreInfo.style.fontSize = '0.9rem';
+        moreInfo.style.color = '#666';
+        moreInfo.textContent = `(Showing 3 of ${list.length} comments)`;
+        commentsList.appendChild(moreInfo);
       }
     }
     function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m])); }
