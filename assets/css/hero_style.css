@@ -293,6 +293,15 @@ h1 {
   justify-content:center;
   gap:8px;
   min-width: 140px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 12px 30px rgba(46, 139, 87, 0.3);
+  transform: scale(1.08);
 }
 
 .card-1 { top: 10%; left: 5%; animation-delay: 0s; }

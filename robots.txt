@@ -1,0 +1,38 @@
+# Perfect Gardener - robots.txt
+# This file tells search engines how to crawl and index the website
+
+# Allow all bots to crawl the entire site
+User-agent: *
+Allow: /
+
+# Specific rules for common search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://www.perfectgardener.com/sitemap.xml
+
+# Crawl delay (optional - allow 1 second delay between requests)
+Crawl-delay: 1
+
+# Request rate (optional - allow up to 10 requests per second)
+Request-rate: 10/1s
