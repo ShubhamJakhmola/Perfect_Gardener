@@ -29,7 +29,7 @@ User-agent: MJ12bot
 Disallow: /
 
 # Sitemap location
-Sitemap: https://www.perfectgardener.com/sitemap.xml
+Sitemap: https://perfectgardener.netlify.app/sitemap.xml
 
 # Crawl delay (optional - allow 1 second delay between requests)
 Crawl-delay: 1
