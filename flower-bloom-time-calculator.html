@@ -25,7 +25,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Flower Bloom Time Calculator – When Will Flowers Bloom</title>
-  <link rel="icon" href="./assets/images/Avtar.png" type="image/png" />
+  <link rel="icon" href="./assets/images/favicon.png" type="image/png" />
   <meta name="theme-color" content="#27ae60" />
   <meta name="description"
     content="Estimate when your flowers will bloom based on sowing time. Plan your garden with accurate bloom predictions." />
@@ -573,7 +573,7 @@
       // 1️⃣ Try Global JSON
       if (!data) {
         try {
-          const res = await fetch('./assets/data/GlobalPlantsDatabase.json');
+          const res = await fetch('/assets/data/GlobalPlantsDatabase.json');
           if (res.ok) {
             const globalDB = await res.json();
             if (globalDB[normalizedName]) {
@@ -586,7 +586,7 @@
       // 2️⃣ AI fallback
       if (!data) {
         try {
-          const aiRes = await fetch('/.netlify/functions/getPlantBloomData', {
+          const aiRes = await fetch('/.netlify/functions/getPlantBloomTimeline', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ plant: normalizedName })
