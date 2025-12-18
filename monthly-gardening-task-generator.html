@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PZX2CP8N');</script>
+    <!-- End Google Tag Manager -->
+     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4WZWST3NQ8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WZWST3NQ8');
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Monthly Gardening Task Generator – What to Do Each Month</title>
+    <link rel="icon" href="./assets/images/Avtar.png" type="image/png" />
+    <meta name="theme-color" content="#27ae60" />
+    <meta name="description" content="Get a month-wise gardening checklist including sowing, pruning, fertilizing, and pest care for home gardens." />
+    <meta name="keywords" content="monthly gardening tasks, gardening checklist, garden maintenance, seasonal gardening" />
+    <meta name="author" content="Perfect Gardener" />
+    <meta name="language" content="English" />
+    <link rel="canonical" href="https://perfectgardener.netlify.app/monthly-gardening-task-generator.html" />
+    <meta name="robots" content="index, follow" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; object-src 'none'; base-uri 'self';" />
+
+    <!-- Open Graph / SEO -->
+    <meta property="og:title" content="Monthly Gardening Task Generator – What to Do Each Month" />
+    <meta property="og:description" content="Get a month-wise gardening checklist including sowing, pruning, fertilizing, and pest care for home gardens." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://perfectgardener.netlify.app/monthly-gardening-task-generator.html" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Monthly Gardening Task Generator – What to Do Each Month" />
+    <meta name="twitter:description" content="Get a month-wise gardening checklist including sowing, pruning, fertilizing, and pest care for home gardens." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/hero_style.css" />
+
+    <style>
+      html { scroll-behavior: smooth; }
+      
+      .tool-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .tool-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .tool-header h1 {
+        font-size: 32px;
+        margin-bottom: 12px;
+      }
+
+      .tool-header p {
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .tool-form {
+        background: var(--card);
+        border: 1px solid var(--ring);
+        border-radius: 12px;
+        padding: 32px;
+        margin-bottom: 32px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 24px;
+      }
+
+      @media (max-width: 640px) {
+        .form-row {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group label {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--text);
+        font-size: 14px;
+      }
+
+      .form-group select,
+      .form-group input {
+        padding: 12px 14px;
+        border: 2px solid var(--ring);
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 14px;
+        color: var(--text);
+        background: white;
+        transition: all 0.2s ease;
+      }
+
+      .form-group select:hover,
+      .form-group input:hover {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(46,139,87,0.08);
+      }
+
+      .form-group select:focus,
+      .form-group input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(46,139,87,0.1);
+      }
+
+      .tool-button-group {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+
+      .results {
+        background: transparent;
+        display: none;
+        margin-bottom: 24px;
+      }
+
+      .results.active {
+        display: block;
+      }
+
+      .results-heading {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
+      .results-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .task-section {
+        background: white;
+        border: 2px solid var(--ring);
+        border-radius: 14px;
+        padding: 22px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+
+      .task-section:hover {
+        box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        transform: translateY(-6px);
+        border-color: var(--primary);
+      }
+
+      .task-section h3 {
+        margin: 0 0 14px 0;
+        color: var(--primary);
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .task-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .task-list li {
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        background: var(--background);
+        border-radius: 6px;
+        border-left: 3px solid var(--primary);
+        font-size: 13px;
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      .task-list li:before {
+        content: '✓ ';
+        font-weight: bold;
+        color: var(--primary);
+        margin-right: 6px;
+      }
+
+      .task-list li:last-child {
+        margin-bottom: 0;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 24px;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZX2CP8N"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+
+      <div class="brand">
+        <div class="logo-wrap">
+          <img src="assets/images/Avtar.png" alt="Perfect Gardener logo" class="logo-img">
+        </div>
+        <span class="logo-text">Perfect Gardener</span>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="main-nav" id="primary-navigation">
+        <a href="./">Home</a>
+        <a href="products.html">Products</a>
+        <a href="posts/">Posts</a>
+        <div class="nav-item dropdown">
+          <button class="nav-link" aria-haspopup="true" aria-expanded="false">Tools</button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="seasonal-flower-planting-calendar-india.html">Flower Planting Calendar</a></li>
+            <li><a href="pot-size-calculator-for-plants.html">Pot Size Calculator</a></li>
+            <li><a href="monthly-gardening-task-generator.html">Monthly Gardening Task Generator</a></li>
+            <li><a href="flower-bloom-time-calculator.html">Bloom Time Calculator</a></li>
+            <li><a href="gardening-budget-planner-india.html">Gardening Budget Planner (₹)</a></li>
+          </ul>
+        </div>
+        <a href="#youtube">YouTube</a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="tool-container">
+      <a href="garden-tools.html" class="back-link">← Back to Tools Hub</a>
+
+      <div class="tool-header">
+        <h1>📋 Monthly Gardening Task Generator</h1>
+        <p>Get a complete month-wise gardening checklist tailored to your garden type.</p>
+      </div>
+
+      <!-- Tool Form -->
+      <div class="tool-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="month">Select Month:</label>
+            <select id="month">
+              <option value="">-- Choose Month --</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="gardenType">Garden Type:</label>
+            <select id="gardenType">
+              <option value="">-- Select Garden Type --</option>
+              <option value="balcony">Balcony Garden</option>
+              <option value="terrace">Terrace Garden</option>
+              <option value="backyard">Backyard Garden</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="tool-button-group">
+          <button class="btn primary" onclick="generateTasks()">Generate Tasks</button>
+          <button class="btn ghost" onclick="resetForm()" style="background: var(--primary); color: white; border: none;">Reset</button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="results" id="resultsContainer">
+        <div class="results-heading" id="resultsHeading"></div>
+        <div class="results-container" id="resultsContent"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="brand"><img src="assets/images/Avtar.png" alt="logo" class="logo" width="24" height="24" /><span class="brand-name">Perfect Gardener</span></div>
+        <p class="muted">Nature, flowers, plants, care — helping them grow better.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="./">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="posts/">Posts</a></li>
+          <li><a href="garden-tools.html">Tools</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-list">
+          <li>Email: progardener01@gmail.com</li>
+          <li>Location: Uttarakhand, India</li>
+        </ul>
+        <a class="btn primary " target="_blank" rel="noopener" href="https://www.youtube.com/@perfect.gardener">Subscribe on YouTube</a>
+      </div>
+    </div>
+    <div class="container footer-bottom center">
+      <p>© <span id="year"></span> Perfect Gardener • All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
+  <script defer src="assets/js/script.js"></script>
+
+  <script>
+    const taskData = {
+      balcony: {
+        January: {
+          sow: ['Seeds of petunias and snapdragons', 'Marigold seeds in small containers'],
+          water: 'Light watering 2-3 times a week (early morning)',
+          fertilize: 'Apply NPK (10:52:10) every 2 weeks',
+          prune: 'Remove dead flowers and leaves weekly',
+          pest: 'Check for aphids; use neem oil spray if needed',
+          other: 'Clean pots and supports; check for mold'
+        },
+        February: {
+          sow: ['Zinnia seeds in individual pots', 'Basil and mint seeds'],
+          water: 'Maintain consistent moisture, morning watering',
+          fertilize: 'Use balanced fertilizer (NPK 20:20:20) fortnightly',
+          prune: 'Pinch top buds on young plants to encourage bushiness',
+          pest: 'Monitor for spider mites in dry conditions',
+          other: 'Repot plants that have outgrown their containers'
+        },
+        March: {
+          sow: ['Balsam seeds', 'Dahlia tubers in pots'],
+          water: 'Increase watering as temperature rises',
+          fertilize: 'Apply phosphorus-rich fertilizer for flowering',
+          prune: 'Remove weak growth and diseased leaves',
+          pest: 'Check undersides of leaves for pests',
+          other: 'Set up trellises for climbing plants'
+        },
+        April: {
+          sow: ['Summer herbs like parsley and oregano'],
+          water: 'Daily light watering in morning, avoid afternoon',
+          fertilize: 'NPK (10:52:10) every 10-12 days',
+          prune: 'Regular deadheading to promote continuous blooms',
+          pest: 'Increase vigilance for white flies and mealybugs',
+          other: 'Provide partial shade during peak heat hours'
+        },
+        May: {
+          sow: ['Avoid sowing in extreme heat; use seedlings'],
+          water: 'Water deeply every day early morning',
+          fertilize: 'Use diluted fertilizer to avoid root burn',
+          prune: 'Remove sun-scorched leaves and flowers',
+          pest: 'Spray insecticide twice a week if needed',
+          other: 'Move pots to shaded areas; use shade cloth'
+        },
+        June: {
+          sow: ['Impatiens and caladium bulbs'],
+          water: 'Daily watering; avoid waterlogging',
+          fertilize: 'Apply balanced fertilizer every 2 weeks',
+          prune: 'Remove monsoon-damaged leaves and branches',
+          pest: 'Increase neem oil spray frequency (once a week)',
+          other: 'Ensure proper drainage in pots; prevent water stagnation'
+        },
+        July: {
+          sow: ['More impatiens and shade-loving plants'],
+          water: 'Regular watering based on rainfall',
+          fertilize: 'Reduce fertilizer; apply only once a month',
+          prune: 'Remove excess growth; maintain plant shape',
+          pest: 'Watch for fungal infections; improve ventilation',
+          other: 'Clean pot drainage regularly; remove algae'
+        },
+        August: {
+          sow: ['Sow chrysanthemum cuttings', 'Aster seeds'],
+          water: 'Maintain consistent moisture without waterlogging',
+          fertilize: 'Start building fertility for winter blooms',
+          prune: 'Pinch off soft growth tips to create bushy plants',
+          pest: 'Monitor for brown leaf spots and mildew',
+          other: 'Prepare for autumn plant transition'
+        },
+        September: {
+          sow: ['Marigold and dahlia seeds for winter flowering'],
+          water: 'Reduce watering as temperatures drop',
+          fertilize: 'Apply balanced fertilizer fortnightly',
+          prune: 'Remove old flower heads and weak stems',
+          pest: 'Pests reduce; maintain basic monitoring',
+          other: 'Clean pots thoroughly before winter season'
+        },
+        October: {
+          sow: ['Pansy and dianthus seedlings', 'Calendula seeds'],
+          water: '2-3 times per week as cooling begins',
+          fertilize: 'NPK (10:52:10) every 2 weeks for blooming',
+          prune: 'Shape plants before dormancy sets in',
+          pest: 'Pests become less active; reduce spraying',
+          other: 'Shift potted plants to sunny locations'
+        },
+        November: {
+          sow: ['Sweet alyssum and snapdragon seedlings'],
+          water: 'Reduce watering frequency to 2 times per week',
+          fertilize: 'Apply light fertilizer fortnightly',
+          prune: 'Remove yellowing and dead leaves',
+          pest: 'Minimal pest activity; inspect weekly',
+          other: 'Prepare for winter; move sensitive plants indoors'
+        },
+        December: {
+          sow: ['Rare sowing; focus on existing plants'],
+          water: 'Minimal watering; allow soil to dry between watering',
+          fertilize: 'No heavy fertilization; use diluted solution if needed',
+          prune: 'Maintain compact shape; remove diseased parts',
+          pest: 'Virtually no pest activity',
+          other: 'Protect from frost; use mulch layer'
+        }
+      },
+      terrace: {
+        January: {
+          sow: ['Rose saplings', 'Marigold seeds', 'Zinnia seeds'],
+          water: 'Moderate watering 3-4 times a week',
+          fertilize: 'NPK (10:52:10) every 2 weeks',
+          prune: 'Remove dead flowers weekly',
+          pest: 'Check for common pests; spray if needed',
+          other: 'Check soil condition; add mulch'
+        },
+        February: {
+          sow: ['Snapdragon and dahlia tubers'],
+          water: 'Morning watering 3-4 times weekly',
+          fertilize: 'Balanced fertilizer every 2 weeks',
+          prune: 'Pinch growing tips for bushier plants',
+          pest: 'Monitor for spider mites',
+          other: 'Prepare garden beds for spring'
+        },
+        March: {
+          sow: ['Sunflower and cosmos seeds'],
+          water: 'Increase to 4-5 times weekly as heat increases',
+          fertilize: 'Phosphorus-rich for flowering',
+          prune: 'Remove weak and diseased growth',
+          pest: 'Monitor for emerging pests',
+          other: 'Set up supports for tall plants'
+        },
+        April: {
+          sow: ['Heat-tolerant plants and herbs'],
+          water: 'Daily watering early morning',
+          fertilize: 'NPK every 10-12 days',
+          prune: 'Regular deadheading',
+          pest: 'Increase pest control measures',
+          other: 'Provide afternoon shade cloth coverage'
+        },
+        May: {
+          sow: ['Avoid main sowing; transplant seedlings'],
+          water: 'Deep watering daily',
+          fertilize: 'Use diluted fertilizer solution',
+          prune: 'Remove heat-damaged foliage',
+          pest: 'Intensive pest management needed',
+          other: 'Use mulch to retain moisture'
+        },
+        June: {
+          sow: ['Monsoon plants; Caladium and Impatiens'],
+          water: 'Monitor rainfall; water as needed',
+          fertilize: 'Every 2 weeks during monsoon',
+          prune: 'Trim excess growth',
+          pest: 'Prevent fungal issues with good airflow',
+          other: 'Ensure excellent drainage on terrace'
+        },
+        July: {
+          sow: ['More shade-loving plants'],
+          water: 'Based on rainfall; check soil moisture',
+          fertilize: 'Once monthly during heavy rain',
+          prune: 'Maintain plant size and shape',
+          pest: 'Monitor for fungal infections',
+          other: 'Clean drainage systems regularly'
+        },
+        August: {
+          sow: ['Chrysanthemum cuttings and Aster seeds'],
+          water: 'Consistent moisture without waterlogging',
+          fertilize: 'Build plant strength for autumn',
+          prune: 'Pinch growing tips of new plants',
+          pest: 'Watch for fungal leaf spots',
+          other: 'Prepare seedling trays for autumn planting'
+        },
+        September: {
+          sow: ['Marigold and dahlia for winter blooms'],
+          water: 'Reduce watering as season cools',
+          fertilize: 'Every 2 weeks for flowering',
+          prune: 'Shape plants and remove dead wood',
+          pest: 'Pest activity reduces naturally',
+          other: 'Prepare terrace for autumn plantings'
+        },
+        October: {
+          sow: ['Pansy, dianthus, calendula seedlings'],
+          water: '3 times per week',
+          fertilize: 'Every 2 weeks for blooming',
+          prune: 'Remove old growth; shape plants',
+          pest: 'Minimal; routine inspection only',
+          other: 'Move pots to sunnier locations'
+        },
+        November: {
+          sow: ['Sweet alyssum, snapdragon seedlings'],
+          water: '2-3 times weekly',
+          fertilize: 'Light fortnightly application',
+          prune: 'Remove yellowing leaves',
+          pest: 'Very minimal activity',
+          other: 'Prepare for potential cold snaps'
+        },
+        December: {
+          sow: ['Minimal sowing; maintain existing plants'],
+          water: 'Reduce frequency to 1-2 times weekly',
+          fertilize: 'Light diluted application if needed',
+          prune: 'Light maintenance only',
+          pest: 'No significant activity',
+          other: 'Frost protection if needed'
+        }
+      },
+      backyard: {
+        January: {
+          sow: ['Transplant seedlings to garden beds', 'Direct sow cool-season crops'],
+          water: 'Deep watering 2-3 times weekly',
+          fertilize: 'Apply general NPK fertilizer',
+          prune: 'Remove dead wood from trees/shrubs',
+          pest: 'Minimal winter pest activity',
+          other: 'Prepare beds with compost; improve soil'
+        },
+        February: {
+          sow: ['Sow seeds directly in prepared beds'],
+          water: 'Regular watering as growth increases',
+          fertilize: 'Every 3 weeks with balanced fertilizer',
+          prune: 'Light pruning of winter damage',
+          pest: 'Check for emerging pests',
+          other: 'Install trellises and supports as needed'
+        },
+        March: {
+          sow: ['Warm-season seeds directly', 'Transplant herbs'],
+          water: 'Increase frequency as temperature rises',
+          fertilize: 'Every 2-3 weeks; use compost top-dressing',
+          prune: 'Remove crossing and weak branches',
+          pest: 'Monitor for early season pests',
+          other: 'Mulch beds to retain moisture'
+        },
+        April: {
+          sow: ['Complete warm-season planting', 'Direct sow vegetables'],
+          water: 'Daily deep watering in morning',
+          fertilize: 'NPK every 2 weeks',
+          prune: 'Pinch growing tips for bushier plants',
+          pest: 'Active pest management needed',
+          other: 'Stake tall plants; provide shade for sensitive plants'
+        },
+        May: {
+          sow: ['Avoid sowing in extreme heat'],
+          water: 'Deep daily watering early morning',
+          fertilize: 'Use diluted fertilizer to prevent burning',
+          prune: 'Maintain shape; remove heat-stressed foliage',
+          pest: 'Intensive pest control measures',
+          other: 'Apply thick mulch layer (3-4 inches)'
+        },
+        June: {
+          sow: ['Plant during rain; no heat stress'],
+          water: 'Monitor rainfall; supplement as needed',
+          fertilize: 'Every 2 weeks with monsoon-ready formula',
+          prune: 'Trim excess growth; maintain pathways',
+          pest: 'Control fungal issues with good drainage',
+          other: 'Create water channels for proper drainage'
+        },
+        July: {
+          sow: ['Continue monsoon planting', 'Sow fast-growing crops'],
+          water: 'Based on rainfall observations',
+          fertilize: 'Monthly to monthly-and-half intervals',
+          prune: 'Remove diseased and excess growth',
+          pest: 'Monitor for fungal infections intensely',
+          other: 'Maintain drainage systems; remove waterlogged areas'
+        },
+        August: {
+          sow: ['Sow autumn flowering plants', 'Plant bulbs for fall'],
+          water: 'As per rainfall; maintain moist soil',
+          fertilize: 'Build nutrient levels for autumn',
+          prune: 'Shape plants preparing for dormancy',
+          pest: 'Watch for brown spots and mildew',
+          other: 'Begin preparing for autumn harvest'
+        },
+        September: {
+          sow: ['Autumn vegetable seeds', 'Flower seeds for winter'],
+          water: 'Reduce as season cools slightly',
+          fertilize: 'Every 2 weeks to support growth',
+          prune: 'Remove monsoon damage; shape beds',
+          pest: 'Pest activity decreases',
+          other: 'Start clearing summer crop remnants'
+        },
+        October: {
+          sow: ['Direct sow winter vegetables and flowers'],
+          water: '3 times weekly; reduce frequency',
+          fertilize: 'Every 2 weeks for productivity',
+          prune: 'Clean up old plant material',
+          pest: 'Routine monitoring only',
+          other: 'Shift to sunnier bed positions for cool crops'
+        },
+        November: {
+          sow: ['Continue winter crop planting'],
+          water: '2-3 times weekly',
+          fertilize: 'Light application fortnightly',
+          prune: 'Remove dead leaves and diseased parts',
+          pest: 'Minimal pest activity',
+          other: 'Prepare beds for spring planting; add compost'
+        },
+        December: {
+          sow: ['Rare; focus on maintenance'],
+          water: 'Minimal; only during dry spells',
+          fertilize: 'Very light or skip if using compost',
+          prune: 'Light shaping and dead wood removal',
+          pest: 'No significant activity',
+          other: 'Frost protection for sensitive crops'
+        }
+      }
+    };
+
+    function generateTasks() {
+      const month = document.getElementById('month').value;
+      const gardenType = document.getElementById('gardenType').value;
+      const resultsContainer = document.getElementById('resultsContainer');
+      const resultsHeading = document.getElementById('resultsHeading');
+      const resultsContent = document.getElementById('resultsContent');
+
+      if (!month || !gardenType) {
+        alert('Please select both month and garden type');
+        return;
+      }
+
+      const tasks = taskData[gardenType][month];
+      resultsHeading.textContent = `📋 ${month} Gardening Tasks - ${gardenType} Garden`;
+
+      if (!tasks) {
+        resultsContent.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--muted);">No tasks available for this selection.</div>';
+      } else {
+        let html = '';
+
+        // Sowing & Planting
+        html += `<div class="task-section">
+          <h3>🌱 Sowing & Planting</h3>
+          <ul class="task-list">
+            ${(Array.isArray(tasks.sow) ? tasks.sow : tasks.sow.split(', ')).map(s => `<li>${s}</li>`).join('')}
+          </ul>
+        </div>`;
+
+        // Watering
+        html += `<div class="task-section">
+          <h3>💧 Watering</h3>
+          <ul class="task-list">
+            <li>${tasks.water}</li>
+          </ul>
+        </div>`;
+
+        // Fertilizing
+        html += `<div class="task-section">
+          <h3>🌿 Fertilizing</h3>
+          <ul class="task-list">
+            <li>${tasks.fertilize}</li>
+          </ul>
+        </div>`;
+
+        // Pruning & Maintenance
+        html += `<div class="task-section">
+          <h3>✂️ Pruning & Maintenance</h3>
+          <ul class="task-list">
+            <li>${tasks.prune}</li>
+          </ul>
+        </div>`;
+
+        // Pest Control
+        html += `<div class="task-section">
+          <h3>🐛 Pest Control</h3>
+          <ul class="task-list">
+            <li>${tasks.pest}</li>
+          </ul>
+        </div>`;
+
+        // Other Tasks
+        html += `<div class="task-section">
+          <h3>📌 Other Tasks</h3>
+          <ul class="task-list">
+            <li>${tasks.other}</li>
+          </ul>
+        </div>`;
+
+        resultsContent.innerHTML = html;
+      }
+
+      resultsContainer.classList.add('active');
+      resultsContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetForm() {
+      document.getElementById('month').value = '';
+      document.getElementById('gardenType').value = '';
+      document.getElementById('resultsContainer').classList.remove('active');
+    }
+
+    // Set current month by default
+    window.addEventListener('load', () => {
+      const currentMonth = new Date().toLocaleString('default', { month: 'long' });
+      document.getElementById('month').value = currentMonth;
+    });
+  </script>
+</body>
+</html>

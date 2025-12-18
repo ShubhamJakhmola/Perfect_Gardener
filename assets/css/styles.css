@@ -190,6 +190,80 @@ main:not(.content-section), .hero-inner, .section-head, .section-actions, .yt-co
   background: rgba(0, 0, 0, .06);
 }
 
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 18px;
+  opacity: .9;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, .06);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--card);
+  border: 1px solid var(--ring);
+  border-radius: 10px;
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 8px 0;
+  min-width: 260px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--text);
+  text-decoration: none;
+  margin: 0;
+  border-radius: 0;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(46, 139, 87, 0.1);
+  margin: 0;
+  padding: 10px 16px;
+}
+
+/* Show dropdown on hover (desktop) */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Show dropdown when active (mobile/JS) */
+.dropdown.active .dropdown-menu,
+.dropdown-menu.show {
+  display: block;
+}
+
 .main-nav a:focus-visible,
 .btn:focus-visible,
 .nav-toggle:focus-visible,
@@ -1203,6 +1277,51 @@ textarea::placeholder {
     margin: 0;
     padding: 10px 8px;
     border-radius: 8px;
+  }
+
+  /* Mobile dropdown styles */
+  .dropdown {
+    display: block;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    padding: 10px 8px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    background: rgba(46, 139, 87, 0.08);
+    border: none;
+    border-radius: 8px;
+    list-style: none;
+    margin: 4px 0 0 0;
+    padding: 6px 0;
+    box-shadow: none;
+    z-index: 100;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li {
+    margin: 0;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: rgba(46, 139, 87, 0.15);
   }
 
   .main-nav a:hover {

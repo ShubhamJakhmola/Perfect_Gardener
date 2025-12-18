@@ -73,12 +73,42 @@
     mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       mainNav.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
+      // Also close any open dropdowns
+      document.querySelectorAll('.dropdown.active').forEach(dd => {
+        dd.classList.remove('active');
+        dd.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
+      });
     }));
     // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') { mainNav.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); }
     });
   }
+
+  // Dropdown menu toggle (mobile/touch)
+  const dropdownButtons = document.querySelectorAll('.nav-link');
+  dropdownButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dropdown = button.closest('.dropdown');
+      if (dropdown) {
+        dropdown.classList.toggle('active');
+        const isActive = dropdown.classList.contains('active');
+        button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      }
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    dropdownButtons.forEach(button => {
+      const dropdown = button.closest('.dropdown');
+      if (dropdown && !dropdown.contains(e.target)) {
+        dropdown.classList.remove('active');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
 
   // EmailJS init - replace with your own keys in README instructions
   // eslint-disable-next-line no-undef

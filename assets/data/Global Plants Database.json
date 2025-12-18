@@ -1,0 +1,5670 @@
+{
+"Plants":[
+ {
+  "name": "Passion Fruit Flower",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained, fertile, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Regular watering, support structure needed",
+  "Image": "Passion Fruit Flower.webp"
+ },
+ {
+  "name": "Orchid (Cattleya)",
+  "Region": "Subtropical",
+  "Growing Months": "September, October, November",
+  "Season": "Spring",
+  "Soil Requirements": "Well-draining orchid bark, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Bright indirect light",
+  "Care Instructions": "High humidity, monthly feeding",
+  "Image": "Orchid (Cattleya).webp"
+ },
+ {
+  "name": "Carnation (Dianthus)",
+  "Region": "Temperate",
+  "Growing Months": "February, March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 6.0-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (4-6 hrs)",
+  "Care Instructions": "Deadheading, moderate watering",
+  "Image": "Carnation (Dianthus).webp"
+ },
+ {
+  "name": "Bromeliads",
+  "Region": "Tropical Highland",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Orchid bark mix, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Bright indirect light",
+  "Care Instructions": "Mist regularly, keep center filled with water",
+  "Image": "Bromeliads.webp"
+ },
+ {
+  "name": "Heliconia",
+  "Region": "Tropical",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Rich organic, pH 6.0-6.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Ample watering, well-draining soil",
+  "Image": "Heliconia.webp"
+ },
+ {
+  "name": "Rose (Rosa hybrid)",
+  "Region": "Mediterranean",
+  "Growing Months": "April, May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-6.5",
+  "Bloom and Harvest Time": "Spring,Summer",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Regular pruning, deadheading, pest control",
+  "Image": "Rose (Rosa hybrid).webp"
+ },
+ {
+  "name": "Bluebonnet",
+  "Region": "Hot Subtropical",
+  "Growing Months": "March, April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained limestone, pH 7.5-8.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, minimal water needed",
+  "Image": "Bluebonnet.webp"
+ },
+ {
+  "name": "Lavender",
+  "Region": "Mediterranean",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Sandy, well-drained, pH 6.4-8.3",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, prune after flowering",
+  "Image": "Lavender.webp"
+ },
+ {
+  "name": "Tulip",
+  "Region": "Temperate Maritime",
+  "Growing Months": "March, April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Chill requirement, deadhead after blooming",
+  "Image": "Tulip.webp"
+ },
+ {
+  "name": "Cherry Blossom (Sakura)",
+  "Region": "Temperate",
+  "Growing Months": "March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Minimal pruning, moderate water",
+  "Image": "Cherry Blossom (Sakura).webp"
+ },
+ {
+  "name": "Sunflower",
+  "Region": "Mediterranean",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Staking needed, moderate watering",
+  "Image": "Sunflower.webp"
+ },
+ {
+  "name": "Bougainvillea",
+  "Region": "Mediterranean",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Drought tolerant, minimal fertilizer",
+  "Image": "Bougainvillea.webp"
+ },
+ {
+  "name": "Almond Blossom",
+  "Region": "Mediterranean",
+  "Growing Months": "February, March",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 7.0-8.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Minimal care, drought tolerant",
+  "Image": "Almond Blossom.webp"
+ },
+ {
+  "name": "Protea",
+  "Region": "Mediterranean",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Sandy, acidic, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, well-draining soil essential",
+  "Image": "Protea.webp"
+ },
+ {
+  "name": "Lotus Flower",
+  "Region": "Desert",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Mud,aquatic substrate, pH 6.5-7.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Water plant, needs standing water",
+  "Image": "Lotus Flower.webp"
+ },
+ {
+  "name": "Nairobi Purple (Tradescantia)",
+  "Region": "Tropical Highland",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained potting mix, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Bright indirect light",
+  "Care Instructions": "Regular watering, pinch back for bushiness",
+  "Image": "Nairobi Purple (Tradescantia).webp"
+ },
+ {
+  "name": "Bok Choy",
+  "Region": "Subtropical Humid",
+  "Growing Months": "March, April, May ,September, October, November",
+  "Season": "Spring,Fall",
+  "Soil Requirements": "Fertile loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Consistent moisture, remove outer leaves",
+  "Image": "Bok Choy.webp"
+ },
+ {
+  "name": "Tomato",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "February, March, April ,September, October, November",
+  "Season": "Spring,Fall",
+  "Soil Requirements": "Rich loam, pH 6.0-6.8",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Stake,trellis, fertilize biweekly, prune suckers",
+  "Image": "Tomato.webp"
+ },
+ {
+  "name": "Thai Eggplant",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Rich organic, pH 5.5-6.8",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Regular watering, consistent fertilization",
+  "Image": "Thai Eggplant.webp"
+ },
+ {
+  "name": "Morning Glory (Vegetable)",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "May, June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Trellis support, regular harvesting",
+  "Image": "Morning Glory (Vegetable).webp"
+ },
+ {
+  "name": "Daikon Radish",
+  "Region": "Temperate",
+  "Growing Months": "August, September, October",
+  "Season": "Fall",
+  "Soil Requirements": "Loose, well-drained, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Thin seedlings, moderate moisture",
+  "Image": "Daikon Radish.webp"
+ },
+ {
+  "name": "Corn (Maize)",
+  "Region": "Subtropical Highland",
+  "Growing Months": "May, June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Rich loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Deep watering, fertilize monthly, stake if windy",
+  "Image": "Corn (Maize).webp"
+ },
+ {
+  "name": "Potato",
+  "Region": "Alpine",
+  "Growing Months": "October, November, December, January, February",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Well-drained loam, pH 4.8-6.5",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Hill up soil, maintain moisture, prevent greening",
+  "Image": "Potato.webp"
+ },
+ {
+  "name": "Lettuce",
+  "Region": "Mediterranean",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Spring,Fall",
+  "Soil Requirements": "Rich, fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun to partial shade (4-6 hrs)",
+  "Care Instructions": "Keep moist, bolts in heat, succession plant",
+  "Image": "Lettuce.webp"
+ },
+ {
+  "name": "Bell Pepper",
+  "Region": "Subtropical",
+  "Growing Months": "February, March, April ,September, October, November",
+  "Season": "Spring,Fall",
+  "Soil Requirements": "Rich loam, pH 6.0-6.8",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Consistent watering, fertilize every 3 weeks",
+  "Image": "Bell Pepper.webp"
+ },
+ {
+  "name": "Carrot",
+  "Region": "Temperate Continental",
+  "Growing Months": "May, June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Loose, well-drained, pH 6.0-6.8",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Keep soil moist, thin seedlings, no fresh manure",
+  "Image": "Carrot.webp"
+ },
+ {
+  "name": "Okra",
+  "Region": "Tropical Savanna",
+  "Growing Months": "May, June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-6.8",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Regular watering, fertilize monthly, harvest when tender",
+  "Image": "Okra.webp"
+ },
+ {
+  "name": "Cucumber",
+  "Region": "Desert",
+  "Growing Months": "February, March, April ,September, October, November",
+  "Season": "Spring,Fall",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Trellis training, consistent water, mulch to cool soil",
+  "Image": "Cucumber.webp"
+ },
+ {
+  "name": "Tomato",
+  "Region": "Mediterranean",
+  "Growing Months": "April, May, June, July",
+  "Season": "Summer",
+  "Soil Requirements": "Rich loam, pH 6.0-6.8",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Stake, prune suckers, fertilize biweekly",
+  "Image": "Tomato.webp"
+ },
+ {
+  "name": "Basil (Sweet)",
+  "Region": "Mediterranean",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Pinch buds for bushiness, keep moist, harvest regularly",
+  "Image": "Basil (Sweet).webp"
+ },
+ {
+  "name": "Thyme",
+  "Region": "Mediterranean",
+  "Growing Months": "April, May, June, July, August, September",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained sandy soil, pH 6.0-8.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, light pruning, avoid overwatering",
+  "Image": "Thyme.webp"
+ },
+ {
+  "name": "Oregano",
+  "Region": "Mediterranean",
+  "Growing Months": "May, June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy soil, pH 6.0-8.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, minimal care, prune after flowering",
+  "Image": "Oregano.webp"
+ },
+ {
+  "name": "Rosemary",
+  "Region": "Mediterranean",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, excellent drainage essential, minimal fertilizer",
+  "Image": "Rosemary.webp"
+ },
+ {
+  "name": "Chamomile",
+  "Region": "Temperate Continental",
+  "Growing Months": "May, June, July",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.6-7.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Self-sows, minimal care, deadhead for continuous blooms",
+  "Image": "Chamomile.webp"
+ },
+ {
+  "name": "Mint (Peppermint)",
+  "Region": "Temperate Maritime",
+  "Growing Months": "June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Moist fertile loam, pH 5.0-8.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Spreads vigorously, contain in pot, harvest regularly",
+  "Image": "Mint (Peppermint).webp"
+ },
+ {
+  "name": "Dill",
+  "Region": "Temperate Continental",
+  "Growing Months": "May, June, July",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Self-seeds, succession plant for continuous harvest, direct sow",
+  "Image": "Dill.webp"
+ },
+ {
+  "name": "Fennel",
+  "Region": "Temperate Continental",
+  "Growing Months": "June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-8.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, minimal care, may self-seed",
+  "Image": "Fennel.webp"
+ },
+ {
+  "name": "Coriander",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "October, November, December, January, February",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Well-drained fertile loam, pH 5.0-8.0",
+  "Bloom and Harvest Time": "Winter",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Quick growing, bolts in heat, succession sow",
+  "Image": "Coriander.webp"
+ },
+ {
+  "name": "Turmeric",
+  "Region": "Tropical",
+  "Growing Months": "June, July, August, September",
+  "Season": "Monsoon",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Partial shade (50% shade)",
+  "Care Instructions": "High moisture, mulch heavily, rhizome harvest in 8-10 months",
+  "Image": "Turmeric.webp"
+ },
+ {
+  "name": "Thai Basil",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Pinch buds, harvest regularly, keep warm",
+  "Image": "Thai Basil.webp"
+ },
+ {
+  "name": "Garlic (Asian)",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December, January, February, March, April",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Plant cloves individually, dry after harvest for storage",
+  "Image": "Garlic (Asian).webp"
+ },
+ {
+  "name": "Rhododendron",
+  "Region": "Temperate Maritime",
+  "Growing Months": "March, April, May, June",
+  "Season": "Spring",
+  "Soil Requirements": "Acidic well-drained loam, pH 4.5-6.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade (50% light)",
+  "Care Instructions": "Acidic soil essential, deadhead after flowering, mulch",
+  "Image": "Rhododendron.webp"
+ },
+ {
+  "name": "Heather (Calluna)",
+  "Region": "Temperate Maritime",
+  "Growing Months": "August, September, October",
+  "Season": "Fall",
+  "Soil Requirements": "Acidic sandy loam, pH 4.5-6.0",
+  "Bloom and Harvest Time": "Fall",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Acid soil required, low maintenance, winter interest",
+  "Image": "Heather (Calluna).webp"
+ },
+ {
+  "name": "Hydrangea",
+  "Region": "Temperate Maritime",
+  "Growing Months": "July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Moist, well-drained, pH 5.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Partial shade",
+  "Care Instructions": "Pruning dependent on variety, color influenced by soil pH",
+  "Image": "Hydrangea.webp"
+ },
+ {
+  "name": "Bottlebrush (Callistemon)",
+  "Region": "Subtropical",
+  "Growing Months": "September, October, November, December",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained sandy loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, minimal fertilizer, pruning after flowering",
+  "Image": "Bottlebrush (Callistemon).webp"
+ },
+ {
+  "name": "Ohia Lehua",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Well-drained volcanic soil, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Fall",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Native, low maintenance, drought tolerant once established",
+  "Image": "Ohia Lehua.webp"
+ },
+ {
+  "name": "Eryngium (Sea Holly)",
+  "Region": "Temperate",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy soil, pH 6.0-8.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, salt tolerant, minimal care",
+  "Image": "Eryngium (Sea Holly).webp"
+ },
+ {
+  "name": "Camellia",
+  "Region": "Subtropical",
+  "Growing Months": "November, December, January, February, March, April",
+  "Season": "Winter,Spring",
+  "Soil Requirements": "Acidic well-drained, pH 5.0-6.5",
+  "Bloom and Harvest Time": "Winter",
+  "Sunlight Needs": "Partial shade (50% light)",
+  "Care Instructions": "Moist soil, acidic, protection from harsh sun",
+  "Image": "Camellia.webp"
+ },
+ {
+  "name": "Azalea",
+  "Region": "Temperate",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Acidic well-drained loam, pH 4.5-6.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade",
+  "Care Instructions": "Acidic soil essential, prune after flowering, mulch",
+  "Image": "Azalea.webp"
+ },
+ {
+  "name": "Lilac (Syringa)",
+  "Region": "Subtropical",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 6.0-8.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Moderate water, deadhead spent flowers, prune after flowering",
+  "Image": "Lilac (Syringa).webp"
+ },
+ {
+  "name": "Cinchona",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December",
+  "Season": "Fall",
+  "Soil Requirements": "Rich organic, well-drained, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Fall",
+  "Sunlight Needs": "Partial shade",
+  "Care Instructions": "High humidity, consistent moisture, shade cloth needed",
+  "Image": "Cinchona.webp"
+ },
+ {
+  "name": "Periwinkle (Vinca)",
+  "Region": "Tropical",
+  "Growing Months": "May, June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.8-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Drought tolerant, pinch for bushiness, deadhead regularly",
+  "Image": "Periwinkle (Vinca).webp"
+ },
+ {
+  "name": "Echinacea",
+  "Region": "Tropical",
+  "Growing Months": "June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Drought tolerant, deadhead for prolonged blooming, seeds for birds",
+  "Image": "Echinacea.webp"
+ },
+ {
+  "name": "Ashwagandha",
+  "Region": "Desert,Semi-arid",
+  "Growing Months": "October, November, December, January, February",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Well-drained loam, pH 6.5-7.5",
+  "Bloom and Harvest Time": "Winter",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, minimal inputs, harvest roots in winter",
+  "Image": "Ashwagandha.webp"
+ },
+ {
+  "name": "Nutmeg",
+  "Region": "Tropical",
+  "Growing Months": "September, October, November, December",
+  "Season": "Fall",
+  "Soil Requirements": "Rich organic, well-drained, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Fall",
+  "Sunlight Needs": "Partial shade (50%)",
+  "Care Instructions": "High humidity, consistent moisture, 6-9 years to produce",
+  "Image": "Nutmeg.webp"
+ },
+ {
+  "name": "Cinnamon",
+  "Region": "Tropical",
+  "Growing Months": "August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Partial shade to full sun",
+  "Care Instructions": "High moisture, thick mulch, coppice for bark harvest",
+  "Image": "Cinnamon.webp"
+ },
+ {
+  "name": "Cardamom",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Monsoon",
+  "Soil Requirements": "Rich organic, well-drained, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Shade (70-80%)",
+  "Care Instructions": "High humidity, consistent moisture, needs shade tree",
+  "Image": "Cardamom.webp"
+ },
+ {
+  "name": "Black Pepper",
+  "Region": "Subtropical",
+  "Growing Months": "April, May, June",
+  "Season": "Spring",
+  "Soil Requirements": "Rich loam, well-drained, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade (50%)",
+  "Care Instructions": "Trellis support, high humidity, consistent moisture",
+  "Image": "Black Pepper.webp"
+ },
+ {
+  "name": "Mango",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "January, February, March, April, May",
+  "Season": "Winter,Spring",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Minimal care mature tree, prune for shape, pest management",
+  "Image": "Mango.webp"
+ },
+ {
+  "name": "Banana",
+  "Region": "Tropical",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Rich organic, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Continuous",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Remove dead leaves, consistent moisture, remove pups for size",
+  "Image": "Banana.webp"
+ },
+ {
+  "name": "Pineapple",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy loam, pH 5.0-6.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Drought tolerant, minimal water once established, 18-24 months to fruit",
+  "Image": "Pineapple.webp"
+ },
+ {
+  "name": "Papaya",
+  "Region": "Tropical",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Continuous",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Wind protection, remove old plants after 3-4 years, minimal pruning",
+  "Image": "Papaya.webp"
+ },
+ {
+  "name": "Grape (Wine)",
+  "Region": "Temperate Continental",
+  "Growing Months": "August, September",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Pruning essential, trellis system, manage disease",
+  "Image": "Grape (Wine).webp"
+ },
+ {
+  "name": "Hazelnut",
+  "Region": "Temperate Continental",
+  "Growing Months": "August, September",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Minimal pruning, pest management, cross-pollination needed",
+  "Image": "Hazelnut.webp"
+ },
+ {
+  "name": "Strawberry",
+  "Region": "Temperate Continental",
+  "Growing Months": "May, June, July",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-6.8",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Remove runners, replace plants every 3-4 years, mulch",
+  "Image": "Strawberry.webp"
+ },
+ {
+  "name": "Blueberry",
+  "Region": "Temperate Maritime",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Acidic sandy loam, pH 4.5-5.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Acidic soil essential, cross-pollination helps, pruning in dormancy",
+  "Image": "Blueberry.webp"
+ },
+ {
+  "name": "Flax (Phormium)",
+  "Region": "Temperate Maritime",
+  "Growing Months": "December, January, February",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Drought tolerant mature plant, minimal care, structural interest",
+  "Image": "Flax (Phormium).webp"
+ },
+ {
+  "name": "Kangaroo Paw",
+  "Region": "Subtropical",
+  "Growing Months": "September, October, November",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, good drainage essential, low fertilizer",
+  "Image": "Kangaroo Paw.webp"
+ },
+ {
+  "name": "Red Hot Poker (Kniphofia)",
+  "Region": "Mediterranean",
+  "Growing Months": "May, June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, minimal care, deadhead for extended bloom",
+  "Image": "Red Hot Poker (Kniphofia).webp"
+ },
+ {
+  "name": "Ornamental Grass (Muhly)",
+  "Region": "Hot Subtropical",
+  "Growing Months": "August, September, October",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained loam, pH 5.5-8.0",
+  "Bloom and Harvest Time": "Fall",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, cut back in late winter, minimal fertilizer",
+  "Image": "Ornamental Grass (Muhly).webp"
+ },
+ {
+  "name": "Clematis",
+  "Region": "Temperate",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring,Summer",
+  "Sunlight Needs": "Full sun (top), shade (roots)",
+  "Care Instructions": "Cool roots, support structure, pruning by type",
+  "Image": "Clematis.webp"
+ },
+ {
+  "name": "Glory Vine (Eccremocarpus)",
+  "Region": "Mediterranean",
+  "Growing Months": "May, June, July, August, September, October",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Fast growing, light pruning, minimal care once established",
+  "Image": "Glory Vine (Eccremocarpus).webp"
+ },
+ {
+  "name": "Wonga Vine",
+  "Region": "Temperate",
+  "Growing Months": "October, November",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade to full sun",
+  "Care Instructions": "Slow growing, structural support needed, minimal care",
+  "Image": "Wonga Vine.webp"
+ },
+ {
+  "name": "Sage",
+  "Region": "Temperate Continental",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Drought tolerant, light pruning, deadhead flowers",
+  "Image": "Sage.webp"
+ },
+ {
+  "name": "Parsley",
+  "Region": "Temperate Continental",
+  "Growing Months": "April, May, June, July, August, September",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Moist soil, biennial typically, harvest outer stems",
+  "Image": "Parsley.webp"
+ },
+ {
+  "name": "Marjoram",
+  "Region": "Mediterranean Highland",
+  "Growing Months": "May, June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy soil, pH 6.0-8.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, minimal care, dried for preservation",
+  "Image": "Marjoram.webp"
+ },
+ {
+  "name": "Bay Laurel",
+  "Region": "Mediterranean",
+  "Growing Months": "February, March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Slow growing, evergreen, minimal care, pest resistant",
+  "Image": "Bay Laurel.webp"
+ },
+ {
+  "name": "Eggplant",
+  "Region": "Desert,Arid",
+  "Growing Months": "February, March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Rich loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Regular watering, mulch, fertilize every 3 weeks",
+  "Image": "Eggplant.webp"
+ },
+ {
+  "name": "Cabbage",
+  "Region": "Mediterranean Continental",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Rich fertile loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Consistent moisture, pest management, succession plant",
+  "Image": "Cabbage.webp"
+ },
+ {
+  "name": "Zucchini",
+  "Region": "Mediterranean",
+  "Growing Months": "April, May, June, July",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Rich organic loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Consistent water, harvest when small (6-8 inches)",
+  "Image": "Zucchini.webp"
+ },
+ {
+  "name": "Beet",
+  "Region": "Temperate Continental",
+  "Growing Months": "May, June, July",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Thin seedlings, consistent moisture, succession sow",
+  "Image": "Beet.webp"
+ },
+ {
+  "name": "Water Lily",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "May, June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Aquatic substrate, rich mud",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Plant in water 18-24 inches deep, remove dead leaves",
+  "Image": "Water Lily.webp"
+ },
+ {
+  "name": "Edelweiss",
+  "Region": "Alpine",
+  "Growing Months": "July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained rocky soil, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Excellent drainage essential, rock garden plant, drought tolerant",
+  "Image": "Edelweiss.webp"
+ },
+ {
+  "name": "Gentian",
+  "Region": "Alpine",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Acidic well-drained soil, pH 5.0-6.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "High altitude plant, prefers cool summers, drainage critical",
+  "Image": "Gentian.webp"
+ },
+ {
+  "name": "Daffodil",
+  "Region": "Temperate Maritime",
+  "Growing Months": "February, March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Plant in fall, deadhead after blooming, leave foliage for energy",
+  "Image": "Daffodil.webp"
+ },
+ {
+  "name": "Dahlia",
+  "Region": "Subtropical",
+  "Growing Months": "July, August, September, October",
+  "Season": "Summer,Fall",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-6.8",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Stake tall varieties, deadhead for continuous blooms, dig bulbs in winter",
+  "Image": "Dahlia.webp"
+ },
+ {
+  "name": "Wine Grapes",
+  "Region": "Mediterranean",
+  "Growing Months": "February, March, April",
+  "Season": "Fall,Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.5-8.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Pruning essential, trellis system, pest management",
+  "Image": "Wine Grapes.webp"
+ },
+ {
+  "name": "Avocado",
+  "Region": "Mediterranean",
+  "Growing Months": "September, October, November, December, January, February, March, April",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Cross-pollination beneficial, minimal care mature tree, harvest ripe",
+  "Image": "Avocado.webp"
+ },
+ {
+  "name": "Ginseng",
+  "Region": "Temperate",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Loose well-drained loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Shade (70-80%)",
+  "Care Instructions": "Shade essential, 4-6 years to harvest, forest farming typical",
+  "Image": "Ginseng.webp"
+ },
+ {
+  "name": "Olive",
+  "Region": "Mediterranean",
+  "Growing Months": "September, October, November",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained loam, pH 7.0-8.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant mature tree, minimal pruning, pest management",
+  "Image": "Olive.webp"
+ },
+ {
+  "name": "Date Palm",
+  "Region": "Desert,Arid",
+  "Growing Months": "August, September, October",
+  "Season": "Summer,Fall",
+  "Soil Requirements": "Well-drained sandy loam, pH 7.0-8.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, minimal pruning, very long-lived",
+  "Image": "Date Palm.webp"
+ },
+ {
+  "name": "Desert Rose",
+  "Region": "Subtropical",
+  "Growing Months": "May, June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Drought tolerant, minimal water, caudex plant, beautiful blooms",
+  "Image": "Desert Rose.webp"
+ },
+ {
+  "name": "Rock Rose (Cistus)",
+  "Region": "Mediterranean",
+  "Growing Months": "May, June, July",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained sandy soil, pH 5.5-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, fire resistant, minimal care",
+  "Image": "Rock Rose (Cistus).webp"
+ },
+ {
+  "name": "Fuchsia",
+  "Region": "Tropical Highland",
+  "Growing Months": "June, July, August, September, October",
+  "Season": "Summer,Fall",
+  "Soil Requirements": "Moist well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Partial shade (50%)",
+  "Care Instructions": "Consistent moisture, pinch for bushiness, protect from afternoon sun",
+  "Image": "Fuchsia.webp"
+ },
+ {
+  "name": "Pohutukawa",
+  "Region": "Temperate Maritime",
+  "Growing Months": "November, December, January",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Salt and wind tolerant, minimal care mature tree, coastal planting",
+  "Image": "Pohutukawa.webp"
+ },
+ {
+  "name": "Saffron (Crocus)",
+  "Region": "Dry Continental",
+  "Growing Months": "September, October, November",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.0-8.0",
+  "Bloom and Harvest Time": "Fall",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Very labor intensive, harvest stigmas, corm planting in summer",
+  "Image": "Saffron (Crocus).webp"
+ },
+ {
+  "name": "Oregano (True)",
+  "Region": "Mediterranean Arid",
+  "Growing Months": "May, June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy soil, pH 6.0-8.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, rocky terrain preference, prune after flowering",
+  "Image": "Oregano (True).webp"
+ },
+ {
+  "name": "Coca",
+  "Region": "Subtropical Mountain",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained acidic loam, pH 5.0-6.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Partial shade (30-50%)",
+  "Care Instructions": "Shade cloth helpful, high altitude mountain crop, 18+ months to harvest",
+  "Image": "Coca.webp"
+ },
+ {
+  "name": "Tea Plant (Camellia sinensis)",
+  "Region": "Subtropical Humid",
+  "Growing Months": " March, April , april,September, October",
+  "Season": "Spring,Fall",
+  "Soil Requirements": "Acidic well-drained loam, pH 4.5-6.5",
+  "Bloom and Harvest Time": "Winter",
+  "Sunlight Needs": "Partial shade (50%)",
+  "Care Instructions": "Acidic soil essential, prune for shape, harvest young leaves",
+  "Image": "Tea Plant (Camellia sinensis).webp"
+ },
+ {
+  "name": "St. John's Wort",
+  "Region": "Temperate",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Invasive potential, contained growing, cut before flowering to dry",
+  "Image": "St. John's Wort.webp"
+ },
+ {
+  "name": "Goldenseal",
+  "Region": "Temperate",
+  "Growing Months": "May, June",
+  "Season": "Spring",
+  "Soil Requirements": "Rich moist loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (70%)",
+  "Care Instructions": "Slow growing, forest farming, rhizome harvest in 4-5 years",
+  "Image": "Goldenseal.webp"
+ },
+ {
+  "name": "Cordyceps",
+  "Region": "Alpine Temperate",
+  "Growing Months": "May, June, July",
+  "Season": "Summer",
+  "Soil Requirements": "Varies, alpine meadows",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial sun",
+  "Care Instructions": "High altitude fungus, parasitic growth, rare and expensive",
+  "Image": "Cordyceps.webp"
+ },
+ {
+  "name": "Desert Quandong",
+  "Region": "Desert",
+  "Growing Months": "November, December, January",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, native shrub, medicinal fruit, slow growing",
+  "Image": "Desert Quandong.webp"
+ },
+ {
+  "name": "Geranium (Hardy)",
+  "Region": "Tropical Highland",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Drought tolerant, deadhead for continuous blooms, long-lived",
+  "Image": "Geranium (Hardy).webp"
+ },
+ {
+  "name": "Morning Glory",
+  "Region": "Tropical Highland",
+  "Growing Months": "June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Trellis support, prolific blooming, self-seeds",
+  "Image": "Morning Glory.webp"
+ },
+ {
+  "name": "Balsam (Impatiens)",
+  "Region": "Tropical",
+  "Growing Months": "May, June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Moist fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Partial shade (50%)",
+  "Care Instructions": "Consistent moisture essential, shade protection, prolific bloomer",
+  "Image": "Balsam (Impatiens).webp"
+ },
+ {
+  "name": "Marigold",
+  "Region": "Tropical Savanna",
+  "Growing Months": "November, December, January, February, March, April",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, deadhead for extended bloom, self-seeds",
+  "Image": "Marigold.webp"
+ },
+ {
+  "name": "Tuberose",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Fragrant, deadhead regularly, plant bulbs in spring",
+  "Image": "Tuberose.webp"
+ },
+ {
+  "name": "Hibiscus",
+  "Region": "Tropical Equatorial",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-6.5",
+  "Bloom and Harvest Time": "Continuous",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Consistent watering, fertilize monthly, prune for shape",
+  "Image": "Hibiscus.webp"
+ },
+ {
+  "name": "Orchid (Singapore)",
+  "Region": "Tropical Equatorial",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Orchid bark, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Continuous",
+  "Sunlight Needs": "Bright indirect light",
+  "Care Instructions": "High humidity, monthly feeding, excellent drainage",
+  "Image": "Orchid (Singapore).webp"
+ },
+ {
+  "name": "Lotus",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Aquatic mud",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Aquatic plant, 18-24 inches deep water, remove dead leaves",
+  "Image": "Lotus.webp"
+ },
+ {
+  "name": "Coffee Plant",
+  "Region": "Tropical Highland",
+  "Growing Months": "September, October, November, December",
+  "Season": "Fall",
+  "Soil Requirements": "Rich volcanic loam, pH 6.0-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (40-50%)",
+  "Care Instructions": "Shade tree needed, high altitude preferred, white flowers fragrant",
+  "Image": "Coffee Plant.webp"
+ },
+ {
+  "name": "Cacao",
+  "Region": "Tropical",
+  "Growing Months": "March, April , October, November ,December",
+  "Season": "Fall,Spring",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50-60%)",
+  "Care Instructions": "Shade tree essential, high humidity, 5-6 years to pod",
+  "Image": "Cacao.webp"
+ },
+ {
+  "name": "Plantain",
+  "Region": "Tropical",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Rich organic loam, pH 5.5-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Consistent moisture, heavy feeder, remove dead leaves",
+  "Image": "Plantain.webp"
+ },
+ {
+  "name": "Cinnamon Tree",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Partial shade to full sun",
+  "Care Instructions": "Harvest bark in rainy season, 3-4 year trees optimal",
+  "Image": "Cinnamon Tree.webp"
+ },
+ {
+  "name": "Poppy (Red)",
+  "Region": "Temperate Continental",
+  "Growing Months": "May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Drought tolerant, self-seeds, minimal care needed",
+  "Image": "Poppy (Red).webp"
+ },
+ {
+  "name": "Edelweiss (Alpine)",
+  "Region": "Temperate",
+  "Growing Months": "July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Rocky well-drained, pH 6.5-7.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Mountain alpine plant, drainage critical, wool-like leaves",
+  "Image": "Edelweiss (Alpine).webp"
+ },
+ {
+  "name": "Rose (Bulgarian)",
+  "Region": "Temperate",
+  "Growing Months": "May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-6.8",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Fragrant oil-producing, deadhead, pest management",
+  "Image": "Rose (Bulgarian).webp"
+ },
+ {
+  "name": "Wine Grape (Portuguese)",
+  "Region": "Mediterranean Continental",
+  "Growing Months": "September, October",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained loam, pH 5.5-8.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Pruning essential, Port wine grapes, steep terraced vineyards",
+  "Image": "Wine Grape (Portuguese).webp"
+ },
+ {
+  "name": "Edelweiss (Austrian)",
+  "Region": "Alpine",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Rocky well-drained, pH 6.5-7.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "High altitude, stellar flowers, drought tolerant",
+  "Image": "Edelweiss (Austrian).webp"
+ },
+ {
+  "name": "Weld Flower",
+  "Region": "Tropical Highland",
+  "Growing Months": "October, November, December",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Fall",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "High altitude adaptation, yellow flowers, medicinal use",
+  "Image": "Weld Flower.webp"
+ },
+ {
+  "name": "Desert Flower",
+  "Region": "Tropical Savanna",
+  "Growing Months": "July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Sandy well-drained, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, sparse vegetation adaptation, minimal water",
+  "Image": "Desert Flower.webp"
+ },
+ {
+  "name": "Bougainvillea (African)",
+  "Region": "Tropical Savanna",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Winter",
+  "Soil Requirements": "Well-drained sandy loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Drought tolerant mature plant, colorful bracts, minimal fertilizer",
+  "Image": "Bougainvillea (African).webp"
+ },
+ {
+  "name": "Torch Lily",
+  "Region": "Tropical Highland",
+  "Growing Months": "September, October, November",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Red hot poker-like flowers, drought tolerant, attracts hummingbirds",
+  "Image": "Torch Lily.webp"
+ },
+ {
+  "name": "Pride of Barbados",
+  "Region": "Subtropical",
+  "Growing Months": "October, November, December, January",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Drought tolerant shrub, orange,red flowers, minimal care",
+  "Image": "Pride of Barbados.webp"
+ },
+ {
+  "name": "Persian Lilac",
+  "Region": "Arid Continental",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 6.5-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Fragrant flowers, drought tolerant, ornamental shrub",
+  "Image": "Persian Lilac.webp"
+ },
+ {
+  "name": "Desert Rose (Arabian)",
+  "Region": "Desert,Arid",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy soil, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Extreme drought tolerance, minimal water, succulent-like",
+  "Image": "Desert Rose (Arabian).webp"
+ },
+ {
+  "name": "Iris (Desert)",
+  "Region": "Desert,Mediterranean",
+  "Growing Months": "March, April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.5-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, rhizome planting, minimal care",
+  "Image": "Iris (Desert).webp"
+ },
+ {
+  "name": "Frankincense Tree Flower",
+  "Region": "Subtropical Desert",
+  "Growing Months": "March, April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained rocky soil, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Resin producer, slow growing, mountain adapted",
+  "Image": "Frankincense Tree Flower.webp"
+ },
+ {
+  "name": "Jute Plant",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "March, April, May, June, July",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "High moisture during monsoon, fiber harvest, fast growing",
+  "Image": "Jute Plant.webp"
+ },
+ {
+  "name": "Long Bean",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Trellis support, consistent moisture, succession plant",
+  "Image": "Long Bean.webp"
+ },
+ {
+  "name": "Sugar Cane",
+  "Region": "Hot Arid",
+  "Growing Months": "October, November, December, January, February, March",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Rich loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Winter",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Heavy feeder, deep soil needed, irrigation essential, 12 months growth",
+  "Image": "Sugar Cane.webp"
+ },
+ {
+  "name": "Pomegranate",
+  "Region": "Continental",
+  "Growing Months": "September, October, November",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained loam, pH 5.5-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, minimal water mature plant, long-lived shrub",
+  "Image": "Pomegranate.webp"
+ },
+ {
+  "name": "Heliconia (Fiji)",
+  "Region": "Tropical",
+  "Growing Months": "May, June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Rich organic loam, pH 6.0-6.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Tropical climate, ample moisture, vibrant tropical flowers",
+  "Image": "Heliconia (Fiji).webp"
+ },
+ {
+  "name": "Taro",
+  "Region": "Tropical",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Moist fertile loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Partial shade (30-50%)",
+  "Care Instructions": "High moisture, aquatic or semi-aquatic, corm harvest 9-12 months",
+  "Image": "Taro.webp"
+ },
+ {
+  "name": "Coconut Palm",
+  "Region": "Tropical",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Sandy coastal soil, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Continuous",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Salt tolerant, coastal planting, minimal care mature tree",
+  "Image": "Coconut Palm.webp"
+ },
+ {
+  "name": "Cocoa (Pacific)",
+  "Region": "Tropical",
+  "Growing Months": "September, October, November, December, January, February",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50-60%)",
+  "Care Instructions": "Shade tree, tropical climate essential, humid conditions needed",
+  "Image": "Cocoa (Pacific).webp"
+ },
+ {
+  "name": "Agave",
+  "Region": "Subtropical Highland",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy soil, pH 6.5-8.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, tequila production, slow growing monocarp",
+  "Image": "Agave.webp"
+ },
+ {
+  "name": "Saguaro Cactus Flower",
+  "Region": "Desert",
+  "Growing Months": "May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained sandy soil, pH 6.5-8.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Extreme heat, minimal water, very slow growing",
+  "Image": "Saguaro Cactus Flower.webp"
+ },
+ {
+  "name": "Prairie Crochet",
+  "Region": "Temperate Continental",
+  "Growing Months": "May, June",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Cold hardy, drought tolerant, prairie grassland native",
+  "Image": "Prairie Crochet.webp"
+ },
+ {
+  "name": "Cajun Iris",
+  "Region": "Subtropical Humid",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Moist to wet loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Wetland plant, bog adaptation, rhizome planting",
+  "Image": "Cajun Iris.webp"
+ },
+ {
+  "name": "Ipe Wood Tree",
+  "Region": "Tropical",
+  "Growing Months": "May, June, July",
+  "Season": "Summer",
+  "Soil Requirements": "Rich organic loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade to full sun",
+  "Care Instructions": "Hardwood, slow growing, medicinal properties, old-growth forest",
+  "Image": "Ipe Wood Tree.webp"
+ },
+ {
+  "name": "Brazil Nut Tree",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December",
+  "Season": "Fall",
+  "Soil Requirements": "Rich organic loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Wild harvest typical, slow very long-lived, ecosystem dependent",
+  "Image": "Brazil Nut Tree.webp"
+ },
+ {
+  "name": "Yerba Mate",
+  "Region": "Subtropical",
+  "Growing Months": "May, June, July, August",
+  "Season": "Winter,Spring",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade (40-50%)",
+  "Care Instructions": "Understory shrub, shade grown, leaves harvested for tea",
+  "Image": "Yerba Mate.webp"
+ },
+ {
+  "name": "Mate (Yerba)",
+  "Region": "Temperate Subtropical",
+  "Growing Months": "May, June, July, August",
+  "Season": "Winter",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade",
+  "Care Instructions": "Cultural beverage plant, shade cultivation, sustainable harvesting",
+  "Image": "Mate (Yerba).webp"
+ },
+ {
+  "name": "Tasmanian Pepperberry",
+  "Region": "Temperate Maritime",
+  "Growing Months": "November, December, January, February",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Partial shade to full sun",
+  "Care Instructions": "Native shrub, berries for spice, slow growing",
+  "Image": "Tasmanian Pepperberry.webp"
+ },
+ {
+  "name": "Macadamia Nut",
+  "Region": "Mediterranean",
+  "Growing Months": "August, September, October",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 5.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Slow growing tree, cross-pollination beneficial, long-lived",
+  "Image": "Macadamia Nut.webp"
+ },
+ {
+  "name": "Kiwifruit (Actinidia)",
+  "Region": "Temperate Maritime",
+  "Growing Months": "September, October",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Trellis system, pruning essential, male,female plants needed",
+  "Image": "Kiwifruit (Actinidia).webp"
+ },
+ {
+  "name": "Davidson Plum",
+  "Region": "Temperate",
+  "Growing Months": "November, December, January",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained fertile loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade to full sun",
+  "Care Instructions": "Native Australian shrub, dark berries, slow growing",
+  "Image": "Davidson Plum.webp"
+ },
+ {
+  "name": "Echinacea (Northern)",
+  "Region": "Temperate Maritime",
+  "Growing Months": "July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun (6+ hrs)",
+  "Care Instructions": "Cold hardy, drought tolerant, purple coneflowers",
+  "Image": "Echinacea (Northern).webp"
+ },
+ {
+  "name": "Osha Root",
+  "Region": "High Desert",
+  "Growing Months": "May, June, July",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained mountain loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Partial shade (40-50%)",
+  "Care Instructions": "High altitude mountain plant, rare endangered, slow growing",
+  "Image": "Osha Root.webp"
+ },
+ {
+  "name": "Pau d'Arco",
+  "Region": "Tropical Savanna",
+  "Growing Months": "July, August, September",
+  "Season": "Winter",
+  "Soil Requirements": "Well-drained loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Winter",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Medicinal bark, slow growing hardwood, bioactive compounds",
+  "Image": "Pau d'Arco.webp"
+ },
+ {
+  "name": "Moringa Tree",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December, January",
+  "Season": "Winter",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.5-8.0",
+  "Bloom and Harvest Time": "Winter",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, nutrition powerhouse, fast growing",
+  "Image": "Moringa Tree.webp"
+ },
+ {
+  "name": "Larch Tree",
+  "Region": "Temperate Maritime",
+  "Growing Months": "October, November",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Deciduous conifer, golden fall color, moisture loving",
+  "Image": "Larch Tree.webp"
+ },
+ {
+  "name": "Swiss Stone Pine",
+  "Region": "Alpine",
+  "Growing Months": "August, September, October",
+  "Season": "Summer,Fall",
+  "Soil Requirements": "Well-drained sandy loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "High altitude adaptation, slow growing, edible pine nuts",
+  "Image": "Swiss Stone Pine.webp"
+ },
+ {
+  "name": "Mountain Birch",
+  "Region": "Alpine Subarctic",
+  "Growing Months": "May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Hardy to extreme cold, white bark, fast growing",
+  "Image": "Mountain Birch.webp"
+ },
+ {
+  "name": "Birch (Paper)",
+  "Region": "Subarctic",
+  "Growing Months": "May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Very cold hardy, paper bark, pioneer species",
+  "Image": "Birch (Paper).webp"
+ },
+ {
+  "name": "Water Spinach",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Moist fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Aquatic vegetable, consistent moisture, fast growing",
+  "Image": "Water Spinach.webp"
+ },
+ {
+  "name": "Bitter Melon",
+  "Region": "Tropical",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun (6-8 hrs)",
+  "Care Instructions": "Trellis support, consistent watering, medicinal properties",
+  "Image": "Bitter Melon.webp"
+ },
+ {
+  "name": "Rambutan",
+  "Region": "Tropical",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Tropical tree, cross-pollination helps, hairy fruit",
+  "Image": "Rambutan.webp"
+ },
+ {
+  "name": "Durian",
+  "Region": "Tropical",
+  "Growing Months": "May, June, July",
+  "Season": "Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Tropical rainforest tree, pungent fruit, long-lived",
+  "Image": "Durian.webp"
+ },
+ {
+  "name": "Mangosteen",
+  "Region": "Tropical",
+  "Growing Months": "June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade (40-50%)",
+  "Care Instructions": "Tropical shade tree, slow growing, antioxidant rich",
+  "Image": "Mangosteen.webp"
+ },
+ {
+  "name": "Piper Betel (Betel Vine)",
+  "Region": "Subtropical Monsoon",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Moist well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Continuous",
+  "Sunlight Needs": "Partial shade (50%)",
+  "Care Instructions": "Climbing vine, moist soil, cultural significance",
+  "Image": "Piper Betel (Betel Vine).webp"
+ },
+ {
+  "name": "Clove Tree",
+  "Region": "Tropical Highland",
+  "Growing Months": "September, October, November",
+  "Season": "Fall",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade (40-50%)",
+  "Care Instructions": "Spice producer, slow growing, flower bud harvest",
+  "Image": "Clove Tree.webp"
+ },
+ {
+  "name": "Sebania (Desert Bean)",
+  "Region": "Desert,Arid",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought hardy, nitrogen fixing, green manure crop",
+  "Image": "Sebania (Desert Bean).webp"
+ },
+ {
+  "name": "Neem Tree",
+  "Region": "Tropical Savanna",
+  "Growing Months": "February, March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained loam, pH 6.0-8.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Drought tolerant, medicinal, pesticide properties",
+  "Image": "Neem Tree.webp"
+ },
+ {
+  "name": "African Locust Bean",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Shade tree, nitrogen fixing, culinary uses",
+  "Image": "African Locust Bean.webp"
+ },
+ {
+  "name": "Chaya (Tree Spinach)",
+  "Region": "Tropical",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Harvest",
+  "Sunlight Needs": "Full sun to partial shade",
+  "Care Instructions": "Nutritious leaves, fast growing, tropical perennial",
+  "Image": "Chaya (Tree Spinach).webp"
+ },
+ {
+  "name": "Moringa Leaves",
+  "Region": "Tropical",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.5-8.0",
+  "Bloom and Harvest Time": "Continuous",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Superfood plant, fast growing, drought tolerant",
+  "Image": "Moringa Leaves.webp"
+ },
+ {
+  "name": "Vanilla Orchid",
+  "Region": "Subtropical",
+  "Growing Months": "November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Orchid bark mix, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Winter",
+  "Sunlight Needs": "Bright indirect light",
+  "Care Instructions": "Hand pollination needed, curing process complex, precious spice",
+  "Image": "Vanilla Orchid.webp"
+ },
+ {
+  "name": "Vanilla planifolia",
+  "Region": "Tropical",
+  "Growing Months": "October, November",
+  "Season": "Fall",
+  "Soil Requirements": "Orchid bark, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Fall",
+  "Sunlight Needs": "Bright filtered light",
+  "Care Instructions": "Climbing orchid, hand-pollinated, 9-12 months curing",
+  "Image": "Vanilla planifolia.webp"
+ },
+ {
+  "name": "Longjing Tea Plant",
+  "Region": "Subtropical",
+  "Growing Months": "February, March, April ,September, October, November",
+  "Season": "Spring,Fall",
+  "Soil Requirements": "Acidic well-drained loam, pH 4.5-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade (50%)",
+  "Care Instructions": "Premium tea, shade growing, hand harvest required",
+  "Image": "Longjing Tea Plant.webp"
+ },
+ {
+  "name": "Green Tea Plant (Sencha)",
+  "Region": "Temperate",
+  "Growing Months": "#VALUE!",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Acidic well-drained loam, pH 4.5-6.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade",
+  "Care Instructions": "Shade tea production, multiple harvests yearly",
+  "Image": "Green Tea Plant (Sencha).webp"
+ },
+ {
+  "name": "Oolong Tea Plant",
+  "Region": "Subtropical",
+  "Growing Months": "#VALUE!",
+  "Season": "Spring,Fall",
+  "Soil Requirements": "Acidic well-drained loam, pH 4.5-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade (40-50%)",
+  "Care Instructions": "High altitude cultivation, semi-oxidized leaves",
+  "Image": "Oolong Tea Plant.webp"
+ },
+ {
+  "name": "Black Tea Plant",
+  "Region": "Tropical Highland",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained acidic loam, pH 4.5-6.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade",
+  "Care Instructions": "Highland tea, high rainfall, rolling estates",
+  "Image": "Black Tea Plant.webp"
+ },
+ {
+  "name": "Ceylon Tea Plant",
+  "Region": "Tropical Highland",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained acidic loam, pH 4.5-6.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade (50%)",
+  "Care Instructions": "High altitude mountain tea, monsoon influenced",
+  "Image": "Ceylon Tea Plant.webp"
+ },
+ {
+  "name": "American Tea Plant",
+  "Region": "Temperate Humid",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Summer",
+  "Sunlight Needs": "Partial shade",
+  "Care Instructions": "Emerging tea production, hand harvest, cold hardy",
+  "Image": "American Tea Plant.webp"
+ },
+ {
+  "name": "Yerba Mate (Argentine)",
+  "Region": "Subtropical",
+  "Growing Months": "May, June, July, August",
+  "Season": "Winter",
+  "Soil Requirements": "Well-drained fertile loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade (50%)",
+  "Care Instructions": "Traditional beverage, shade grown, sustainable harvesting",
+  "Image": "Yerba Mate (Argentine).webp"
+ },
+ {
+  "name": "Guarana Plant",
+  "Region": "Subtropical",
+  "Growing Months": "May, June, July",
+  "Season": "Winter",
+  "Soil Requirements": "Rich acidic loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Partial shade (40%)",
+  "Care Instructions": "Climbing shrub, high caffeine, Amazon native",
+  "Image": "Guarana Plant.webp"
+ },
+ {
+  "name": "Cork Oak",
+  "Region": "Mediterranean",
+  "Growing Months": "May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained sandy loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Cork harvesting, slow growing, Mediterranean native",
+  "Image": "Cork Oak.webp"
+ },
+ {
+  "name": "Deglet Noor Date",
+  "Region": "Desert,Mediterranean",
+  "Growing Months": "August, September, October",
+  "Season": "Summer,Fall",
+  "Soil Requirements": "Well-drained sandy loam, pH 7.0-8.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Oasis cultivation, prize variety, 40-80 years productive",
+  "Image": "Deglet Noor Date.webp"
+ },
+ {
+  "name": "Deglet Noor Dates",
+  "Region": "Desert",
+  "Growing Months": "August, September, October",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained sandy soil, pH 7.5-8.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Oasis grown, precious cultivar, drought tolerant",
+  "Image": "Deglet Noor Dates.webp"
+ },
+ {
+  "name": "Libyan Olive",
+  "Region": "Mediterranean,Desert",
+  "Growing Months": "September, October, November",
+  "Season": "Fall",
+  "Soil Requirements": "Well-drained loam, pH 7.0-8.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Oil production, drought tolerant, ancient cultivars",
+  "Image": "Libyan Olive.webp"
+ },
+ {
+  "name": "Pomegranate (Israeli)",
+  "Region": "Mediterranean",
+  "Growing Months": "August, September, October",
+  "Season": "Summer,Fall",
+  "Soil Requirements": "Well-drained loam, pH 6.5-8.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Disease resistant, commercial varieties, modern cultivation",
+  "Image": "Pomegranate (Israeli).webp"
+ },
+ {
+  "name": "Mango (Pakistani)",
+  "Region": "Hot Arid",
+  "Growing Months": "May, June, July",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained loam, pH 5.5-7.5",
+  "Bloom and Harvest Time": "Winter",
+  "Sunlight Needs": "Full sun (8+ hrs)",
+  "Care Instructions": "Exported worldwide, cross-pollination beneficial",
+  "Image": "Mango (Pakistani).webp"
+ },
+ {
+  "name": "Cashew Nut",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "March, April, May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Well-drained sandy loam, pH 6.0-7.5",
+  "Bloom and Harvest Time": "Winter",
+  "Sunlight Needs": "Full sun",
+  "Care Instructions": "Tropical tree, cashew apple edible, nut processing",
+  "Image": "Cashew Nut.webp"
+ },
+ {
+  "name": "Coffee (Vietnamese)",
+  "Region": "Subtropical Highland",
+  "Growing Months": "September, October, November",
+  "Season": "Fall",
+  "Soil Requirements": "Rich volcanic loam, pH 5.5-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (40-50%)",
+  "Care Instructions": "Robusta variety, high production, shade grown",
+  "Image": "Coffee (Vietnamese).webp"
+ },
+ {
+  "name": "Coffee (African)",
+  "Region": "Tropical",
+  "Growing Months": "September, October, November, December",
+  "Season": "Fall",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-6.5",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (40-50%)",
+  "Care Instructions": "Arabica variety, highland cultivation, wild origin",
+  "Image": "Coffee (African).webp"
+ },
+ {
+  "name": "Cocoa (Cameroon)",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December, January,May, June, July",
+  "Season": "Fall,Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50-60%)",
+  "Care Instructions": "Shade tree cultivation, quality cocoa, dual season",
+  "Image": "Cocoa (Cameroon).webp"
+ },
+ {
+  "name": "Cocoa (Ghanaian)",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December, January,May, June, July",
+  "Season": "Fall,Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50-60%)",
+  "Care Instructions": "World largest producer, dual harvest seasons",
+  "Image": "Cocoa (Ghanaian).webp"
+ },
+ {
+  "name": "Cacao (Fine Flavor)",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December, January,March , April",
+  "Season": "Fall,Spring",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50%)",
+  "Care Instructions": "Premium flavor variety, terroir dependent",
+  "Image": "Cacao (Fine Flavor).webp"
+ },
+ {
+  "name": "Cacao (Sulawesi)",
+  "Region": "Tropical",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (60%)",
+  "Care Instructions": "Quality fermentation, smallholder farms",
+  "Image": "Cacao (Sulawesi).webp"
+ },
+ {
+  "name": "Cacao (PNG)",
+  "Region": "Tropical Highland",
+  "Growing Months": "September, October, November, December, January",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Rich well-drained loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (60%)",
+  "Care Instructions": "High altitude, fine flavor, unique genetics",
+  "Image": "Cacao (PNG).webp"
+ },
+ {
+  "name": "Cocoa (Ivorian)",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December, January,May, June, July",
+  "Season": "Fall,Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50-60%)",
+  "Care Instructions": "Top world producer, bulk variety, high yield",
+  "Image": "Cocoa (Ivorian).webp"
+ },
+ {
+  "name": "Cacao (Mexican)",
+  "Region": "Tropical Monsoon",
+  "Growing Months": "October, November, December, January,May, June, July",
+  "Season": "Fall,Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50%)",
+  "Care Instructions": "Historic cultivation, Maya origin, quality beans",
+  "Image": "Cacao (Mexican).webp"
+ },
+ {
+  "name": "Cacao (Dominican)",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December, January,May, June, July",
+  "Season": "Fall,Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 5.5-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50-60%)",
+  "Care Instructions": "Fine flavor beans, sustainable farming",
+  "Image": "Cacao (Dominican).webp"
+ },
+ {
+  "name": "Cacao (Peruvian)",
+  "Region": "Tropical",
+  "Growing Months": "September, October, November, December, January, February",
+  "Season": "Fall,Winter",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50%)",
+  "Care Instructions": "Amazon origin, criollo genetics, specialty cocoa",
+  "Image": "Cacao (Peruvian).webp"
+ },
+ {
+  "name": "Cacao (Bolivian)",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December, January",
+  "Season": "Fall",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (60%)",
+  "Care Instructions": "Organic farming tradition, biodiversity rich",
+  "Image": "Cacao (Bolivian).webp"
+ },
+ {
+  "name": "Cacao (Panamanian)",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December, January,May, June, July",
+  "Season": "Fall,Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50-60%)",
+  "Care Instructions": "Fine flavor origin, San Blas islands reputation",
+  "Image": "Cacao (Panamanian).webp"
+ },
+ {
+  "name": "Cacao (Puerto Rican)",
+  "Region": "Tropical",
+  "Growing Months": "October, November, December, January,May, June, July",
+  "Season": "Fall,Summer",
+  "Soil Requirements": "Rich well-drained loam, pH 6.0-7.0",
+  "Bloom and Harvest Time": "Spring",
+  "Sunlight Needs": "Shade (50%)",
+  "Care Instructions": "Caribbean cultivation, historic flavor, small producer",
+  "Image": "Cacao (Puerto Rican).webp"
+ },
+ {
+  "name": "Marigold (Genda)",
+  "Region": "North (Temperate,Cold)",
+  "Growing Months": "October, November, December, January, February, March",
+  "Season": "Winter",
+  "Soil Requirements": "Well-drained,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Deadhead regularly to encourage more blooms.",
+  "Image": "Marigold (Genda).webp"
+ },
+ {
+  "name": "Jasmine (Mogra)",
+  "Region": "South (Tropical,Humid)",
+  "Growing Months": "March, April, May, June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Rich Loamy",
+  "Bloom and Harvest Time": "Evening,Night",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Requires high phosphorus for heavy blooming.",
+  "Image": "Jasmine (Mogra).webp"
+ },
+ {
+  "name": "Lotus (Kamal)",
+  "Region": "East (Humid)",
+  "Growing Months": "June, July, August",
+  "Season": "Monsoon",
+  "Soil Requirements": "Muddy,Clay",
+  "Bloom and Harvest Time": "Morning",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Grown in standing water; keep water surface clean.",
+  "Image": "Lotus (Kamal).webp"
+ },
+ {
+  "name": "Bougainvillea",
+  "Region": "West (Arid)",
+  "Growing Months": "October, November, December, January, February, March, April, May",
+  "Season": "Year-round",
+  "Soil Requirements": "Sandy,Dry",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Very drought-tolerant; avoid over-fertilizing.",
+  "Image": "Bougainvillea.webp"
+ },
+ {
+  "name": "California Poppy",
+  "Region": "West (Mediterranean)",
+  "Growing Months": "February, March, April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Sandy,Poor",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Does not tolerate transplanting; sow seeds directly.",
+  "Image": "California Poppy.webp"
+ },
+ {
+  "name": "Camellia",
+  "Region": "South (Subtropical)",
+  "Growing Months": "November, December, January, February, March",
+  "Season": "Winter,Spring",
+  "Soil Requirements": "Acidic,Moist",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Keep roots cool with mulch; protect from wind.",
+  "Image": "Camellia.webp"
+ },
+ {
+  "name": "Peony",
+  "Region": "North (Temperate)",
+  "Growing Months": "May, June",
+  "Season": "Late Spring",
+  "Soil Requirements": "Rich,Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Needs cold winter to bloom; plant shallowly.",
+  "Image": "Peony.webp"
+ },
+ {
+  "name": "Cherry Blossom (Sakura)",
+  "Region": "Temperate",
+  "Growing Months": "March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Deep Loam",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Short blooming period; avoid heavy nitrogen fertilizer.",
+  "Image": "Cherry Blossom (Sakura).webp"
+ },
+ {
+  "name": "Wisteria",
+  "Region": "Temperate,Cool",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Moist,Loamy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Needs heavy-duty support (trellis) for heavy vines.",
+  "Image": "Wisteria.webp"
+ },
+ {
+  "name": "English Lavender",
+  "Region": "Maritime,Temperate",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Alkaline,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Prune after blooming to prevent woodiness.",
+  "Image": "English Lavender.webp"
+ },
+ {
+  "name": "Bluebell",
+  "Region": "Maritime,Cool",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Rich Humus",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Avoid walking near them; leaves are easily damaged.",
+  "Image": "Bluebell.webp"
+ },
+ {
+  "name": "Tulip",
+  "Region": "Maritime,Cool",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Sandy,Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Bulbs must be chilled over winter before planting.",
+  "Image": "Tulip.webp"
+ },
+ {
+  "name": "King Protea",
+  "Region": "Western Cape (Mediterranean)",
+  "Growing Months": "May, June, July, August, September, October",
+  "Season": "Winter,Spring",
+  "Soil Requirements": "Acidic,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Do not use phosphorus fertilizer; needs airflow.",
+  "Image": "King Protea.webp"
+ },
+ {
+  "name": "Bird of Paradise",
+  "Region": "East (Subtropical)",
+  "Growing Months": "May, June, July, August, September, October, November, December",
+  "Season": "Year-round",
+  "Soil Requirements": "Rich,Clay-mix",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Divide clumps every 5 years; feed in spring.",
+  "Image": "Bird of Paradise.webp"
+ },
+ {
+  "name": "Waratah",
+  "Region": "East (Subtropical)",
+  "Growing Months": "September, October",
+  "Season": "Spring",
+  "Soil Requirements": "Deep,Basaltic",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Sensitive to root rot; requires excellent drainage.",
+  "Image": "Waratah.webp"
+ },
+ {
+  "name": "Kangaroo Paw",
+  "Region": "West (Arid)",
+  "Growing Months": "August, September, October, November",
+  "Season": "Spring",
+  "Soil Requirements": "Sandy,Light",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Treat for \"ink spot\" disease on leaves during rain.",
+  "Image": "Kangaroo Paw.webp"
+ },
+ {
+  "name": "Dahlia",
+  "Region": "Tropical,Highland",
+  "Growing Months": "July, August, September, October",
+  "Season": "Summer,Fall",
+  "Soil Requirements": "Rich Organic",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Stake tall varieties; lift tubers in frost zones.",
+  "Image": "Dahlia.webp"
+ },
+ {
+  "name": "Cattleya Orchid",
+  "Region": "Tropical,Humid",
+  "Growing Months": "#N,A",
+  "Season": "Year-round",
+  "Soil Requirements": "Epiphytic Bark",
+  "Bloom and Harvest Time": "Variable",
+  "Sunlight Needs": "Dappled Sun",
+  "Care Instructions": "Mist daily but let roots dry out between waterings.",
+  "Image": "Cattleya Orchid.webp"
+ },
+ {
+  "name": "Frangipani (Plumeria)",
+  "Region": "Tropical",
+  "Growing Months": "March, April, May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained,Silt",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Avoid watering in winter when leaves drop.",
+  "Image": "Frangipani (Plumeria).webp"
+ },
+ {
+  "name": "Peony (Mudan)",
+  "Region": "Temperate,Cold",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Rich,Alkaline",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Regarded as the \"King of Flowers\"; needs rich compost.",
+  "Image": "Peony (Mudan).webp"
+ },
+ {
+  "name": "Iris",
+  "Region": "Mediterranean",
+  "Growing Months": "April, May, June",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained,Dry",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Plant rhizomes partially exposed to the sun.",
+  "Image": "Iris.webp"
+ },
+ {
+  "name": "Cornflower",
+  "Region": "Temperate",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Average,Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Drought tolerant; great for attracting bees.",
+  "Image": "Cornflower.webp"
+ },
+ {
+  "name": "Trillium",
+  "Region": "Boreal,Cool",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Damp,Acidic",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Shade",
+  "Care Instructions": "Wildflowers; do not pick as they take years to regrow.",
+  "Image": "Trillium.webp"
+ },
+ {
+  "name": "Turkish Tulip (Anatolia)",
+  "Region": "Arid,Highland",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "The original pointed-petal tulip; very hardy.",
+  "Image": "Turkish Tulip (Anatolia).webp"
+ },
+ {
+  "name": "Brahma Kamal",
+  "Region": "North (Temperate)",
+  "Growing Months": "Monsoon",
+  "Season": "Partial Shade",
+  "Soil Requirements": "Rocky,Alpine",
+  "Bloom and Harvest Time": "Late Summer",
+  "Care Instructions": "Native to high altitudes; requires cool temperatures and minimal watering.",
+  "Image": "Brahma Kamal.webp"
+ },
+ {
+  "name": "Jasmine (Mogra)",
+  "Region": "South (Tropical)",
+  "Growing Months": "Tropical",
+  "Season": "Full Sun",
+  "Soil Requirements": "Well-drained Loamy",
+  "Bloom and Harvest Time": "Summer,Spring",
+  "Care Instructions": "Prune regularly to encourage bushy growth; fertilize every 2 months.",
+  "Image": "Jasmine (Mogra).webp"
+ },
+ {
+  "name": "Foxtail Orchid",
+  "Region": "East (Humid)",
+  "Growing Months": "Spring",
+  "Season": "Dappled Sun",
+  "Soil Requirements": "Epiphytic (Bark,Charcoal)",
+  "Bloom and Harvest Time": "Early Spring",
+  "Care Instructions": "Needs high humidity and good air circulation; mist roots daily.",
+  "Image": "Foxtail Orchid.webp"
+ },
+ {
+  "name": "Marigold (Genda)",
+  "Region": "West (Arid)",
+  "Growing Months": "Winter,Spring",
+  "Season": "Full Sun",
+  "Soil Requirements": "Sandy,Well-drained",
+  "Bloom and Harvest Time": "Winter",
+  "Care Instructions": "Deadhead spent blooms to prolong flowering; avoid overwatering.",
+  "Image": "Marigold (Genda).webp"
+ },
+ {
+  "name": "California Poppy",
+  "Region": "West Coast (Mediterranean)",
+  "Growing Months": "Spring,Summer",
+  "Season": "Full Sun",
+  "Soil Requirements": "Sandy,Poor Soil",
+  "Bloom and Harvest Time": "Late Spring",
+  "Care Instructions": "Highly drought-tolerant; sow seeds directly in the ground.",
+  "Image": "California Poppy.webp"
+ },
+ {
+  "name": "Camellia",
+  "Region": "South (Humid Subtropical)",
+  "Growing Months": "Winter,Spring",
+  "Season": "Partial Shade",
+  "Soil Requirements": "Acidic,Moist",
+  "Bloom and Harvest Time": "Late Winter",
+  "Care Instructions": "Mulch to keep roots cool; protect from harsh afternoon sun.",
+  "Image": "Camellia.webp"
+ },
+ {
+  "name": "Mountain Laurel",
+  "Region": "Northeast (Temperate)",
+  "Growing Months": "Spring",
+  "Season": "Partial Shade",
+  "Soil Requirements": "Acidic,Humus-rich",
+  "Bloom and Harvest Time": "Late Spring",
+  "Care Instructions": "Avoid deep planting; requires acidic soil to prevent yellowing leaves.",
+  "Image": "Mountain Laurel.webp"
+ },
+ {
+  "name": "Tulip",
+  "Region": "Temperate",
+  "Growing Months": "Spring",
+  "Season": "Full Sun",
+  "Soil Requirements": "Well-drained Sandy",
+  "Bloom and Harvest Time": "Mid Spring",
+  "Care Instructions": "Plant bulbs in Autumn; requires a cold dormant period to bloom.",
+  "Image": "Tulip.webp"
+ },
+ {
+  "name": "Cherry Blossom (Sakura)",
+  "Region": "Temperate",
+  "Growing Months": "Spring",
+  "Season": "Full Sun",
+  "Soil Requirements": "Deep Loamy",
+  "Bloom and Harvest Time": "Early Spring",
+  "Care Instructions": "Requires minimal pruning; susceptible to pests if soil is too wet.",
+  "Image": "Cherry Blossom (Sakura).webp"
+ },
+ {
+  "name": "Kangaroo Paw",
+  "Region": "West (Arid,Mediterranean)",
+  "Growing Months": "Spring,Summer",
+  "Season": "Full Sun",
+  "Soil Requirements": "Sandy,Well-drained",
+  "Bloom and Harvest Time": "Late Spring",
+  "Care Instructions": "Cut back to the ground after flowering to encourage new growth.",
+  "Image": "Kangaroo Paw.webp"
+ },
+ {
+  "name": "Bottlebrush",
+  "Region": "East (Subtropical)",
+  "Growing Months": "Spring, Autumn",
+  "Season": "Full Sun",
+  "Soil Requirements": "Moist,Adaptable",
+  "Bloom and Harvest Time": "Spring",
+  "Care Instructions": "Extremely hardy; prune after flowering to maintain shape.",
+  "Image": "Bottlebrush.webp"
+ },
+ {
+  "name": "King Protea",
+  "Region": "Western Cape (Mediterranean)",
+  "Growing Months": "Winter,Spring",
+  "Season": "Full Sun",
+  "Soil Requirements": "Acidic,Sandy",
+  "Bloom and Harvest Time": "Spring",
+  "Care Instructions": "Low phosphorus fertilizer only; requires excellent drainage.",
+  "Image": "King Protea.webp"
+ },
+ {
+  "name": "Strelitzia (Bird of Paradise)",
+  "Region": "East (Subtropical)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Full Sun,Partial",
+  "Soil Requirements": "Loamy,Rich",
+  "Bloom and Harvest Time": "Variable",
+  "Care Instructions": "Feed with slow-release fertilizer; sensitive to frost.",
+  "Image": "Strelitzia (Bird of Paradise).webp"
+ },
+ {
+  "name": "English Lavender",
+  "Region": "Maritime,Temperate",
+  "Growing Months": "Summer",
+  "Season": "Full Sun",
+  "Soil Requirements": "Well-drained,Alkaline",
+  "Bloom and Harvest Time": "Mid Summer",
+  "Care Instructions": "Prune lightly after flowering to prevent woodiness; don't overwater.",
+  "Image": "English Lavender.webp"
+ },
+ {
+  "name": "Dahlia",
+  "Region": "Tropical,Arid",
+  "Growing Months": "Summer,Autumn",
+  "Season": "Full Sun",
+  "Soil Requirements": "Rich,Well-drained",
+  "Bloom and Harvest Time": "Late Summer",
+  "Care Instructions": "Requires staking for tall varieties; lift tubers in winter in cold climates.",
+  "Image": "Dahlia.webp"
+ },
+ {
+  "name": "Cattleya Orchid",
+  "Region": "Tropical Rainforest",
+  "Growing Months": "Tropical",
+  "Season": "Partial Shade",
+  "Soil Requirements": "Epiphytic,Bark",
+  "Bloom and Harvest Time": "Year-round",
+  "Care Instructions": "Needs high humidity; allow the potting medium to dry between waterings.",
+  "Image": "Cattleya Orchid.webp"
+ },
+ {
+  "name": "Brahma Kamal",
+  "Region": "North (Himalayan)",
+  "Growing Months": "July, August, September",
+  "Season": "Monsoon",
+  "Soil Requirements": "Rocky,Acidic",
+  "Bloom and Harvest Time": "Night",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Requires cold climate; native to high altitudes.",
+  "Image": "Brahma Kamal.webp"
+ },
+ {
+  "name": "Marigold (Genda)",
+  "Region": "North (Plains)",
+  "Growing Months": "October, November, December, January, February, March",
+  "Season": "Winter",
+  "Soil Requirements": "Sandy Loam",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Deadhead regularly; avoid watering on leaves to prevent fungal rot.",
+  "Image": "Marigold (Genda).webp"
+ },
+ {
+  "name": "Rose (Gulab)",
+  "Region": "North (Plains)",
+  "Growing Months": "October, November, December, January, February, March, April",
+  "Season": "Winter,Spring",
+  "Soil Requirements": "Well-drained Loam",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Prune in October; feed with organic manure for heavy blooms.",
+  "Image": "Rose (Gulab).webp"
+ },
+ {
+  "name": "Jasmine (Mogra)",
+  "Region": "South (Tropical)",
+  "Growing Months": "March, April, May, June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Fertile Loam",
+  "Bloom and Harvest Time": "Night",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Keep soil moist; prune after blooming to encourage new growth.",
+  "Image": "Jasmine (Mogra).webp"
+ },
+ {
+  "name": "Ixora (Jungle Flame)",
+  "Region": "South (Tropical)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Acidic,Moist",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Requires humidity; acidify soil occasionally with coffee grounds.",
+  "Image": "Ixora (Jungle Flame).webp"
+ },
+ {
+  "name": "Crossandra (Aboli)",
+  "Region": "South (Deccan)",
+  "Growing Months": "April, May, June, July, August, September",
+  "Season": "Summer,Monsoon",
+  "Soil Requirements": "Well-drained Rich",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "Sensitive to frost; keep soil consistently moist but not soggy.",
+  "Image": "Crossandra (Aboli).webp"
+ },
+ {
+  "name": "Foxtail Orchid",
+  "Region": "East (Humid)",
+  "Growing Months": "April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Epiphytic (Bark)",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Dappled Sun",
+  "Care Instructions": "Mist roots daily; requires very high humidity and airflow.",
+  "Image": "Foxtail Orchid.webp"
+ },
+ {
+  "name": "Lotus (Kamal)",
+  "Region": "East (Humid)",
+  "Growing Months": "June, July, August",
+  "Season": "Monsoon",
+  "Soil Requirements": "Heavy Clay,Mud",
+  "Bloom and Harvest Time": "Morning",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Grow in still water ponds; ensure 6+ hours of direct sunlight.",
+  "Image": "Lotus (Kamal).webp"
+ },
+ {
+  "name": "Hibiscus (Joba)",
+  "Region": "East (Subtropical)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer,Monsoon",
+  "Soil Requirements": "Rich Organic",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Prune frequently; treat for mealybugs with neem oil spray.",
+  "Image": "Hibiscus (Joba).webp"
+ },
+ {
+  "name": "Bougainvillea",
+  "Region": "West (Arid)",
+  "Growing Months": "November, December, January, February, March, April, May, June",
+  "Season": "Year-round",
+  "Soil Requirements": "Sandy,Dry",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Extremely drought-tolerant; blooms best when slightly underwatered.",
+  "Image": "Bougainvillea.webp"
+ },
+ {
+  "name": "Periwinkle (Sadabahar)",
+  "Region": "West (Arid)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "All Seasons",
+  "Soil Requirements": "Adaptable,Poor",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Low maintenance; highly resistant to pests and heat.",
+  "Image": "Periwinkle (Sadabahar).webp"
+ },
+ {
+  "name": "Frangipani (Champa)",
+  "Region": "West (Coastal)",
+  "Growing Months": "March, April, May, June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Avoid overwatering in winter; requires minimal fertilization.",
+  "Image": "Frangipani (Champa).webp"
+ },
+ {
+  "name": "Palash (Flame of Forest)",
+  "Region": "Central (Forests)",
+  "Growing Months": "February, March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Hard,Poor Soil",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Drought-resistant tree; doesn't require extra care once established.",
+  "Image": "Palash (Flame of Forest).webp"
+ },
+ {
+  "name": "Tuberose (Rajnigandha)",
+  "Region": "Pan-India",
+  "Growing Months": "July, August, September, October",
+  "Season": "Late Summer",
+  "Soil Requirements": "Loamy,Sandy",
+  "Bloom and Harvest Time": "Night",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Plant bulbs 2 inches deep; needs heavy feeding during growth.",
+  "Image": "Tuberose (Rajnigandha).webp"
+ },
+ {
+  "name": "Pansy",
+  "Region": "Himalayan,North",
+  "Growing Months": "December, January, February, March",
+  "Season": "Winter",
+  "Soil Requirements": "Rich,Humus",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "Keep soil cool and moist; protect from harsh afternoon sun.",
+  "Image": "Pansy.webp"
+ },
+ {
+  "name": "Name",
+  "Region": "Sub-part",
+  "Growing Months": "#N,A",
+  "Season": "Season",
+  "Soil Requirements": "Soil",
+  "Bloom and Harvest Time": "Bloom Time",
+  "Sunlight Needs": "Sunlight",
+  "Care Instructions": "Care",
+  "Image": "Name.webp"
+ },
+ {
+  "name": "Chrysanthemum (Guldaudi)",
+  "Region": "North (Plains)",
+  "Growing Months": "November, December, January",
+  "Season": "Winter",
+  "Soil Requirements": "Well-drained Rich",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Pinch tips early in the season to encourage a bushier plant with more flowers.",
+  "Image": "Chrysanthemum (Guldaudi).webp"
+ },
+ {
+  "name": "Dahlia",
+  "Region": "North (Plains)",
+  "Growing Months": "December, January, February, March",
+  "Season": "Winter",
+  "Soil Requirements": "Rich,Manured",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Requires staking as the flowers are heavy; needs regular liquid fertilizer.",
+  "Image": "Dahlia.webp"
+ },
+ {
+  "name": "Blue Poppy",
+  "Region": "North (Himalayan)",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Gritty,Acidic",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Extremely difficult to grow outside cold,high-altitude zones; needs constant moisture.",
+  "Image": "Blue Poppy.webp"
+ },
+ {
+  "name": "Geranium",
+  "Region": "North (Himalayan)",
+  "Growing Months": "March, April, May, June",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "Protect from heavy monsoon rains to prevent root rot.",
+  "Image": "Geranium.webp"
+ },
+ {
+  "name": "Amaltas (Golden Shower)",
+  "Region": "Central,North",
+  "Growing Months": "April, May, June",
+  "Season": "Summer",
+  "Soil Requirements": "Hardy,Adaptable",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "A drought-tolerant tree; needs space for roots to spread.",
+  "Image": "Amaltas (Golden Shower).webp"
+ },
+ {
+  "name": "Gulmohar",
+  "Region": "Central,West",
+  "Growing Months": "April, May, June",
+  "Season": "Summer",
+  "Soil Requirements": "Sandy,Loam",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Very fast-growing; ensure it is planted away from building foundations.",
+  "Image": "Gulmohar.webp"
+ },
+ {
+  "name": "Gardenia (Gandharaj)",
+  "Region": "East (Humid)",
+  "Growing Months": "April, May, June, July",
+  "Season": "Summer",
+  "Soil Requirements": "Acidic,Moist",
+  "Bloom and Harvest Time": "Night,Day",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Highly fragrant; keep soil acidic using composted leaves or organic mulch.",
+  "Image": "Gardenia (Gandharaj).webp"
+ },
+ {
+  "name": "Anthurium",
+  "Region": "East (Tropical)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Humid",
+  "Soil Requirements": "Peat,Bark-mix",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Shade,Indirect",
+  "Care Instructions": "Needs high humidity (mist daily) and strictly indirect light to avoid leaf burn.",
+  "Image": "Anthurium.webp"
+ },
+ {
+  "name": "Water Lily (Nilkamal)",
+  "Region": "East (Humid)",
+  "Growing Months": "August, September, October",
+  "Season": "Monsoon",
+  "Soil Requirements": "Muddy,Aquatic",
+  "Bloom and Harvest Time": "Morning",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Ensure the pond has at least 6 inches of water above the soil at all times.",
+  "Image": "Water Lily (Nilkamal).webp"
+ },
+ {
+  "name": "Cannonball Flower (Nagalingam)",
+  "Region": "South (Coastal)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Deep Loamy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Grows directly on the tree trunk; needs plenty of space as it is a large tree.",
+  "Image": "Cannonball Flower (Nagalingam).webp"
+ },
+ {
+  "name": "Oleander (Kaner)",
+  "Region": "South (Humid)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Poor,Dry",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Highly toxic if ingested; very low maintenance and drought resistant.",
+  "Image": "Oleander (Kaner).webp"
+ },
+ {
+  "name": "Rain Lily",
+  "Region": "South (Tropical)",
+  "Growing Months": "June, July, August, September",
+  "Season": "Monsoon",
+  "Soil Requirements": "Loamy,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Bulbs multiply rapidly; they bloom almost immediately after the first monsoon rains.",
+  "Image": "Rain Lily.webp"
+ },
+ {
+  "name": "Desert Rose (Adenium)",
+  "Region": "West (Arid)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Dry",
+  "Soil Requirements": "Succulent-mix,Sand",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Do not overwater; treat it like a cactus. Needs high heat to bloom.",
+  "Image": "Desert Rose (Adenium).webp"
+ },
+ {
+  "name": "Gaillardia (Blanket Flower)",
+  "Region": "West (Arid)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "All Seasons",
+  "Soil Requirements": "Sandy,Poor",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Very heat tolerant; deadhead to keep the plant blooming throughout the year.",
+  "Image": "Gaillardia (Blanket Flower).webp"
+ },
+ {
+  "name": "Canna Lily",
+  "Region": "Pan-India",
+  "Growing Months": "June, July, August, September, October",
+  "Season": "Monsoon,Summer",
+  "Soil Requirements": "Wet,Rich",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Thrives near water drains or damp spots; requires very little care once established.",
+  "Image": "Canna Lily.webp"
+ },
+ {
+  "name": "Zinnia",
+  "Region": "Pan-India",
+  "Growing Months": "February, March, April, May, June",
+  "Season": "Summer",
+  "Soil Requirements": "Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Sow seeds directly; very attractive to butterflies and easy for beginners.",
+  "Image": "Zinnia.webp"
+ },
+ {
+  "name": "Sunrose (Portulaca)",
+  "Region": "Pan-India",
+  "Growing Months": "April, May, June, July, August, September, October",
+  "Season": "Summer",
+  "Soil Requirements": "Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Flowers only open in bright sunlight; perfect for rock gardens or hanging pots.",
+  "Image": "Sunrose (Portulaca).webp"
+ },
+ {
+  "name": "Morning Glory",
+  "Region": "Pan-India",
+  "Growing Months": "July, August, September, October, November",
+  "Season": "Monsoon",
+  "Soil Requirements": "Average,Moist",
+  "Bloom and Harvest Time": "Early Morning",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Fast-growing climber; provide a trellis or fence for support.",
+  "Image": "Morning Glory.webp"
+ },
+ {
+  "name": "Lady's Slipper Orchid",
+  "Region": "Northeast",
+  "Growing Months": "November, December, January, February, March",
+  "Season": "Winter",
+  "Soil Requirements": "Orchid Mix,Moss",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Indirect Light",
+  "Care Instructions": "Endangered; requires high humidity and cool",
+  "Image": "Lady's Slipper Orchid.webp"
+ },
+ {
+  "name": "Blue Ginger",
+  "Region": "Northeast",
+  "Growing Months": "July, August, September, October",
+  "Season": "Monsoon",
+  "Soil Requirements": "Rich,Humus",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Thrives in forest-like conditions; needs moist",
+  "Image": "Blue Ginger.webp"
+ },
+ {
+  "name": "Petunia",
+  "Region": "North (Plains)",
+  "Growing Months": "December, January, February, March, April",
+  "Season": "Winter,Spring",
+  "Soil Requirements": "Light,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Great for hanging pots; avoid overwatering the foliage to prevent mold.",
+  "Image": "Petunia.webp"
+ },
+ {
+  "name": "Snapdragon (Dog Flower)",
+  "Region": "North (Plains)",
+  "Growing Months": "January, February, March, April",
+  "Season": "Winter,Spring",
+  "Soil Requirements": "Well-drained Loam",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Deadhead the spikes once they fade to encourage a second flush of blooms.",
+  "Image": "Snapdragon (Dog Flower).webp"
+ },
+ {
+  "name": "Calendula (Pot Marigold)",
+  "Region": "North (Plains)",
+  "Growing Months": "December, January, February, March",
+  "Season": "Winter",
+  "Soil Requirements": "Average,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Very easy for beginners; flowers are edible and used in herbal balms.",
+  "Image": "Calendula (Pot Marigold).webp"
+ },
+ {
+  "name": "Neelakurinji",
+  "Region": "South (Hills)",
+  "Growing Months": "August ,September, October",
+  "Season": "Monsoon",
+  "Soil Requirements": "Montane Soil",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Famous for blooming once every 12 years; strictly protected in the wild.",
+  "Image": "Neelakurinji.webp"
+ },
+ {
+  "name": "Champaca (Champa)",
+  "Region": "South (Tropical)",
+  "Growing Months": "April, May, June, July, August, September",
+  "Season": "Summer,Monsoon",
+  "Soil Requirements": "Deep,Organic",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Large tree with highly fragrant flowers; needs space and deep soil.",
+  "Image": "Champaca (Champa).webp"
+ },
+ {
+  "name": "Firecracker Flower (Kanakambaram)",
+  "Region": "South (Tropical)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Loamy,Moist",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "Commonly used in hair garlands; sensitive to cold and drought.",
+  "Image": "Firecracker Flower (Kanakambaram).webp"
+ },
+ {
+  "name": "Spider Lily",
+  "Region": "West (Coastal)",
+  "Growing Months": "June, July, August, September",
+  "Season": "Monsoon",
+  "Soil Requirements": "Sandy,Moist",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Thrives in coastal heat; bulbs are very hardy and multiply quickly.",
+  "Image": "Spider Lily.webp"
+ },
+ {
+  "name": "Tecoma (Yellow Bells)",
+  "Region": "West (Arid)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "All Seasons",
+  "Soil Requirements": "Poor,Hardy Soil",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Attracts sunbirds; drought-resistant shrub that needs heavy pruning to stay shaped.",
+  "Image": "Tecoma (Yellow Bells).webp"
+ },
+ {
+  "name": "Lantana",
+  "Region": "Central (Plains)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "All Seasons",
+  "Soil Requirements": "Adaptable,Dry",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Extremely hardy; can be invasive",
+  "Image": "Lantana.webp"
+ },
+ {
+  "name": "Cosmos",
+  "Region": "Pan-India",
+  "Growing Months": "August, September, October, November, December",
+  "Season": "Monsoon,Post-Monsoon",
+  "Soil Requirements": "Poor to Average",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Sow seeds directly in open ground; does better in less fertile soil.",
+  "Image": "Cosmos.webp"
+ },
+ {
+  "name": "Balsam (Gul-Mehendi)",
+  "Region": "Pan-India",
+  "Growing Months": "July, August, September",
+  "Season": "Monsoon",
+  "Soil Requirements": "Moist,Rich",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "A staple of the Indian monsoon garden; seeds \"pop\" when touched.",
+  "Image": "Balsam (Gul-Mehendi).webp"
+ },
+ {
+  "name": "Sunflower (Surajmukhi)",
+  "Region": "Pan-India",
+  "Growing Months": "March, April, May, June",
+  "Season": "Summer",
+  "Soil Requirements": "Deep,Nutrient-rich",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Requires heavy watering during peak summer and support for tall stems.",
+  "Image": "Sunflower (Surajmukhi).webp"
+ },
+ {
+  "name": "Verbena",
+  "Region": "Pan-India",
+  "Growing Months": "November, December, January, February, March, April, May",
+  "Season": "Winter,Summer",
+  "Soil Requirements": "Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Low-growing carpet flower; perfect for borders and rockeries.",
+  "Image": "Verbena.webp"
+ },
+ {
+  "name": "Parijat (Night Jasmine)",
+  "Region": "East,West",
+  "Growing Months": "August, September, October, November",
+  "Season": "Post-Monsoon",
+  "Soil Requirements": "Well-drained,Sandy",
+  "Bloom and Harvest Time": "Night",
+  "Sunlight Needs": "Full,Partial Sun",
+  "Care Instructions": "Flowers drop at dawn; avoid waterlogging at roots.",
+  "Image": "Parijat (Night Jasmine).webp"
+ },
+ {
+  "name": "Aparajita (Butterfly Pea)",
+  "Region": "South,Pan",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Moist,Fertile",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Fast-growing climber; needs a trellis or fence for support.",
+  "Image": "Aparajita (Butterfly Pea).webp"
+ },
+ {
+  "name": "Madhumalti (Rangoon Creeper)",
+  "Region": "Central,North",
+  "Growing Months": "February, March, April ,August ,September, October,November",
+  "Season": "Summer,Monsoon",
+  "Soil Requirements": "Loamy,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Flowers change from white to pink to red; fragrant at night.",
+  "Image": "Madhumalti (Rangoon Creeper).webp"
+ },
+ {
+  "name": "Krishna Kamal (Passion Flower)",
+  "Region": "Pan-India",
+  "Growing Months": "March, April, May, June, July, August, September, October",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Slightly Acidic",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Needs vertical support; prune in early spring to control growth.",
+  "Image": "Krishna Kamal (Passion Flower).webp"
+ },
+ {
+  "name": "Raat ki Rani (Night Jasmine)",
+  "Region": "Pan-India",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Rich,Well-drained",
+  "Bloom and Harvest Time": "Night",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Extremely fragrant; prune after blooming to prevent leggy growth.",
+  "Image": "Raat ki Rani (Night Jasmine).webp"
+ },
+ {
+  "name": "Kachnar (Orchid Tree)",
+  "Region": "North,East",
+  "Growing Months": "February, March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Hardy,Adaptable",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Deciduous tree; flowers are edible and used in Indian pickles.",
+  "Image": "Kachnar (Orchid Tree).webp"
+ },
+ {
+  "name": "Chandni (Crape Jasmine)",
+  "Region": "South,East",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Sandy Loam",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Milky sap; prune to maintain a round shrub shape.",
+  "Image": "Chandni (Crape Jasmine).webp"
+ },
+ {
+  "name": "Ashoka Tree",
+  "Region": "East,South",
+  "Growing Months": "February, March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Moist,Rich",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Sacred tree; requires deep soil and protection from extreme wind.",
+  "Image": "Ashoka Tree.webp"
+ },
+ {
+  "name": "Jarul (Pride of India)",
+  "Region": "West (Humid)",
+  "Growing Months": "April, May, June",
+  "Season": "Summer",
+  "Soil Requirements": "Moist,Loam",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Maharashtra state flower; very heat tolerant once established.",
+  "Image": "Jarul (Pride of India).webp"
+ },
+ {
+  "name": "Gladiolus (Sword Lily)",
+  "Region": "North (Plains)",
+  "Growing Months": "December, January, February, March",
+  "Season": "Winter",
+  "Soil Requirements": "Well-drained Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Plant corms in Oct; requires staking for tall flower spikes.",
+  "Image": "Gladiolus (Sword Lily).webp"
+ },
+ {
+  "name": "Glory Lily (Kalihari)",
+  "Region": "South",
+  "Growing Months": "November, December, January, February, March",
+  "Season": "Winter",
+  "Soil Requirements": "Sandy,Rich",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "State flower of TN; all parts are toxic if ingested.",
+  "Image": "Glory Lily (Kalihari).webp"
+ },
+ {
+  "name": "Rhododendron (Burans)",
+  "Region": "North (Himalayan)",
+  "Growing Months": "March, April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Acidic,Woody",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Native to hills; flowers are used to make traditional local juice.",
+  "Image": "Rhododendron (Burans).webp"
+ },
+ {
+  "name": "Nag Champa",
+  "Region": "South (Coastal)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Deep Loamy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Common near temples; flowers grow directly from the tree trunk.",
+  "Image": "Nag Champa.webp"
+ },
+ {
+  "name": "Water Lily",
+  "Region": "Pan-India",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Aquatic Mud",
+  "Bloom and Harvest Time": "Morning",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Distinct from Lotus; flowers float directly on the water surface.",
+  "Image": "Water Lily.webp"
+ },
+ {
+  "name": "Gul-e-Abbas (4 O'Clock)",
+  "Region": "Pan-India",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "All Seasons",
+  "Soil Requirements": "Average,Sandy",
+  "Bloom and Harvest Time": "Evening",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Flowers open in late afternoon; very easy to grow from seeds.",
+  "Image": "Gul-e-Abbas (4 O'Clock).webp"
+ },
+ {
+  "name": "Allamanda (Golden Trumpet)",
+  "Region": "South,Pan",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Summer",
+  "Soil Requirements": "Rich,Moist",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Vigorous climber; needs heavy pruning and high humidity.",
+  "Image": "Allamanda (Golden Trumpet).webp"
+ },
+ {
+  "name": "Pink Trumpet Tree",
+  "Region": "South,Urban",
+  "Growing Months": "January, February, March",
+  "Season": "Winter,Spring",
+  "Soil Requirements": "Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Famous for turning Bangalore streets pink in early spring.",
+  "Image": "Pink Trumpet Tree.webp"
+ },
+ {
+  "name": "Daffodil",
+  "Region": "Temperate",
+  "Growing Months": "March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Moist,Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Plant bulbs 3x their depth in Autumn; deer resistant.",
+  "Image": "Daffodil.webp"
+ },
+ {
+  "name": "Hydrangea",
+  "Region": "Temperate",
+  "Growing Months": "June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Rich,Moist",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Soil pH determines color (Acidic = Blue",
+  "Image": "Hydrangea.webp"
+ },
+ {
+  "name": "Peace Lily",
+  "Region": "Tropical",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Indoor",
+  "Soil Requirements": "Peat-based mix",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Low Light",
+  "Care Instructions": "Great air purifier; leaves droop when the plant needs water.",
+  "Image": "Peace Lily.webp"
+ },
+ {
+  "name": "Juhi (Jasmine)",
+  "Region": "South",
+  "Growing Months": "July, August, September, October",
+  "Season": "Monsoon",
+  "Soil Requirements": "Loamy,Well-drained",
+  "Bloom and Harvest Time": "Evening",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Very fragrant; requires regular pruning to avoid becoming a messy vine.",
+  "Image": "Juhi (Jasmine).webp"
+ },
+ {
+  "name": "Semal (Silk Cotton)",
+  "Region": "Central,North",
+  "Growing Months": "February, March",
+  "Season": "Spring",
+  "Soil Requirements": "Hardy,Rocky",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Large red flowers on tall trees; attracts many birds and bees.",
+  "Image": "Semal (Silk Cotton).webp"
+ },
+ {
+  "name": "Surangi",
+  "Region": "West (Coastal)",
+  "Growing Months": "March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Laterite,Rich",
+  "Bloom and Harvest Time": "Morning",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Highly prized for its scent; small flowers used in traditional hair ornaments.",
+  "Image": "Surangi.webp"
+ },
+ {
+  "name": "Kunda (Star Jasmine)",
+  "Region": "East,South",
+  "Growing Months": "December, January, February",
+  "Season": "Winter",
+  "Soil Requirements": "Well-drained,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "Unlike other Jasmines",
+  "Image": "Kunda (Star Jasmine).webp"
+ },
+ {
+  "name": "Himalayan Primrose",
+  "Region": "North (Himalayan)",
+  "Growing Months": "March, April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Moist,Boggy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Grows near melting snow; needs cool",
+  "Image": "Himalayan Primrose.webp"
+ },
+ {
+  "name": "Gul-Dopahri (Portulaca)",
+  "Region": "Pan-India",
+  "Growing Months": "April, May, June, July, August, September, October",
+  "Season": "Summer,Monsoon",
+  "Soil Requirements": "Sandy,Dry",
+  "Bloom and Harvest Time": "Noon",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Known as the \"Office Flower\" because it opens around 10 AM and closes by 4 PM.",
+  "Image": "Gul-Dopahri (Portulaca).webp"
+ },
+ {
+  "name": "Garlic Creeper",
+  "Region": "South,West",
+  "Growing Months": "October, November, December",
+  "Season": "Winter,Post-Monsoon",
+  "Soil Requirements": "Rich Organic",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Leaves smell like garlic when crushed; produces beautiful lavender-colored clusters.",
+  "Image": "Garlic Creeper.webp"
+ },
+ {
+  "name": "Lipstick Plant",
+  "Region": "East (Humid)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Humid",
+  "Soil Requirements": "Peat,Perlite mix",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Indirect Light",
+  "Care Instructions": "Epiphytic plant; needs high humidity and misting to thrive indoors or in greenhouses.",
+  "Image": "Lipstick Plant.webp"
+ },
+ {
+  "name": "Teshu (Palash)",
+  "Region": "North,Central",
+  "Growing Months": "March, April",
+  "Season": "Spring",
+  "Soil Requirements": "Alkaline,Poor",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Flowers are used to make natural orange \"Holi\" colors.",
+  "Image": "Teshu (Palash).webp"
+ },
+ {
+  "name": "Indian Shot (Canna)",
+  "Region": "South,Pan",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Wet,Clay",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Extremely easy to grow; can even grow in waterlogged areas near drains.",
+  "Image": "Indian Shot (Canna).webp"
+ },
+ {
+  "name": "Sweet Alyssum",
+  "Region": "North (Plains)",
+  "Growing Months": "December, January, February, March",
+  "Season": "Winter",
+  "Soil Requirements": "Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Low-growing carpet flower; smells like honey and attracts pollinators.",
+  "Image": "Sweet Alyssum.webp"
+ },
+ {
+  "name": "Sthal Padma (Land Lotus)",
+  "Region": "East (Bengal)",
+  "Growing Months": "September, October, November",
+  "Season": "Autumn",
+  "Soil Requirements": "Rich Loamy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Flowers change color from white in the morning to deep pink by evening.",
+  "Image": "Sthal Padma (Land Lotus).webp"
+ },
+ {
+  "name": "Bleeding Heart Vine",
+  "Region": "South,Pan",
+  "Growing Months": "June, July, August, September, October",
+  "Season": "Monsoon,Summer",
+  "Soil Requirements": "Humus-rich",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Needs high humidity; protect from dry",
+  "Image": "Bleeding Heart Vine.webp"
+ },
+ {
+  "name": "Oleander (Kaner)",
+  "Region": "West (Arid)",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Dry",
+  "Soil Requirements": "Drought-resistant",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Avoid planting where pets or children play",
+  "Image": "Oleander (Kaner).webp"
+ },
+ {
+  "name": "Cobra Lily",
+  "Region": "Northeast",
+  "Growing Months": "May, June, July",
+  "Season": "Monsoon",
+  "Soil Requirements": "Moist,Forest floor",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Shade",
+  "Care Instructions": "Unique hooded flower; needs organic forest mulch and constant moisture.",
+  "Image": "Cobra Lily.webp"
+ },
+ {
+  "name": "Fuchsia",
+  "Region": "South (Hills)",
+  "Growing Months": "April, May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Acidic,Moist",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Thrives in the cool climates of South Indian hill stations.",
+  "Image": "Fuchsia.webp"
+ },
+ {
+  "name": "Blanket Flower",
+  "Region": "Pan-India",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "All Seasons",
+  "Soil Requirements": "Sandy,Poor soil",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Salt-tolerant; excellent for seaside gardens and dry balconies.",
+  "Image": "Blanket Flower.webp"
+ },
+ {
+  "name": "Copperpod (Yellow Gulmohar)",
+  "Region": "Central,North",
+  "Growing Months": "March, April, May",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Hardy,Adaptable",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Produces a carpet of yellow flowers on the ground; very popular city tree.",
+  "Image": "Copperpod (Yellow Gulmohar).webp"
+ },
+ {
+  "name": "Jacaranda (Neeli Gulmohar)",
+  "Region": "South,North",
+  "Growing Months": "March, April, May",
+  "Season": "Spring",
+  "Soil Requirements": "Well-drained,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Avoid heavy pruning; it produces \"water sprouts\" that ruin the tree's natural shape.",
+  "Image": "Jacaranda (Neeli Gulmohar).webp"
+ },
+ {
+  "name": "Poinsettia",
+  "Region": "Pan-India",
+  "Growing Months": "December, January, February",
+  "Season": "Winter",
+  "Soil Requirements": "Well-drained Loam",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "Requires 12+ hours of total darkness at night to turn red; avoid overwatering in winter.",
+  "Image": "Poinsettia.webp"
+ },
+ {
+  "name": "Bird of Paradise",
+  "Region": "South,East",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Rich,Clay-mix",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Slow growing; needs high humidity and liquid feeding every 2 weeks during summer.",
+  "Image": "Bird of Paradise.webp"
+ },
+ {
+  "name": "Begonia",
+  "Region": "Northeast",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Humid,Cool",
+  "Soil Requirements": "Peat-based mix",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Shade",
+  "Care Instructions": "Very sensitive to overwatering; needs cool",
+  "Image": "Begonia.webp"
+ },
+ {
+  "name": "Sandpaper Vine",
+  "Region": "Pan-India",
+  "Growing Months": "February, March, April ,August ,September, October",
+  "Season": "Spring,Monsoon",
+  "Soil Requirements": "Rich,Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Beautiful woody climber; needs strong support like a porch or pergola for its heavy vines.",
+  "Image": "Sandpaper Vine.webp"
+ },
+ {
+  "name": "Pagoda Flower",
+  "Region": "South",
+  "Growing Months": "June, July, August, September, October",
+  "Season": "Monsoon",
+  "Soil Requirements": "Rich,Moist",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Famous for its orange pyramid-shaped clusters; attracts butterflies in large numbers.",
+  "Image": "Pagoda Flower.webp"
+ },
+ {
+  "name": "Cosmos",
+  "Region": "Pan-India",
+  "Growing Months": "August, September, October, November, December",
+  "Season": "Monsoon,Winter",
+  "Soil Requirements": "Poor,Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Thrives in \"neglect\"; soil that is too rich will result in more leaves and fewer flowers.",
+  "Image": "Cosmos.webp"
+ },
+ {
+  "name": "Fiddle-leaf Champa",
+  "Region": "West,South",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Sandy,Dry",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Unlike common Champa",
+  "Image": "Fiddle-leaf Champa.webp"
+ },
+ {
+  "name": "English Daisy",
+  "Region": "North (Hills)",
+  "Growing Months": "March, April, May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Moist,Loamy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "Cannot tolerate the heat of the plains; keep the soil consistently cool and moist.",
+  "Image": "English Daisy.webp"
+ },
+ {
+  "name": "Mussaenda (Paper Flower)",
+  "Region": "Pan-India",
+  "Growing Months": "May, June, July, August, September, October, November",
+  "Season": "Summer,Monsoon",
+  "Soil Requirements": "Acidic,Moist",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "The colorful \"flowers\" are actually bracts; needs regular iron supplements to avoid yellowing leaves.",
+  "Image": "Mussaenda (Paper Flower).webp"
+ },
+ {
+  "name": "Skyblue Clustervine",
+  "Region": "South,Coastal",
+  "Growing Months": "October, November, December, January, February",
+  "Season": "Winter",
+  "Soil Requirements": "Adaptable,Moist",
+  "Bloom and Harvest Time": "Morning",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "A delicate creeper with tiny blue flowers; perfect for covering small fences or balcony grills.",
+  "Image": "Skyblue Clustervine.webp"
+ },
+ {
+  "name": "Indian Coral Tree",
+  "Region": "Central",
+  "Growing Months": "February, March",
+  "Season": "Spring",
+  "Soil Requirements": "Hardy,Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "The tree loses its leaves entirely before blooming into bright red",
+  "Image": "Indian Coral Tree.webp"
+ },
+ {
+  "name": "Sweet Pea",
+  "Region": "North (Plains)",
+  "Growing Months": "January, February, March, April",
+  "Season": "Winter,Spring",
+  "Soil Requirements": "Rich,Deep Loam",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Needs a cool root run; mulch the base and provide a net or strings for climbing.",
+  "Image": "Sweet Pea.webp"
+ },
+ {
+  "name": "Gloxinia",
+  "Region": "Pan-India",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Peat,Sandy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Indirect Light",
+  "Care Instructions": "Velvety flowers; water from the bottom to avoid getting spots on the delicate leaves.",
+  "Image": "Gloxinia.webp"
+ },
+ {
+  "name": "Stephanotis (Madagascar Jasmine)",
+  "Region": "South,West",
+  "Growing Months": "March, April, May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Rich,Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "Known as the \"Bridal Veil\"; requires high humidity and a strong trellis for support.",
+  "Image": "Stephanotis (Madagascar Jasmine).webp"
+ },
+ {
+  "name": "Dombeya (Tropical Hydrangea)",
+  "Region": "East,North",
+  "Growing Months": "December, January, February",
+  "Season": "Winter",
+  "Soil Requirements": "Rich Loamy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full,Partial Sun",
+  "Care Instructions": "Produces large pink hanging flower balls; attracts bees and butterflies in winter.",
+  "Image": "Dombeya (Tropical Hydrangea).webp"
+ },
+ {
+  "name": "Pentas (Egyptian Star)",
+  "Region": "Pan-India",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Moist,Loamy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "One of the best plants for butterfly gardens; needs pinching to keep it from getting leggy.",
+  "Image": "Pentas (Egyptian Star).webp"
+ },
+ {
+  "name": "Thunbergia (Blue Trumpet Vine)",
+  "Region": "South,West",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Monsoon,Winter",
+  "Soil Requirements": "Rich Organic",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "A very heavy climber; can cover an entire gate or wall quickly.",
+  "Image": "Thunbergia (Blue Trumpet Vine).webp"
+ },
+ {
+  "name": "Hydrangea",
+  "Region": "North (Himalayan)",
+  "Growing Months": "May, June, July, August, September",
+  "Season": "Summer",
+  "Soil Requirements": "Acidic,Moist",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Shade",
+  "Care Instructions": "Will not bloom in the heat of the plains; requires acidic soil for blue color.",
+  "Image": "Hydrangea.webp"
+ },
+ {
+  "name": "Coreopsis (Tickseed)",
+  "Region": "Pan-India",
+  "Growing Months": "March, April, May, June, July, August",
+  "Season": "Summer",
+  "Soil Requirements": "Sandy,Poor",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Extremely drought-tolerant; perfect for sunny balconies and rock gardens.",
+  "Image": "Coreopsis (Tickseed).webp"
+ },
+ {
+  "name": "Salvia",
+  "Region": "North (Plains)",
+  "Growing Months": "December, January, February, March",
+  "Season": "Winter",
+  "Soil Requirements": "Rich,Well-drained",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Known for its bright red spikes; keep the soil moist but never waterlogged.",
+  "Image": "Salvia.webp"
+ },
+ {
+  "name": "Chakunda (Cassia)",
+  "Region": "West,Central",
+  "Growing Months": "August, September, October",
+  "Season": "Monsoon",
+  "Soil Requirements": "Average,Hardy",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Wild yellow flower often seen on roadsides; very hardy and low maintenance.",
+  "Image": "Chakunda (Cassia).webp"
+ },
+ {
+  "name": "Pink Rain Lily",
+  "Region": "South,East",
+  "Growing Months": "June, July, August, September",
+  "Season": "Monsoon",
+  "Soil Requirements": "Sandy Loam",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Blooms overnight after a heavy rain shower; bulbs should be left undisturbed.",
+  "Image": "Pink Rain Lily.webp"
+ },
+ {
+  "name": "Vanda Orchid",
+  "Region": "Northeast",
+  "Growing Months": "#N,A",
+  "Season": "Humid",
+  "Soil Requirements": "None (Air roots)",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Bright Indirect",
+  "Care Instructions": "Should be grown in hanging baskets with no soil; mist roots twice daily.",
+  "Image": "Vanda Orchid.webp"
+ },
+ {
+  "name": "Gomphrena (Button Flower)",
+  "Region": "Pan-India",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "All Seasons",
+  "Soil Requirements": "Sandy,Poor",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Commonly used for dried flower arrangements; holds its color long after being cut.",
+  "Image": "Gomphrena (Button Flower).webp"
+ },
+ {
+  "name": "Crossandra (Kanakambaram)",
+  "Region": "South",
+  "Growing Months": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Season": "Tropical",
+  "Soil Requirements": "Well-drained Rich",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Partial Sun",
+  "Care Instructions": "Firecracker flower; sensitive to cold. Keep in a warm",
+  "Image": "Crossandra (Kanakambaram).webp"
+ },
+ {
+  "name": "Sweet William",
+  "Region": "North (Hills)",
+  "Growing Months": "April, May, June",
+  "Season": "Spring,Summer",
+  "Soil Requirements": "Alkaline,Rich",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Full Sun",
+  "Care Instructions": "Produces bi-color clusters; requires cool nights to thrive.",
+  "Image": "Sweet William.webp"
+ },
+ {
+  "name": "Torenia (Wishbone Flower)",
+  "Region": "Pan-India",
+  "Growing Months": "June, July, August, September, October",
+  "Season": "Monsoon",
+  "Soil Requirements": "Moist,Humus",
+  "Bloom and Harvest Time": "Daytime",
+  "Sunlight Needs": "Shade",
+  "Care Instructions": "Excellent for shaded balconies; keep the soil consistently damp.",
+  "Image": "Torenia (Wishbone Flower).webp"
+ }
+],
+"Sheet1":[
+ {
+  "Growing Months": "Oct-Dec",
+  "Column4": "October, November, December",
+  "Column5": "October, November, December"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "September, October, November"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Apr-Jun",
+  "Column4": "April, May, June",
+  "Column5": "April, May, June"
+ },
+ {
+  "Growing Months": "Mar-May",
+  "Column4": "March, April, May",
+  "Column5": "March, April, May"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Mar-May",
+  "Column4": "March, April, May",
+  "Column5": "March, April, May"
+ },
+ {
+  "Growing Months": "Mar-Apr",
+  "Column4": "March, April",
+  "Column5": "March, April"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Feb-Mar",
+  "Column4": "February, March",
+  "Column5": "February, March"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "March, April, May ,September, October, November"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April ,September, October, November"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "May-Oct",
+  "Column4": "May, June, July, August, September, October",
+  "Column5": "May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "May-Aug",
+  "Column4": "May, June, July, August",
+  "Column5": "May, June, July, August"
+ },
+ {
+  "Growing Months": "Oct-Feb",
+  "Column4": "October, November, December, January, February",
+  "Column5": "October, November, December, January, February"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "February, March, April ,September, October, November"
+ },
+ {
+  "Growing Months": "May-Aug",
+  "Column4": "May, June, July, August",
+  "Column5": "May, June, July, August"
+ },
+ {
+  "Growing Months": "May-Oct",
+  "Column4": "May, June, July, August, September, October",
+  "Column5": "May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Feb-May,Sep-Nov",
+  "Column4": "#VALUE!",
+  "Column5": "February, March, April ,September, October, November"
+ },
+ {
+  "Growing Months": "Apr-Jul",
+  "Column4": "April, May, June, July",
+  "Column5": "April, May, June, July"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Apr-Sep",
+  "Column4": "April, May, June, July, August, September",
+  "Column5": "April, May, June, July, August, September"
+ },
+ {
+  "Growing Months": "May-Aug",
+  "Column4": "May, June, July, August",
+  "Column5": "May, June, July, August"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "Jun-Sep",
+  "Column4": "June, July, August, September",
+  "Column5": "June, July, August, September"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "Jun-Sep",
+  "Column4": "June, July, August, September",
+  "Column5": "June, July, August, September"
+ },
+ {
+  "Growing Months": "Oct-Feb",
+  "Column4": "October, November, December, January, February",
+  "Column5": "October, November, December, January, February"
+ },
+ {
+  "Growing Months": "Jun-Sep",
+  "Column4": "June, July, August, September",
+  "Column5": "June, July, August, September"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Oct-Apr",
+  "Column4": "October, November, December, January, February, March, April",
+  "Column5": "October, November, December, January, February, March, April"
+ },
+ {
+  "Growing Months": "Mar-Jun",
+  "Column4": "March, April, May, June",
+  "Column5": "March, April, May, June"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "Jul-Sep",
+  "Column4": "July, August, September",
+  "Column5": "July, August, September"
+ },
+ {
+  "Growing Months": "Sep-Dec",
+  "Column4": "September, October, November, December",
+  "Column5": "September, October, November, December"
+ },
+ {
+  "Growing Months": "Oct-Dec",
+  "Column4": "October, November, December",
+  "Column5": "October, November, December"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Nov-Apr",
+  "Column4": "November, December, January, February, March, April",
+  "Column5": "November, December, January, February, March, April"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "Oct-Dec",
+  "Column4": "October, November, December",
+  "Column5": "October, November, December"
+ },
+ {
+  "Growing Months": "May-Oct",
+  "Column4": "May, June, July, August, September, October",
+  "Column5": "May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Jun-Sep",
+  "Column4": "June, July, August, September",
+  "Column5": "June, July, August, September"
+ },
+ {
+  "Growing Months": "Oct-Feb",
+  "Column4": "October, November, December, January, February",
+  "Column5": "October, November, December, January, February"
+ },
+ {
+  "Growing Months": "Sep-Dec",
+  "Column4": "September, October, November, December",
+  "Column5": "September, October, November, December"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Apr-Jun",
+  "Column4": "April, May, June",
+  "Column5": "April, May, June"
+ },
+ {
+  "Growing Months": "Jan-May",
+  "Column4": "January, February, March, April, May",
+  "Column5": "January, February, March, April, May"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Jun-Sep",
+  "Column4": "June, July, August, September",
+  "Column5": "June, July, August, September"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Aug-Sep",
+  "Column4": "August, September",
+  "Column5": "August, September"
+ },
+ {
+  "Growing Months": "Aug-Sep",
+  "Column4": "August, September",
+  "Column5": "August, September"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Dec-Feb",
+  "Column4": "December, January, February",
+  "Column5": "December, January, February"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "September, October, November"
+ },
+ {
+  "Growing Months": "May-Oct",
+  "Column4": "May, June, July, August, September, October",
+  "Column5": "May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "May-Oct",
+  "Column4": "May, June, July, August, September, October",
+  "Column5": "May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Oct-Nov",
+  "Column4": "October, November",
+  "Column5": "October, November"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Apr-Sep",
+  "Column4": "April, May, June, July, August, September",
+  "Column5": "April, May, June, July, August, September"
+ },
+ {
+  "Growing Months": "May-Aug",
+  "Column4": "May, June, July, August",
+  "Column5": "May, June, July, August"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Apr-Jul",
+  "Column4": "April, May, June, July",
+  "Column5": "April, May, June, July"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "May-Oct",
+  "Column4": "May, June, July, August, September, October",
+  "Column5": "May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Jul-Aug",
+  "Column4": "July, August",
+  "Column5": "July, August"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April"
+ },
+ {
+  "Growing Months": "Jul-Oct",
+  "Column4": "July, August, September, October",
+  "Column5": "July, August, September, October"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April"
+ },
+ {
+  "Growing Months": "Sep-Apr",
+  "Column4": "September, October, November, December, January, February, March, April",
+  "Column5": "September, October, November, December, January, February, March, April"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "September, October, November"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "May-Oct",
+  "Column4": "May, June, July, August, September, October",
+  "Column5": "May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "Jun-Oct",
+  "Column4": "June, July, August, September, October",
+  "Column5": "June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Nov-Jan",
+  "Column4": "November, December, January",
+  "Column5": "November, December, January"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "September, October, November"
+ },
+ {
+  "Growing Months": "May-Aug",
+  "Column4": "May, June, July, August",
+  "Column5": "May, June, July, August"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Mar-May,Sep-Oct",
+  "Column4": "#VALUE!",
+  "Column5": " March, April , april,September, October"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "May-Jun",
+  "Column4": "May, June",
+  "Column5": "May, June"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "Nov-Jan",
+  "Column4": "November, December, January",
+  "Column5": "November, December, January"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Jun-Oct",
+  "Column4": "June, July, August, September, October",
+  "Column5": "June, July, August, September, October"
+ },
+ {
+  "Growing Months": "May-Oct",
+  "Column4": "May, June, July, August, September, October",
+  "Column5": "May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Nov-Apr",
+  "Column4": "November, December, January, February, March, April",
+  "Column5": "November, December, January, February, March, April"
+ },
+ {
+  "Growing Months": "Jul-Sep",
+  "Column4": "July, August, September",
+  "Column5": "July, August, September"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Jun-Sep",
+  "Column4": "June, July, August, September",
+  "Column5": "June, July, August, September"
+ },
+ {
+  "Growing Months": "Sep-Dec",
+  "Column4": "September, October, November, December",
+  "Column5": "September, October, November, December"
+ },
+ {
+  "Growing Months": "Oct-Dec,Mar-Apr",
+  "Column4": "#VALUE!",
+  "Column5": "March, April , October, November ,December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Aug-Sep",
+  "Column4": "August, September",
+  "Column5": "August, September"
+ },
+ {
+  "Growing Months": "May-Jun",
+  "Column4": "May, June",
+  "Column5": "May, June"
+ },
+ {
+  "Growing Months": "Jul-Aug",
+  "Column4": "July, August",
+  "Column5": "July, August"
+ },
+ {
+  "Growing Months": "May-Jun",
+  "Column4": "May, June",
+  "Column5": "May, June"
+ },
+ {
+  "Growing Months": "Sep-Oct",
+  "Column4": "September, October",
+  "Column5": "September, October"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Oct-Dec",
+  "Column4": "October, November, December",
+  "Column5": "October, November, December"
+ },
+ {
+  "Growing Months": "Jul-Oct",
+  "Column4": "July, August, September, October",
+  "Column5": "July, August, September, October"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "September, October, November"
+ },
+ {
+  "Growing Months": "Oct-Jan",
+  "Column4": "October, November, December, January",
+  "Column5": "October, November, December, January"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Mar-May",
+  "Column4": "March, April, May",
+  "Column5": "March, April, May"
+ },
+ {
+  "Growing Months": "Mar-May",
+  "Column4": "March, April, May",
+  "Column5": "March, April, May"
+ },
+ {
+  "Growing Months": "Mar-Jul",
+  "Column4": "March, April, May, June, July",
+  "Column5": "March, April, May, June, July"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Oct-Mar",
+  "Column4": "October, November, December, January, February, March",
+  "Column5": "October, November, December, January, February, March"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "September, October, November"
+ },
+ {
+  "Growing Months": "May-Oct",
+  "Column4": "May, June, July, August, September, October",
+  "Column5": "May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Sep-Feb",
+  "Column4": "September, October, November, December, January, February",
+  "Column5": "September, October, November, December, January, February"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "May-Jun",
+  "Column4": "May, June",
+  "Column5": "May, June"
+ },
+ {
+  "Growing Months": "May-Jun",
+  "Column4": "May, June",
+  "Column5": "May, June"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "Oct-Dec",
+  "Column4": "October, November, December",
+  "Column5": "October, November, December"
+ },
+ {
+  "Growing Months": "May-Aug",
+  "Column4": "May, June, July, August",
+  "Column5": "May, June, July, August"
+ },
+ {
+  "Growing Months": "May-Aug",
+  "Column4": "May, June, July, August",
+  "Column5": "May, June, July, August"
+ },
+ {
+  "Growing Months": "Nov-Feb",
+  "Column4": "November, December, January, February",
+  "Column5": "November, December, January, February"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "Sep-Oct",
+  "Column4": "September, October",
+  "Column5": "September, October"
+ },
+ {
+  "Growing Months": "Nov-Jan",
+  "Column4": "November, December, January",
+  "Column5": "November, December, January"
+ },
+ {
+  "Growing Months": "Jul-Sep",
+  "Column4": "July, August, September",
+  "Column5": "July, August, September"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "Jul-Sep",
+  "Column4": "July, August, September",
+  "Column5": "July, August, September"
+ },
+ {
+  "Growing Months": "Oct-Jan",
+  "Column4": "October, November, December, January",
+  "Column5": "October, November, December, January"
+ },
+ {
+  "Growing Months": "Oct-Nov",
+  "Column4": "October, November",
+  "Column5": "October, November"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "May-Jun",
+  "Column4": "May, June",
+  "Column5": "May, June"
+ },
+ {
+  "Growing Months": "May-Jun",
+  "Column4": "May, June",
+  "Column5": "May, June"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "Jun-Sep",
+  "Column4": "June, July, August, September",
+  "Column5": "June, July, August, September"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "September, October, November"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April"
+ },
+ {
+  "Growing Months": "Oct-Dec",
+  "Column4": "October, November, December",
+  "Column5": "October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Nov-Dec",
+  "Column4": "November, December",
+  "Column5": "November, December"
+ },
+ {
+  "Growing Months": "Oct-Nov",
+  "Column4": "October, November",
+  "Column5": "October, November"
+ },
+ {
+  "Growing Months": "Mar-May Sep-Oct",
+  "Column4": "#VALUE!",
+  "Column5": "February, March, April ,September, October, November"
+ },
+ {
+  "Growing Months": "Apr-May,Jul-Aug",
+  "Column4": "#VALUE!",
+  "Column5": "#VALUE!"
+ },
+ {
+  "Growing Months": "Apr-May,Aug-Sep",
+  "Column4": "#VALUE!",
+  "Column5": "#VALUE!"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "May-Aug",
+  "Column4": "May, June, July, August",
+  "Column5": "May, June, July, August"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "May-Jun",
+  "Column4": "May, June",
+  "Column5": "May, June"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "September, October, November"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "Mar-Jun",
+  "Column4": "March, April, May, June",
+  "Column5": "March, April, May, June"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "September, October, November"
+ },
+ {
+  "Growing Months": "Sep-Dec",
+  "Column4": "September, October, November, December",
+  "Column5": "September, October, November, December"
+ },
+ {
+  "Growing Months": "Oct-Jan",
+  "Column4": "October, November, December, January",
+  "Column5": "October, November, December, January,May, June, July"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "October, November, December, January,May, June, July"
+ },
+ {
+  "Growing Months": "Oct-Dec,Mar-Apr",
+  "Column4": "#VALUE!",
+  "Column5": "October, November, December, January,March , April"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Sep-Jan",
+  "Column4": "September, October, November, December, January",
+  "Column5": "September, October, November, December, January"
+ },
+ {
+  "Growing Months": "Oct-Feb,May-Jul",
+  "Column4": "#VALUE!",
+  "Column5": "October, November, December, January,May, June, July"
+ },
+ {
+  "Growing Months": "Oct-Jan,May-Jun",
+  "Column4": "#VALUE!",
+  "Column5": "October, November, December, January,May, June, July"
+ },
+ {
+  "Growing Months": "Oct-Jan,May-Jul",
+  "Column4": "#VALUE!",
+  "Column5": "October, November, December, January,May, June, July"
+ },
+ {
+  "Growing Months": "Sep-Feb",
+  "Column4": "September, October, November, December, January, February",
+  "Column5": "September, October, November, December, January, February"
+ },
+ {
+  "Growing Months": "Oct-Jan",
+  "Column4": "October, November, December, January",
+  "Column5": "October, November, December, January"
+ },
+ {
+  "Growing Months": "Oct-Jan,May-Jul",
+  "Column4": "#VALUE!",
+  "Column5": "October, November, December, January,May, June, July"
+ },
+ {
+  "Growing Months": "Oct-Jan,May-Jul",
+  "Column4": "#VALUE!",
+  "Column5": "October, November, December, January,May, June, July"
+ },
+ {
+  "Growing Months": "Oct-Mar",
+  "Column4": "October, November, December, January, February, March",
+  "Column5": "October, November, December, January, February, March"
+ },
+ {
+  "Growing Months": "Mar-Aug",
+  "Column4": "March, April, May, June, July, August",
+  "Column5": "March, April, May, June, July, August"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Oct-May",
+  "Column4": "October, November, December, January, February, March, April, May",
+  "Column5": "October, November, December, January, February, March, April, May"
+ },
+ {
+  "Growing Months": "Feb-May",
+  "Column4": "February, March, April, May",
+  "Column5": "February, March, April, May"
+ },
+ {
+  "Growing Months": "Nov-Mar",
+  "Column4": "November, December, January, February, March",
+  "Column5": "November, December, January, February, March"
+ },
+ {
+  "Growing Months": "May-Jun",
+  "Column4": "May, June",
+  "Column5": "May, June"
+ },
+ {
+  "Growing Months": "Mar-Apr",
+  "Column4": "March, April",
+  "Column5": "March, April"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "May-Oct",
+  "Column4": "May, June, July, August, September, October",
+  "Column5": "May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "May-Dec",
+  "Column4": "May, June, July, August, September, October, November, December",
+  "Column5": "May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Sep-Oct",
+  "Column4": "September, October",
+  "Column5": "September, October"
+ },
+ {
+  "Growing Months": "Aug-Nov",
+  "Column4": "August, September, October, November",
+  "Column5": "August, September, October, November"
+ },
+ {
+  "Growing Months": "Jul-Oct",
+  "Column4": "July, August, September, October",
+  "Column5": "July, August, September, October"
+ },
+ {
+  "Growing Months": "Variable",
+  "Column4": "#N\/A",
+  "Column5": "#N\/A"
+ },
+ {
+  "Growing Months": "Mar-Sep",
+  "Column4": "March, April, May, June, July, August, September",
+  "Column5": "March, April, May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "Apr-Jun",
+  "Column4": "April, May, June",
+  "Column5": "April, May, June"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "Monsoon",
+  "Column4": "#N\/A",
+  "Column5": "Monsoon"
+ },
+ {
+  "Growing Months": "Tropical",
+  "Column4": "#N\/A",
+  "Column5": "Tropical"
+ },
+ {
+  "Growing Months": "Spring",
+  "Column4": "#N\/A",
+  "Column5": "Spring"
+ },
+ {
+  "Growing Months": "Winter\/Spring",
+  "Column4": "#N\/A",
+  "Column5": "Winter,Spring"
+ },
+ {
+  "Growing Months": "Spring\/Summer",
+  "Column4": "#N\/A",
+  "Column5": "Spring,Summer"
+ },
+ {
+  "Growing Months": "Winter\/Spring",
+  "Column4": "#N\/A",
+  "Column5": "Winter,Spring"
+ },
+ {
+  "Growing Months": "Spring",
+  "Column4": "#N\/A",
+  "Column5": "Spring"
+ },
+ {
+  "Growing Months": "Spring",
+  "Column4": "#N\/A",
+  "Column5": "Spring"
+ },
+ {
+  "Growing Months": "Spring",
+  "Column4": "#N\/A",
+  "Column5": "Spring"
+ },
+ {
+  "Growing Months": "Spring\/Summer",
+  "Column4": "#N\/A",
+  "Column5": "Spring,Summer"
+ },
+ {
+  "Growing Months": "Spring\/Autumn",
+  "Column4": "#N\/A",
+  "Column5": "Spring, Autumn"
+ },
+ {
+  "Growing Months": "Winter\/Spring",
+  "Column4": "#N\/A",
+  "Column5": "Winter,Spring"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Summer",
+  "Column4": "#N\/A",
+  "Column5": "Summer"
+ },
+ {
+  "Growing Months": "Summer\/Autumn",
+  "Column4": "#N\/A",
+  "Column5": "Summer,Autumn"
+ },
+ {
+  "Growing Months": "Tropical",
+  "Column4": "#N\/A",
+  "Column5": "Tropical"
+ },
+ {
+  "Growing Months": "Jul-Sep",
+  "Column4": "July, August, September",
+  "Column5": "July, August, September"
+ },
+ {
+  "Growing Months": "Oct-Mar",
+  "Column4": "October, November, December, January, February, March",
+  "Column5": "October, November, December, January, February, March"
+ },
+ {
+  "Growing Months": "Oct-Apr",
+  "Column4": "October, November, December, January, February, March, April",
+  "Column5": "October, November, December, January, February, March, April"
+ },
+ {
+  "Growing Months": "Mar-Aug",
+  "Column4": "March, April, May, June, July, August",
+  "Column5": "March, April, May, June, July, August"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Apr-Sep",
+  "Column4": "April, May, June, July, August, September",
+  "Column5": "April, May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Apr-May",
+  "Column4": "April, May",
+  "Column5": "April, May"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Nov-Jun",
+  "Column4": "November, December, January, February, March, April, May, June",
+  "Column5": "November, December, January, February, March, April, May, June"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Mar-Oct",
+  "Column4": "March, April, May, June, July, August, September, October",
+  "Column5": "March, April, May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April"
+ },
+ {
+  "Growing Months": "Jul-Oct",
+  "Column4": "July, August, September, October",
+  "Column5": "July, August, September, October"
+ },
+ {
+  "Growing Months": "Dec-Mar",
+  "Column4": "December, January, February, March",
+  "Column5": "December, January, February, March"
+ },
+ {
+  "Growing Months": "Months",
+  "Column4": "#N\/A",
+  "Column5": "#N\/A"
+ },
+ {
+  "Growing Months": "Nov-Jan",
+  "Column4": "November, December, January",
+  "Column5": "November, December, January"
+ },
+ {
+  "Growing Months": "Dec-Mar",
+  "Column4": "December, January, February, March",
+  "Column5": "December, January, February, March"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Mar-Jun",
+  "Column4": "March, April, May, June",
+  "Column5": "March, April, May, June"
+ },
+ {
+  "Growing Months": "Apr-Jun",
+  "Column4": "April, May, June",
+  "Column5": "April, May, June"
+ },
+ {
+  "Growing Months": "Apr-Jun",
+  "Column4": "April, May, June",
+  "Column5": "April, May, June"
+ },
+ {
+  "Growing Months": "Apr-Jul",
+  "Column4": "April, May, June, July",
+  "Column5": "April, May, June, July"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Jun-Sep",
+  "Column4": "June, July, August, September",
+  "Column5": "June, July, August, September"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Jun-Oct",
+  "Column4": "June, July, August, September, October",
+  "Column5": "June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Feb-Jun",
+  "Column4": "February, March, April, May, June",
+  "Column5": "February, March, April, May, June"
+ },
+ {
+  "Growing Months": "Apr-Oct",
+  "Column4": "April, May, June, July, August, September, October",
+  "Column5": "April, May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Jul-Nov",
+  "Column4": "July, August, September, October, November",
+  "Column5": "July, August, September, October, November"
+ },
+ {
+  "Growing Months": "Nov-Mar",
+  "Column4": "November, December, January, February, March",
+  "Column5": "November, December, January, February, March"
+ },
+ {
+  "Growing Months": "Jul-Oct",
+  "Column4": "July, August, September, October",
+  "Column5": "July, August, September, October"
+ },
+ {
+  "Growing Months": "Dec-Apr",
+  "Column4": "December, January, February, March, April",
+  "Column5": "December, January, February, March, April"
+ },
+ {
+  "Growing Months": "Jan-Apr",
+  "Column4": "January, February, March, April",
+  "Column5": "January, February, March, April"
+ },
+ {
+  "Growing Months": "Dec-Mar",
+  "Column4": "December, January, February, March",
+  "Column5": "December, January, February, March"
+ },
+ {
+  "Growing Months": "Aug-Oct ",
+  "Column4": "August, September, October",
+  "Column5": "August ,September, October"
+ },
+ {
+  "Growing Months": "Apr-Sep",
+  "Column4": "April, May, June, July, August, September",
+  "Column5": "April, May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Jun-Sep",
+  "Column4": "June, July, August, September",
+  "Column5": "June, July, August, September"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Aug-Dec",
+  "Column4": "August, September, October, November, December",
+  "Column5": "August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Jul-Sep",
+  "Column4": "July, August, September",
+  "Column5": "July, August, September"
+ },
+ {
+  "Growing Months": "Mar-Jun",
+  "Column4": "March, April, May, June",
+  "Column5": "March, April, May, June"
+ },
+ {
+  "Growing Months": "Nov-May",
+  "Column4": "November, December, January, February, March, April, May",
+  "Column5": "November, December, January, February, March, April, May"
+ },
+ {
+  "Growing Months": "Aug-Nov",
+  "Column4": "August, September, October, November",
+  "Column5": "August, September, October, November"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Feb-May\/Aug-Nov",
+  "Column4": "#VALUE!",
+  "Column5": "February, March, April ,August ,September, October,November"
+ },
+ {
+  "Growing Months": "Mar-Oct",
+  "Column4": "March, April, May, June, July, August, September, October",
+  "Column5": "March, April, May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April"
+ },
+ {
+  "Growing Months": "Apr-Jun",
+  "Column4": "April, May, June",
+  "Column5": "April, May, June"
+ },
+ {
+  "Growing Months": "Dec-Mar",
+  "Column4": "December, January, February, March",
+  "Column5": "December, January, February, March"
+ },
+ {
+  "Growing Months": "Nov-Mar",
+  "Column4": "November, December, January, February, March",
+  "Column5": "November, December, January, February, March"
+ },
+ {
+  "Growing Months": "Mar-May",
+  "Column4": "March, April, May",
+  "Column5": "March, April, May"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Jan-Mar",
+  "Column4": "January, February, March",
+  "Column5": "January, February, March"
+ },
+ {
+  "Growing Months": "Mar-Apr",
+  "Column4": "March, April",
+  "Column5": "March, April"
+ },
+ {
+  "Growing Months": "Jun-Aug",
+  "Column4": "June, July, August",
+  "Column5": "June, July, August"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Jul-Oct",
+  "Column4": "July, August, September, October",
+  "Column5": "July, August, September, October"
+ },
+ {
+  "Growing Months": "Feb-Mar",
+  "Column4": "February, March",
+  "Column5": "February, March"
+ },
+ {
+  "Growing Months": "Mar-Apr",
+  "Column4": "March, April",
+  "Column5": "March, April"
+ },
+ {
+  "Growing Months": "Dec-Feb",
+  "Column4": "December, January, February",
+  "Column5": "December, January, February"
+ },
+ {
+  "Growing Months": "Mar-May",
+  "Column4": "March, April, May",
+  "Column5": "March, April, May"
+ },
+ {
+  "Growing Months": "Apr-Oct",
+  "Column4": "April, May, June, July, August, September, October",
+  "Column5": "April, May, June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Oct-Dec",
+  "Column4": "October, November, December",
+  "Column5": "October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Mar-Apr",
+  "Column4": "March, April",
+  "Column5": "March, April"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Dec-Mar",
+  "Column4": "December, January, February, March",
+  "Column5": "December, January, February, March"
+ },
+ {
+  "Growing Months": "Sep-Nov",
+  "Column4": "September, October, November",
+  "Column5": "September, October, November"
+ },
+ {
+  "Growing Months": "Jun-Oct",
+  "Column4": "June, July, August, September, October",
+  "Column5": "June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "May-Jul",
+  "Column4": "May, June, July",
+  "Column5": "May, June, July"
+ },
+ {
+  "Growing Months": "Apr-Jun",
+  "Column4": "April, May, June",
+  "Column5": "April, May, June"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Mar-May",
+  "Column4": "March, April, May",
+  "Column5": "March, April, May"
+ },
+ {
+  "Growing Months": "Mar-May",
+  "Column4": "March, April, May",
+  "Column5": "March, April, May"
+ },
+ {
+  "Growing Months": "Dec-Feb",
+  "Column4": "December, January, February",
+  "Column5": "December, January, February"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Feb-Apr",
+  "Column4": "February, March, April",
+  "Column5": "February, March, April ,August ,September, October"
+ },
+ {
+  "Growing Months": "Jun-Oct",
+  "Column4": "June, July, August, September, October",
+  "Column5": "June, July, August, September, October"
+ },
+ {
+  "Growing Months": "Aug-Dec",
+  "Column4": "August, September, October, November, December",
+  "Column5": "August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Mar-Jun",
+  "Column4": "March, April, May, June",
+  "Column5": "March, April, May, June"
+ },
+ {
+  "Growing Months": "May-Nov",
+  "Column4": "May, June, July, August, September, October, November",
+  "Column5": "May, June, July, August, September, October, November"
+ },
+ {
+  "Growing Months": "Oct-Feb",
+  "Column4": "October, November, December, January, February",
+  "Column5": "October, November, December, January, February"
+ },
+ {
+  "Growing Months": "Feb-Mar",
+  "Column4": "February, March",
+  "Column5": "February, March"
+ },
+ {
+  "Growing Months": "Jan-Apr",
+  "Column4": "January, February, March, April",
+  "Column5": "January, February, March, April"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Mar-Sep",
+  "Column4": "March, April, May, June, July, August, September",
+  "Column5": "March, April, May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Dec-Feb",
+  "Column4": "December, January, February",
+  "Column5": "December, January, February"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "May-Sep",
+  "Column4": "May, June, July, August, September",
+  "Column5": "May, June, July, August, September"
+ },
+ {
+  "Growing Months": "Mar-Aug",
+  "Column4": "March, April, May, June, July, August",
+  "Column5": "March, April, May, June, July, August"
+ },
+ {
+  "Growing Months": "Dec-Mar",
+  "Column4": "December, January, February, March",
+  "Column5": "December, January, February, March"
+ },
+ {
+  "Growing Months": "Aug-Oct",
+  "Column4": "August, September, October",
+  "Column5": "August, September, October"
+ },
+ {
+  "Growing Months": "Jun-Sep",
+  "Column4": "June, July, August, September",
+  "Column5": "June, July, August, September"
+ },
+ {
+  "Growing Months": "Variable",
+  "Column4": "#N\/A",
+  "Column5": "#N\/A"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Year-round",
+  "Column4": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "Column5": "January, February, March, April, May, June, July, August, September, October, November, December"
+ },
+ {
+  "Growing Months": "Apr-Jun",
+  "Column4": "April, May, June",
+  "Column5": "April, May, June"
+ },
+ {
+  "Growing Months": "Jun-Oct",
+  "Column4": "June, July, August, September, October",
+  "Column5": "June, July, August, September, October"
+ }
+]
+}
