@@ -15,13 +15,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-4WZWST3NQ8');
     </script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Let's Have Some Gardening — Perfect Gardener</title>
-    <link rel="icon" href="./assets/images/favicon.png" type="image/png" />
+    <link rel="icon" href="/assets/images/favicon.png" type="image/png" />
     <meta name="theme-color" content="#27ae60" />
     <meta name="description" content="Discover modern, responsive gardening tips, affiliate product listings, YouTube highlights, and a contact form for all your gardening needs." />
     <meta name="keywords" content="gardening tips, organic gardening, garden tools, plants care, urban gardening, home gardening, gardening advice, beginner gardening" />
@@ -60,18 +60,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/hero_style.css" />
-
-
-    <!-- CSV & Excel parsers -->
-    <script defer src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-    <!-- EmailJS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <!-- Our code -->
-    
 
     <style>
       /* Smooth scrolling */
@@ -136,265 +124,14 @@
       }
     </script>
   </head>
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZX2CP8N"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
-  <!-- HEADER -->
-  <header class="site-header" id="top">
-    <div class="container header-inner">
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZX2CP8N"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-      <div class="brand">
-        <div class="logo-wrap">
-          <img src="assets/images/Avtar.png" alt="Perfect Gardener logo" class="logo-img">
-        </div>
-        <span class="logo-text">Perfect Gardener</span>
-      </div>
-
-      <button class="nav-toggle" aria-label="Toggle menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
-      <nav class="main-nav" id="primary-navigation">
-        <a href="./">Home</a>
-        <a href="products.html">Products</a>
-        <a href="posts/">Posts</a>
-        <div class="nav-item dropdown">
-          <button class="nav-link" aria-haspopup="true" aria-expanded="false">Tools</button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="seasonal-flower-planting-calendar-india.html">Flower Planting Calendar</a></li>
-            <li><a href="pot-size-calculator-for-plants.html">Pot Size Calculator</a></li>
-            <li><a href="monthly-gardening-task-generator.html">Monthly Gardening Task Generator</a></li>
-            <li><a href="flower-bloom-time-calculator.html">Bloom Time Calculator</a></li>
-            <li><a href="gardening-budget-planner-india.html">Gardening Budget Planner (₹)</a></li>
-          </ul>
-        </div>
-        <a href="#youtube">YouTube</a>       
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-  <div class="container hero-inner">
-
-    <!-- LEFT SIDE: TEXT + BUTTONS + STATS -->
-    <div class="content">
-      <div class="badge">
-        ✿ <span>Your Green Companion</span>
-      </div>
-
-      <h1>
-        <span class="perfect">Perfect</span>
-        <span class="gardener">Gardener</span>
-      </h1>
-
-      <p class="description">
-        Welcome to Perfect Gardener, from tiny saplings to lush home gardens, we help you grow with nature beautifully.
-      </p>
-
-      <div class="buttons">
-        <a class="btn primary" href="products.html">Browse Products →</a>
-        <a class="btn ghost" href="posts/">Read Posts</a>
-      </div>
-
-      <div class="stats">
-        <div class="stat">
-          <h3>50+</h3>
-          <p>Products curated</p>
-        </div>
-        <div class="stat">
-          <h3>10K+</h3>
-          <p>Happy Gardeners</p>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- RIGHT SIDE: VISUALIZATION -->
-    <div class="visualization">
-      <div class="outer-ring"></div>
-
-      <div class="dotted-circle dotted-circle-1"></div>
-      <div class="dotted-circle dotted-circle-2"></div>
-
-      <div class="center-circle">
-        <img src="assets/images/tree.gif" class="tree-gif" alt="growing tree" />
-      </div>
-
-      <div class="card card-1">
-        <div>Organic Seeds</div>
-      </div>
-
-      <div class="card card-2">
-        <div>Garden Tools</div>
-      </div>
-
-      <div class="card card-3">
-        <div>Fresh Plants</div>
-      </div>
-
-      <div class="card card-4">
-        <div>Expert Tips</div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-  <!-- PRODUCTS -->
-  <section id="products" class="products-section">
-        <div class="container">
-          <div class="section-head">
-            <h2>Featured Products</h2>
-            
-          </div>
-
-          <!-- AdSense disabled -->
-          <div id="featuredProduct" class="featured-product" aria-live="polite"></div>
-          <div id="productsGrid" data-homepage="true" class="products-grid" aria-live="polite"></div>
-
-          <div id="emptyState" class="empty-state" hidden>
-            <p>No products found yet. Ensure <code>products.csv</code> or <code>products.xlsx</code> exists, or import a file above.</p>
-          </div>
-
-          <div class="section-actions" style="margin-top:14px;">
-            <a class="btn ghost" href="products.html">View all products</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="posts-section" id="posts">
-        <div class="container">
-          <div class="section-head">
-            <h2>Latest Posts</h2>
-            <p class="muted">Insights and tips from Perfect Gardener.</p>
-          </div>
-          
-          <div id="postsGrid" class="products-grid" aria-live="polite"></div>
-          <div id="postsEmpty" class="empty-state" hidden>
-            <p>No posts yet. Add markdown files in <code>assets/data/</code> and update <code>assets/data/index.json</code>.</p>
-          </div>
-          <div class="section-actions" style="margin-top:14px;">
-            <a class="btn ghost" href="posts/">View all posts</a>
-            <a class="btn ghost" href="garden-tools.html" style="margin-left: 12px;">Explore Tools</a>
-          </div>
-          <section id="homeComments" style="margin-top:24px;">
-            <h3>Comments</h3>
-            <form id="commentForm" class="contact-form" style="margin:12px 0;">
-              <div class="form-field">
-                <label for="cName">Name</label>
-                <input id="cName" name="name" type="text" placeholder="Your name" />
-              </div>
-              <div class="form-field">
-                <label for="cEmail">Email</label>
-                <input id="cEmail" name="email" type="email" placeholder="you@example.com" />
-              </div>
-              <div class="form-field">
-                <label for="cPhone">Phone</label>
-                <input id="cPhone" name="phone" type="tel" placeholder="Optional phone" />
-              </div>
-              <div class="form-field">
-                <label for="cStars">Rating</label>
-                <select id="cStars" name="rating">
-                  <option value="5">★★★★★</option>
-                  <option value="4">★★★★☆</option>
-                  <option value="3">★★★☆☆</option>
-                  <option value="2">★★☆☆☆</option>
-                  <option value="1">★☆☆☆☆</option>
-                </select>
-              </div>
-              <div class="form-field full">
-                <label for="cText">Comment</label>
-                <textarea id="cText" name="comment" rows="3" placeholder="Share your feedback" required></textarea>
-              </div>
-              <button class="btn primary" type="submit">Submit</button>
-            </form>
-            <ul id="commentsList" class="footer-list"></ul>
-          </section>
-          
-        </div>
-      </section>
-
-      <section id="youtube" class="youtube-section">
-        <div class="container youtube-inner">
-          <div class="yt-copy">
-            <h2>Perfect Gardener on YouTube</h2>
-            <p>Hello everyone, this channel is all about nature, flowers, plants, care, and helping them grow better.</p>
-            <a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/@perfect.gardener">Subscribe on YouTube</a>
-          </div>
-          <div class="yt-embed">
-            <iframe class="yt-frame" src="https://www.youtube.com/embed/ds2Ozajh5zs
-" title="Perfect Gardener uploads" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-        </div>
-      </section>
-
-      <section id="videos" class="youtube-section">
-        <div class="container">
-          <div class="section-head">
-            <h2>Latest Videos</h2>
-           
-          </div>
-          <div id="videosGrid" class="products-grid"></div>
-          <!-- AdSense disabled -->
-        </div>
-      </section>
-
-     
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-col">
-          <div class="brand"><img src="assets/images/Avtar.png" alt="logo" class="logo" width="24" height="24" /><span class="brand-name">Perfect Gardener</span></div>
-          <p class="muted">Nature, flowers, plants, care — helping them grow better.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul class="footer-list">
-            <li><a href="./">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#posts">Posts</a></li>
-            <li><a href="contact.html">Contact us</a></li>
-            <li></li><a href="garden-tools.html">Tool</a></li>      
-            <li><a href="about.html">About</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <ul class="footer-list">
-            <li>Email: progardener01@gmail.com</li>
-            
-            <li>Location: Uttarakhand,India</li>
-          </ul>
-          <a class="btn primary " target="_blank" rel="noopener" href="https://www.youtube.com/@perfect.gardener">Subscribe on YouTube</a>
-          <div class="footer-social">
-            <a aria-label="YouTube" href="https://www.youtube.com/@perfect.gardener" target="_blank" rel="noopener">▶</a>
-            <a aria-label="Instagram" href="https://www.instagram.com/_perfect.gardener/" target="_blank" rel="noopener">⌁</a>
-            <a aria-label="Facebook" href="https://www.facebook.com/perfect.gardener" target="_blank" rel="noopener">f</a>
-            <a aria-label="Twitter/X" href="https://twitter.com/perfect_gardener" target="_blank" rel="noopener">𝕏</a>
-          </div>
-        </div>
-      </div>
-      <div class="container footer-bottom center">
-        <p>© <span id="year"></span> Perfect Gardener • All rights reserved.</p>
-        
-      </div>
-    </footer>
-    <!-- AdSense placeholders (hidden) -->
-    <aside class="ad-slot ad-left" aria-hidden="true" hidden></aside>
-    <aside class="ad-slot ad-right" aria-hidden="true" hidden></aside>
-    <!-- AdSense disabled -->
-    <a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
-    <script defer src="assets/js/script.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
-  </html>
-
-
+</html>
