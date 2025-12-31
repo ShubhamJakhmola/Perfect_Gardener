@@ -1,4 +1,4 @@
-project_id = "updlgrgbmotibtoeahdd"
+project_id = ""
 
 [functions.send-contact-email]
 verify_jwt = false
