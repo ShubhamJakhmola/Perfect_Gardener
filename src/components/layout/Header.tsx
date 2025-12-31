@@ -66,7 +66,7 @@ export function Header() {
             >
               <div className="flex-shrink-0 flex items-center justify-center mt-2 sm:mt-3" style={{ minHeight: "56px", padding: "6px 0", overflow: "visible" }}>
                 <img 
-                  src="/assets/images/Avtar.png" 
+                  src="/images/Avtar.png" 
                   alt="Perfect Gardener Logo" 
                   className="w-28 h-38 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 object-contain object-center transition-transform duration-300"
                   style={{ 

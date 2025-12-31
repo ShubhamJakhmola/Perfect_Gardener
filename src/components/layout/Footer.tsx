@@ -30,7 +30,7 @@ export function Footer() {
             <Link to="/" className="flex items-center gap-3 group">
               <div className="flex-shrink-0 flex items-center justify-center" style={{ minHeight: "64px", padding: "4px 0", overflow: "visible" }}>
                 <img 
-                  src="/assets/images/Avtar.png" 
+                  src="/images/Avtar.png" 
                   alt="Perfect Gardener Logo" 
                   className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain object-center group-hover:scale-110 transition-transform duration-300 drop-shadow-lg"
                   style={{ 

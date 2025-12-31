@@ -177,7 +177,7 @@ export function HeroSection() {
                 {/* Plant Illustration */}
                 <div className="relative w-full h-full flex items-end justify-center pb-2">
                   <img 
-                    src="/assets/images/tree.gif" 
+                    src="/images/tree.gif" 
                     alt="Healthy Growing Plant" 
                     className="w-full h-full object-contain animate-float"
                     style={{ 
@@ -282,7 +282,7 @@ export function HeroSection() {
                 <div className="absolute bottom-0 w-full h-8 rounded-full bg-gradient-to-b from-amber-700/40 to-amber-800/50 shadow-lg" />
                 <div className="relative w-full h-full flex items-end justify-center pb-1">
                   <img 
-                    src="/assets/images/tree.gif" 
+                    src="/images/tree.gif" 
                     alt="Growing Tree" 
                     className="relative w-full h-full object-contain animate-float"
                     style={{ animation: "float 4s ease-in-out infinite" }}
