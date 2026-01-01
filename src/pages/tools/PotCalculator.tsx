@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { SEO } from "@/components/SEO";
 
 interface PotResult {
   plantName: string;
@@ -97,6 +98,12 @@ const PotCalculator = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Pot Size Calculator for Plants"
+        description="Calculate the ideal pot size for your plants and estimate soil requirements. Free online tool to determine correct pot diameter, soil quantity in liters and kg for flowers, vegetables, and herbs."
+        keywords="pot size calculator, plant pot calculator, pot size for plants, soil calculator, container size calculator, gardening pot calculator, how to choose pot size, plant container calculator"
+        url="https://perfectgardener.netlify.app/tools/pot-calculator"
+      />
       <Header />
       
       <main id="main-content" className="pt-20">

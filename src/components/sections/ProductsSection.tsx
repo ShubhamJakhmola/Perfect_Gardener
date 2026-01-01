@@ -16,40 +16,39 @@ export function ProductsSection({ limit = 5, showViewAll = true }: ProductsSecti
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const loadProducts = () => {
-      const adminProducts = productStorage.getAll();
-      
-      if (adminProducts.length > 0) {
-        // Convert AdminProduct to Product format
-        const convertedProducts = adminProducts.map((p): Product => ({
-          id: p.id,
-          name: p.name,
-          price: p.price,
-          image: p.images && p.images.length > 0 ? p.images[0] : (p.image || ""),
-          images: p.images && p.images.length > 0 ? p.images : (p.image ? [p.image] : []),
-          link: p.link || "",
-        }));
-        setProducts(convertedProducts.slice(0, limit));
-      } else {
-        // Use empty array if no products
+    const loadProducts = async () => {
+      try {
+        const adminProducts = await productStorage.getAll();
+        
+        if (adminProducts.length > 0) {
+          // Convert AdminProduct to Product format
+          const convertedProducts = adminProducts.map((p): Product => ({
+            id: p.id,
+            name: p.name,
+            price: p.price,
+            image: p.images && p.images.length > 0 ? p.images[0] : (p.image || ""),
+            images: p.images && p.images.length > 0 ? p.images : (p.image ? [p.image] : []),
+            link: p.link || "",
+          }));
+          setProducts(convertedProducts.slice(0, limit));
+        } else {
+          // Use empty array if no products
+          setProducts([]);
+        }
+      } catch (error) {
+        console.error('Error loading products:', error);
         setProducts([]);
+      } finally {
+        setIsLoading(false);
       }
-      
-      setIsLoading(false);
     };
 
     loadProducts();
     
-    // Listen for storage changes
-    const handleStorageChange = () => {
-      loadProducts();
-    };
-    
-    window.addEventListener("storage", handleStorageChange);
-    const interval = setInterval(loadProducts, 1000);
+    // Refresh products every 30 seconds
+    const interval = setInterval(loadProducts, 30000);
     
     return () => {
-      window.removeEventListener("storage", handleStorageChange);
       clearInterval(interval);
     };
   }, [limit]);

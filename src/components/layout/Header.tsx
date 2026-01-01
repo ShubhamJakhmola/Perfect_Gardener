@@ -58,26 +58,26 @@ export function Header() {
         onKeyDown={handleKeyDown}
       >
         <div className="section-container overflow-visible">
-          <div className="flex items-center justify-between h-16 md:h-18 lg:h-20 py-1 overflow-visible">
+          <div className="flex items-center justify-between h-12 xs:h-14 sm:h-16 md:h-18 lg:h-20 py-0.5 xs:py-1 overflow-visible">
             {/* Logo */}
             <Link 
               to="/" 
-              className="flex items-center gap-3 focus-ring"
+              className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 focus-ring"
             >
-              <div className="flex-shrink-0 flex items-center justify-center mt-2 sm:mt-3" style={{ minHeight: "56px", padding: "6px 0", overflow: "visible" }}>
+              <div className="flex-shrink-0 flex items-center justify-center mt-1 xs:mt-1.5 sm:mt-2 md:mt-3" style={{ minHeight: "40px", padding: "4px 0", overflow: "visible" }}>
                 <img 
                   src="/images/Avtar.png" 
                   alt="Perfect Gardener Logo" 
-                  className="w-28 h-38 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 object-contain object-center transition-transform duration-300"
+                  className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 object-contain object-center transition-transform duration-300"
                   style={{ 
                     width: "auto",
                     height: "auto",
-                    maxWidth: "80px",
-                    maxHeight: "80px",
+                    maxWidth: "60px",
+                    maxHeight: "60px",
                     objectFit: "contain",
                     objectPosition: "center",
                     display: "block",
-                    paddingBottom: "8px",     // pushes logo down
+                    paddingBottom: "4px",
                     
                   }}
                   onError={(e) => {
@@ -86,23 +86,37 @@ export function Header() {
                     target.style.display = "none";
                     const parent = target.parentElement;
                     if (parent) {
-                      parent.innerHTML = '<div class="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-primary/10 flex items-center justify-center"><svg class="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></div>';
+                      const fallback = document.createElement('div');
+                      fallback.className = "w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-primary/10 flex items-center justify-center";
+                      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                      svg.setAttribute('class', 'w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-primary');
+                      svg.setAttribute('fill', 'none');
+                      svg.setAttribute('stroke', 'currentColor');
+                      svg.setAttribute('viewBox', '0 0 24 24');
+                      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                      path.setAttribute('stroke-linecap', 'round');
+                      path.setAttribute('stroke-linejoin', 'round');
+                      path.setAttribute('stroke-width', '2');
+                      path.setAttribute('d', 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253');
+                      svg.appendChild(path);
+                      fallback.appendChild(svg);
+                      parent.appendChild(fallback);
                     }
                   }}
                 />
               </div>
-              <span className="font-display font-bold text-2xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground hidden sm:inline">
+              <span className="font-display font-bold text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground hidden xs:inline">
                 Perfect Gardener
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-1" role="navigation" aria-label="Main navigation">
+            <nav className="hidden md:flex items-center gap-0.5 lg:gap-1" role="navigation" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="px-4 py-2 text-lg md:text-xl font-semibold text-foreground/80 hover:text-foreground hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-lg transition-all duration-300 hover:scale-105 focus-ring"
+                  className="px-2 lg:px-3 xl:px-4 py-1.5 lg:py-2 text-xs lg:text-sm xl:text-base font-semibold text-foreground/80 hover:text-foreground hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-lg transition-all duration-300 hover:scale-105 focus-ring"
                 >
                   {link.label}
                 </Link>
@@ -113,7 +127,7 @@ export function Header() {
                 <DropdownMenuTrigger asChild>
                   <Button 
                     variant="ghost" 
-                    className="px-4 py-2 text-lg md:text-xl font-semibold text-foreground/80 hover:text-foreground hover:bg-secondary focus-ring"
+                    className="px-4 py-2 text-sm md:text-base font-semibold text-foreground/80 hover:text-foreground hover:bg-secondary focus-ring"
                   >
                     Tools
                     <ChevronDown className="ml-1 h-5 w-5" />
@@ -138,7 +152,7 @@ export function Header() {
 
               <Link
                 to="/#youtube"
-                className="px-4 py-2 text-lg md:text-xl font-semibold text-foreground/80 hover:text-foreground hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-lg transition-all duration-300 hover:scale-105 focus-ring"
+                className="px-4 py-2 text-sm md:text-base font-semibold text-foreground/80 hover:text-foreground hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-lg transition-all duration-300 hover:scale-105 focus-ring"
               >
                 YouTube
               </Link>
@@ -193,7 +207,7 @@ export function Header() {
               <Link
                 key={link.href}
                 to={link.href}
-                className="block px-4 py-3 text-lg font-semibold text-foreground hover:bg-secondary rounded-lg transition-colors focus-ring"
+                className="block px-4 py-3 text-base font-semibold text-foreground hover:bg-secondary rounded-lg transition-colors focus-ring"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -216,7 +230,7 @@ export function Header() {
 
             <Link
               to="/#youtube"
-              className="block px-4 py-3 text-lg font-semibold text-foreground hover:bg-secondary rounded-lg transition-colors focus-ring"
+              className="block px-4 py-3 text-base font-semibold text-foreground hover:bg-secondary rounded-lg transition-colors focus-ring"
               onClick={() => setIsOpen(false)}
             >
               YouTube

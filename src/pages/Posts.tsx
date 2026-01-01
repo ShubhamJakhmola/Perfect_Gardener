@@ -165,47 +165,46 @@ const Posts = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [allPosts, setAllPosts] = useState<Post[]>([]);
 
-  // Load posts from localStorage (admin-managed) or fallback to default
+  // Load posts from API
   useEffect(() => {
-    const loadPosts = () => {
-      const adminPosts = postStorage.getAll();
-      
-      if (adminPosts.length > 0) {
-        // Convert AdminPost to Post format
-        const convertedPosts = adminPosts.map((p): Post => ({
-          id: p.id,
-          title: p.title,
-          excerpt: p.excerpt,
-          content: p.content,
-          date: p.date || new Date().toISOString().split('T')[0],
-          readTime: p.readTime || "5 min read",
-          category: p.category || "Uncategorized",
-          author: p.author || "Perfect Gardener",
-          featured: p.featured || false,
-          slug: p.slug,
-        }));
-        setAllPosts(convertedPosts);
-      } else {
-        // Use fallback posts if no admin posts exist
+    const loadPosts = async () => {
+      try {
+        const adminPosts = await postStorage.getAll();
+        
+        if (adminPosts.length > 0) {
+          // Convert AdminPost to Post format
+          const convertedPosts = adminPosts.map((p): Post => ({
+            id: p.id,
+            title: p.title,
+            excerpt: p.excerpt,
+            content: p.content,
+            date: p.date || new Date().toISOString().split('T')[0],
+            readTime: p.readTime || "5 min read",
+            category: p.category || "Uncategorized",
+            author: p.author || "Perfect Gardener",
+            featured: p.featured || false,
+            slug: p.slug,
+          }));
+          setAllPosts(convertedPosts);
+        } else {
+          // Use fallback posts if no admin posts exist
+          setAllPosts(fallbackPosts);
+        }
+      } catch (error) {
+        console.error('Error loading posts:', error);
+        // Use fallback posts on error
         setAllPosts(fallbackPosts);
+      } finally {
+        setIsLoading(false);
       }
-      
-      setIsLoading(false);
     };
 
     loadPosts();
     
-    // Listen for storage changes (when admin adds/updates posts)
-    const handleStorageChange = () => {
-      loadPosts();
-    };
-    
-    window.addEventListener("storage", handleStorageChange);
-    // Also check periodically for same-tab updates
-    const interval = setInterval(loadPosts, 1000);
+    // Refresh posts every 30 seconds
+    const interval = setInterval(loadPosts, 30000);
     
     return () => {
-      window.removeEventListener("storage", handleStorageChange);
       clearInterval(interval);
     };
   }, []);

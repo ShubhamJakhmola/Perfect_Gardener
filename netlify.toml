@@ -2,5 +2,17 @@
   command = "npm run build"
   publish = "dist"
 
+# Redirects for SEO
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/.netlify/functions/sitemap"
+  status = 200
+  force = true
+
 [functions]
   directory = "netlify/functions"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 8081
+  port = 8888

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useMemo } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { cn } from "@/lib/utils";
@@ -26,17 +26,83 @@ export function RichTextEditor({
   className,
 }: RichTextEditorProps) {
   const quillRef = useRef<ReactQuill>(null);
-  const isInitializedRef = useRef(false);
 
-  // Prevent re-initialization issues
-  useEffect(() => {
-    if (quillRef.current && !isInitializedRef.current) {
-      isInitializedRef.current = true;
-    }
+  // Memoize handlers to prevent re-creation on every render
+  const imageHandler = useMemo(() => {
+    return function () {
+      const quill = quillRef.current?.getEditor();
+      if (!quill) return;
+
+      // Create file input for local upload
+      const input = document.createElement("input");
+      input.setAttribute("type", "file");
+      input.setAttribute("accept", "image/*");
+      input.style.display = "none";
+      document.body.appendChild(input);
+
+      input.addEventListener("change", () => {
+        const file = input.files?.[0];
+        if (file) {
+          // Check file size (max 5MB)
+          if (file.size > 5 * 1024 * 1024) {
+            alert("Image size must be less than 5MB");
+            document.body.removeChild(input);
+            return;
+          }
+
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const dataUrl = e.target?.result as string;
+            const range = quill.getSelection(true);
+            quill.insertEmbed(range.index, "image", dataUrl);
+            document.body.removeChild(input);
+          };
+          reader.onerror = () => {
+            alert("Error reading image file");
+            document.body.removeChild(input);
+          };
+          reader.readAsDataURL(file);
+        } else {
+          // Fallback to URL input if no file selected
+          const url = prompt("Enter image URL (or cancel to upload from computer):");
+          if (url) {
+            const range = quill.getSelection(true);
+            quill.insertEmbed(range.index, "image", url);
+          }
+          document.body.removeChild(input);
+        }
+      });
+
+      // Also show URL option
+      const useUrl = confirm("Click OK to enter image URL, or Cancel to upload from computer");
+      if (useUrl) {
+        const url = prompt("Enter image URL:");
+        if (url) {
+          const range = quill.getSelection(true);
+          quill.insertEmbed(range.index, "image", url);
+        }
+        document.body.removeChild(input);
+      } else {
+        input.click();
+      }
+    };
   }, []);
 
-  // Configure the toolbar with all required formatting options
-  const modules = {
+  const videoHandler = useMemo(() => {
+    return function () {
+      const quill = quillRef.current?.getEditor();
+      if (!quill) return;
+
+      const url = prompt("Enter video URL (YouTube, Vimeo, etc.):");
+      if (url) {
+        const range = quill.getSelection(true);
+        quill.insertEmbed(range.index, "video", url);
+      }
+    };
+  }, []);
+
+  // Memoize modules to prevent re-creation on every render (this was causing the editor to disappear)
+  const modules = useMemo(() => ({
     toolbar: {
       container: [
         [{ header: [1, 2, 3, false] }], // Headings H1-H3
@@ -49,83 +115,16 @@ export function RichTextEditor({
         ["clean"], // Remove formatting
       ],
       handlers: {
-        // Custom image handler - allows URL input or local file upload
-        image: function () {
-          const quill = quillRef.current?.getEditor();
-          if (!quill) return;
-
-          // Create file input for local upload
-          const input = document.createElement("input");
-          input.setAttribute("type", "file");
-          input.setAttribute("accept", "image/*");
-          input.style.display = "none";
-          document.body.appendChild(input);
-
-          input.addEventListener("change", () => {
-            const file = input.files?.[0];
-            if (file) {
-              // Check file size (max 5MB)
-              if (file.size > 5 * 1024 * 1024) {
-                alert("Image size must be less than 5MB");
-                document.body.removeChild(input);
-                return;
-              }
-
-              const reader = new FileReader();
-              reader.onload = (e) => {
-                const dataUrl = e.target?.result as string;
-                const range = quill.getSelection(true);
-                quill.insertEmbed(range.index, "image", dataUrl);
-                document.body.removeChild(input);
-              };
-              reader.onerror = () => {
-                alert("Error reading image file");
-                document.body.removeChild(input);
-              };
-              reader.readAsDataURL(file);
-            } else {
-              // Fallback to URL input if no file selected
-              const url = prompt("Enter image URL (or cancel to upload from computer):");
-              if (url) {
-                const range = quill.getSelection(true);
-                quill.insertEmbed(range.index, "image", url);
-              }
-              document.body.removeChild(input);
-            }
-          });
-
-          // Also show URL option
-          const useUrl = confirm("Click OK to enter image URL, or Cancel to upload from computer");
-          if (useUrl) {
-            const url = prompt("Enter image URL:");
-            if (url) {
-              const range = quill.getSelection(true);
-              quill.insertEmbed(range.index, "image", url);
-            }
-            document.body.removeChild(input);
-          } else {
-            input.click();
-          }
-        },
-        // Custom video handler - allows URL input
-        video: function () {
-          const quill = quillRef.current?.getEditor();
-          if (!quill) return;
-
-          const url = prompt("Enter video URL (YouTube, Vimeo, etc.):");
-          if (url) {
-            const range = quill.getSelection(true);
-            quill.insertEmbed(range.index, "video", url);
-          }
-        },
+        image: imageHandler,
+        video: videoHandler,
       },
     },
     clipboard: {
       matchVisual: false,
     },
-  };
+  }), [imageHandler, videoHandler]);
 
-  const formats = [
+  const formats = useMemo(() => [
     "header",
     "bold",
     "italic",
@@ -141,18 +140,10 @@ export function RichTextEditor({
     "video",
     "color",
     "background",
-  ];
+  ], []);
 
   return (
-    <div className={cn("rich-text-editor-wrapper", className)} onBlur={(e) => {
-      // Prevent editor from losing focus unexpectedly
-      if (quillRef.current && !e.currentTarget.contains(e.relatedTarget as Node)) {
-        const editor = quillRef.current.getEditor();
-        if (editor && document.activeElement !== editor.root) {
-          // Editor is still valid, just lost focus naturally
-        }
-      }
-    }}>
+    <div className={cn("rich-text-editor-wrapper", className)}>
       <style>{`
         .rich-text-editor-wrapper .ql-container {
           font-family: inherit;

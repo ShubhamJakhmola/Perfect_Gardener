@@ -195,11 +195,11 @@ const Contact = () => {
               <Leaf className="w-4 h-4" />
               <span className="text-sm font-medium">Get in Touch</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-3 xs:mb-4">
               Contact Us
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have questions about gardening or need expert advice? We're here to help your garden flourish!
+            <p className="text-sm xs:text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
+              Got questions about gardening? Need some tips? Drop us a line and we'll get back to you!
             </p>
           </div>
         </section>

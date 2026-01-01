@@ -11,36 +11,28 @@ const About = () => {
         <section className="py-12 md:py-16">
           <div className="section-container">
             <div className="max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-3 xs:mb-4">
                 About Perfect Gardener
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-base xs:text-lg sm:text-xl text-muted-foreground mb-6 xs:mb-8">
                 Nature, flowers, plants, care — helping them grow beautifully.
               </p>
 
-              <div className="space-y-6 text-foreground text-lg leading-relaxed">
+              <div className="space-y-4 xs:space-y-5 sm:space-y-6 text-foreground text-sm xs:text-base sm:text-lg leading-relaxed">
                 <p>
-                  Hey, I'm <strong className="font-semibold">Shubham Jakhmola</strong> from the mountains of Uttarakhand. Gardening has always been one of
-                  my favourite hobbies, something that keeps me connected to nature and brings a sense of peace
-                  into everyday life. Perfect Gardener is my way of sharing that passion with you.
+                  Hey there! I'm <strong className="font-semibold">Shubham Jakhmola</strong>, and I live in the beautiful mountains of Uttarakhand. Gardening's been my thing for as long as I can remember. There's something really calming about getting your hands dirty and watching things grow. That's why I started Perfect Gardener — to share what I've learned along the way.
                 </p>
 
                 <p>
-                  I started this platform to make gardening simple and enjoyable for everyone. Whether you're a
-                  complete beginner or someone trying to improve plant health, I share clear and practical tips
-                  based on real experience from soil preparation and watering routines to fertilizers, pests,
-                  pruning, and seasonal plant care.
+                  I wanted to make gardening less intimidating for folks who are just starting out. Whether you've never planted a seed or you're looking to step up your plant game, I've got tips that actually work. I talk about everything from getting your soil ready to dealing with pesky bugs, and it's all stuff I've tried myself in my own garden.
                 </p>
 
                 <p>
-                  Along with helpful articles, I also create videos on my YouTube channel where I show step-by-step
-                  plant care, DIY hacks, and home gardening ideas. Everything you see here is something I have
-                  personally tried, learned, and improved over time.
+                  You'll also find videos on my YouTube channel where I walk through different plant care routines, share some DIY tricks, and show off what's growing in my space. Nothing fancy — just real, practical advice from someone who's been doing this for a while.
                 </p>
 
                 <p>
-                  My goal is simple: to help you grow healthier plants, build a beautiful green space at home,
-                  and enjoy gardening just the way I do here in the hills of Uttarakhand.
+                  Bottom line? I want to help you grow better plants and create a nice green spot at home. If I can do it up here in the hills, you can definitely do it wherever you are!
                 </p>
               </div>
             </div>

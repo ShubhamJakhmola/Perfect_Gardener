@@ -28,8 +28,8 @@ Disallow: /
 User-agent: MJ12bot
 Disallow: /
 
-# Sitemap location
-Sitemap: https://perfectgardener.netlify.app/sitemap.xml
+# Sitemap location - Dynamic sitemap that automatically includes all posts
+Sitemap: https://perfectgardener.netlify.app/.netlify/functions/sitemap
 
 # Crawl delay (optional - allow 1 second delay between requests)
 Crawl-delay: 1

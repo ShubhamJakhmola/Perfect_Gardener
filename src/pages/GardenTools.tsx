@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { BackToTop } from "@/components/BackToTop";
+import { SEO } from "@/components/SEO";
 
 const tools = [
   {
@@ -33,6 +34,12 @@ const tools = [
 const GardenTools = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Free Gardening Tools & Calculators"
+        description="Free online gardening tools and calculators: flower bloom time calculator, pot size calculator, budget planner, and seasonal planting calendar. Plan and manage your garden with these helpful tools."
+        keywords="gardening tools, garden calculators, plant calculator, gardening tools online, free gardening tools, garden planning tools, plant care calculator, gardening helper tools"
+        url="https://perfectgardener.netlify.app/tools"
+      />
       <Header />
       
       <main id="main-content" className="pt-20">

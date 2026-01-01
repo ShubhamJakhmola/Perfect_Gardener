@@ -268,8 +268,9 @@
   }
 
   /* Section container - full width on large screens, responsive padding */
+  /* Smart watch support: xs breakpoint for very small screens (240px+) */
   .section-container {
-    @apply w-full mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-20;
+    @apply w-full mx-auto px-2 xs:px-3 sm:px-4 md:px-6 lg:px-12 xl:px-16 2xl:px-20;
   }
 
   /* Premium Glassmorphism */

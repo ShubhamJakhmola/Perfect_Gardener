@@ -33,47 +33,46 @@ const Products = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [allProducts, setAllProducts] = useState<(Product & { category: string; description: string })[]>([]);
 
-  // Load products from localStorage (admin-managed) or fallback to default
+  // Load products from API
   useEffect(() => {
-    const loadProducts = () => {
-      const adminProducts = productStorage.getAll();
-      
-      if (adminProducts.length > 0) {
-        // Convert AdminProduct to Product format
-        const convertedProducts = adminProducts.map((p): Product & { category: string; description: string } => ({
-          id: p.id,
-          name: p.name,
-          price: p.price,
-          image: p.images && p.images.length > 0 ? p.images[0] : (p.image || ""),
-          images: p.images && p.images.length > 0 ? p.images : (p.image ? [p.image] : []),
-          link: p.link || "",
-          category: p.category || "Uncategorized",
-          description: p.description || "",
-          source: p.source,
-          subCategory: p.subCategory,
-        }));
-        setAllProducts(convertedProducts);
-      } else {
-        // Use fallback products if no admin products exist
+    const loadProducts = async () => {
+      try {
+        const adminProducts = await productStorage.getAll();
+        
+        if (adminProducts.length > 0) {
+          // Convert AdminProduct to Product format
+          const convertedProducts = adminProducts.map((p): Product & { category: string; description: string } => ({
+            id: p.id,
+            name: p.name,
+            price: p.price,
+            image: p.images && p.images.length > 0 ? p.images[0] : (p.image || ""),
+            images: p.images && p.images.length > 0 ? p.images : (p.image ? [p.image] : []),
+            link: p.link || "",
+            category: p.category || "Uncategorized",
+            description: p.description || "",
+            source: p.source,
+            subCategory: p.subCategory,
+          }));
+          setAllProducts(convertedProducts);
+        } else {
+          // Use fallback products if no admin products exist
+          setAllProducts(fallbackProducts);
+        }
+      } catch (error) {
+        console.error('Error loading products:', error);
+        // Use fallback products on error
         setAllProducts(fallbackProducts);
+      } finally {
+        setIsLoading(false);
       }
-      
-      setIsLoading(false);
     };
 
     loadProducts();
     
-    // Listen for storage changes (when admin adds/updates products)
-    const handleStorageChange = () => {
-      loadProducts();
-    };
-    
-    window.addEventListener("storage", handleStorageChange);
-    // Also check periodically for same-tab updates
-    const interval = setInterval(loadProducts, 1000);
+    // Refresh products every 30 seconds (instead of 1 second for API)
+    const interval = setInterval(loadProducts, 30000);
     
     return () => {
-      window.removeEventListener("storage", handleStorageChange);
       clearInterval(interval);
     };
   }, []);

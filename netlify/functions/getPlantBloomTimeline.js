@@ -30,7 +30,7 @@ Rules:
       {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${process.env.perplex_API}`,
+          Authorization: `Bearer ${process.env.PERPLEX_API}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({

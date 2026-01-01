@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { SEO } from "@/components/SEO";
 
 // Indian market prices (approximate, 2024) - ORIGINAL DATA
 const costData = {
@@ -126,6 +127,12 @@ const BudgetPlanner = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Gardening Budget Planner Calculator"
+        description="Plan your gardening budget and estimate costs for pots, soil, seeds, fertilizers, and tools. Free online calculator to help you budget for your home garden in Indian Rupees (₹)."
+        keywords="gardening budget calculator, garden cost calculator, plant budget planner, gardening expenses calculator, garden budget planning, home gardening cost, Indian gardening budget, ₹ gardening calculator"
+        url="https://perfectgardener.netlify.app/tools/budget-planner"
+      />
       <Header />
       
       <main id="main-content" className="pt-20">

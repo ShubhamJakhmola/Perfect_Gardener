@@ -1,8 +1,10 @@
 /**
  * Admin Storage Utility
- * Handles localStorage persistence for admin data (products, posts, pages)
- * This provides a simple data layer that can later be replaced with a real backend
+ * Handles API persistence for admin data (products, posts)
+ * Uses Netlify Functions backend with Neon database
  */
+
+import { productsAPI, postsAPI } from './api-client';
 
 export interface AdminProduct {
   id: string;
@@ -38,106 +40,238 @@ export interface AdminPage {
   content: string;
 }
 
+// Cache for optimistic updates
+let productsCache: AdminProduct[] | null = null;
+let postsCache: AdminPost[] | null = null;
+
+/**
+ * Products Storage - API-based
+ */
+export const productStorage = {
+  getAll: async (): Promise<AdminProduct[]> => {
+    try {
+      const products = await productsAPI.getAll();
+      // Normalize products to match AdminProduct interface
+      const normalized = products.map((p: any) => ({
+        id: p.id,
+        name: p.name,
+        price: p.price,
+        image: p.image || (p.images && p.images.length > 0 ? p.images[0] : undefined),
+        images: p.images || (p.image ? [p.image] : []),
+        link: p.link,
+        category: p.category,
+        description: p.description,
+        source: p.source,
+        subCategory: p.subCategory || p.sub_category,
+      }));
+      productsCache = normalized;
+      return normalized;
+    } catch (error) {
+      console.error('Failed to fetch products:', error);
+      // Return cache if available, otherwise empty array
+      return productsCache || [];
+    }
+  },
+
+  getAllSync: (): AdminProduct[] => {
+    // Synchronous version for backward compatibility
+    // Returns cache or empty array
+    return productsCache || [];
+  },
+
+  save: async (products: AdminProduct[]): Promise<void> => {
+    // This method is kept for backward compatibility but does nothing
+    // Individual add/update/delete methods should be used instead
+    console.warn('productStorage.save() is deprecated. Use add/update/delete methods instead.');
+  },
+
+  add: async (product: AdminProduct): Promise<AdminProduct> => {
+    try {
+      // Prepare product data for API (remove id if it's a new product)
+      const { id, ...productData } = product;
+      const created = await productsAPI.create(productData);
+      
+      // Normalize the created product
+      const normalizedProduct: AdminProduct = {
+        id: created.id,
+        name: created.name,
+        price: created.price,
+        image: created.image || (created.images && created.images.length > 0 ? created.images[0] : undefined),
+        images: created.images || (created.image ? [created.image] : []),
+        link: created.link,
+        category: created.category,
+        description: created.description,
+        source: created.source,
+        subCategory: created.subCategory || created.sub_category,
+      };
+      
+      // Update cache
+      if (productsCache) {
+        productsCache.push(normalizedProduct);
+      }
+      
+      return normalizedProduct;
+    } catch (error) {
+      console.error('Failed to add product:', error);
+      throw error;
+    }
+  },
+
+  update: async (id: string, updates: Partial<AdminProduct>): Promise<void> => {
+    try {
+      await productsAPI.update(id, updates);
+      
+      // Update cache
+      if (productsCache) {
+        const index = productsCache.findIndex((p) => p.id === id);
+        if (index !== -1) {
+          productsCache[index] = { ...productsCache[index], ...updates };
+        }
+      }
+    } catch (error) {
+      console.error('Failed to update product:', error);
+      throw error;
+    }
+  },
+
+  delete: async (id: string): Promise<void> => {
+    try {
+      await productsAPI.delete(id);
+      
+      // Update cache
+      if (productsCache) {
+        productsCache = productsCache.filter((p) => p.id !== id);
+      }
+    } catch (error) {
+      console.error('Failed to delete product:', error);
+      throw error;
+    }
+  },
+};
+
+/**
+ * Posts Storage - API-based
+ */
+export const postStorage = {
+  getAll: async (): Promise<AdminPost[]> => {
+    try {
+      const posts = await postsAPI.getAll();
+      // Normalize posts to match AdminPost interface
+      const normalized = posts.map((p: any) => ({
+        id: p.id,
+        title: p.title,
+        slug: p.slug,
+        excerpt: p.excerpt,
+        content: p.content,
+        date: p.date,
+        readTime: p.read_time,
+        category: p.category,
+        author: p.author,
+        image: p.image,
+        featured: p.featured,
+      }));
+      postsCache = normalized;
+      return normalized;
+    } catch (error) {
+      console.error('Failed to fetch posts:', error);
+      // Return cache if available, otherwise empty array
+      return postsCache || [];
+    }
+  },
+
+  getAllSync: (): AdminPost[] => {
+    // Synchronous version for backward compatibility
+    // Returns cache or empty array
+    return postsCache || [];
+  },
+
+  save: async (posts: AdminPost[]): Promise<void> => {
+    // This method is kept for backward compatibility but does nothing
+    // Individual add/update/delete methods should be used instead
+    console.warn('postStorage.save() is deprecated. Use add/update/delete methods instead.');
+  },
+
+  add: async (post: AdminPost): Promise<AdminPost> => {
+    try {
+      const { id, ...postData } = post;
+      const created = await postsAPI.create(postData);
+      
+      // Update cache
+      const normalizedPost: AdminPost = {
+        id: created.id,
+        title: created.title,
+        slug: created.slug,
+        excerpt: created.excerpt,
+        content: created.content,
+        date: created.date,
+        readTime: created.read_time,
+        category: created.category,
+        author: created.author,
+        image: created.image,
+        featured: created.featured,
+      };
+      
+      if (postsCache) {
+        postsCache.push(normalizedPost);
+      }
+      
+      return normalizedPost;
+    } catch (error) {
+      console.error('Failed to add post:', error);
+      throw error;
+    }
+  },
+
+  update: async (id: string, updates: Partial<AdminPost>): Promise<void> => {
+    try {
+      await postsAPI.update(id, updates);
+      
+      // Update cache
+      if (postsCache) {
+        const index = postsCache.findIndex((p) => p.id === id);
+        if (index !== -1) {
+          postsCache[index] = { ...postsCache[index], ...updates };
+        }
+      }
+    } catch (error) {
+      console.error('Failed to update post:', error);
+      throw error;
+    }
+  },
+
+  delete: async (id: string): Promise<void> => {
+    try {
+      await postsAPI.delete(id);
+      
+      // Update cache
+      if (postsCache) {
+        postsCache = postsCache.filter((p) => p.id !== id);
+      }
+    } catch (error) {
+      console.error('Failed to delete post:', error);
+      throw error;
+    }
+  },
+
+  getBySlug: async (slug: string): Promise<AdminPost | undefined> => {
+    try {
+      const post = await postsAPI.getBySlug(slug);
+      return post;
+    } catch (error) {
+      console.error('Failed to fetch post by slug:', error);
+      // Try cache as fallback
+      return postsCache?.find((p) => p.slug === slug);
+    }
+  },
+};
+
+/**
+ * Pages Storage - Keep localStorage for now (can be migrated later)
+ */
 const STORAGE_KEYS = {
-  PRODUCTS: "admin_products",
-  POSTS: "admin_posts",
   PAGES: "admin_pages",
 } as const;
 
-/**
- * Products Storage
- */
-export const productStorage = {
-  getAll: (): AdminProduct[] => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
-      return stored ? JSON.parse(stored) : [];
-    } catch {
-      return [];
-    }
-  },
-
-  save: (products: AdminProduct[]): void => {
-    try {
-      localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
-    } catch (error) {
-      console.error("Failed to save products:", error);
-    }
-  },
-
-  add: (product: AdminProduct): void => {
-    const products = productStorage.getAll();
-    products.push(product);
-    productStorage.save(products);
-  },
-
-  update: (id: string, updates: Partial<AdminProduct>): void => {
-    const products = productStorage.getAll();
-    const index = products.findIndex((p) => p.id === id);
-    if (index !== -1) {
-      products[index] = { ...products[index], ...updates };
-      productStorage.save(products);
-    }
-  },
-
-  delete: (id: string): void => {
-    const products = productStorage.getAll();
-    const filtered = products.filter((p) => p.id !== id);
-    productStorage.save(filtered);
-  },
-};
-
-/**
- * Posts Storage
- */
-export const postStorage = {
-  getAll: (): AdminPost[] => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEYS.POSTS);
-      return stored ? JSON.parse(stored) : [];
-    } catch {
-      return [];
-    }
-  },
-
-  save: (posts: AdminPost[]): void => {
-    try {
-      localStorage.setItem(STORAGE_KEYS.POSTS, JSON.stringify(posts));
-    } catch (error) {
-      console.error("Failed to save posts:", error);
-    }
-  },
-
-  add: (post: AdminPost): void => {
-    const posts = postStorage.getAll();
-    posts.push(post);
-    postStorage.save(posts);
-  },
-
-  update: (id: string, updates: Partial<AdminPost>): void => {
-    const posts = postStorage.getAll();
-    const index = posts.findIndex((p) => p.id === id);
-    if (index !== -1) {
-      posts[index] = { ...posts[index], ...updates };
-      postStorage.save(posts);
-    }
-  },
-
-  delete: (id: string): void => {
-    const posts = postStorage.getAll();
-    const filtered = posts.filter((p) => p.id !== id);
-    postStorage.save(filtered);
-  },
-
-  getBySlug: (slug: string): AdminPost | undefined => {
-    const posts = postStorage.getAll();
-    return posts.find((p) => p.slug === slug);
-  },
-};
-
-/**
- * Pages Storage
- */
 export const pageStorage = {
   getAll: (): AdminPage[] => {
     try {
@@ -182,4 +316,3 @@ export const pageStorage = {
     return pages.find((p) => p.slug === slug);
   },
 };
-

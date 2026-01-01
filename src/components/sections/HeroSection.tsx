@@ -78,54 +78,54 @@ export function HeroSection() {
           {/* Left Content */}
           <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
             {/* Premium Badge */}
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 backdrop-blur-sm border border-primary/20 text-primary text-sm font-semibold animate-fade-in-up shadow-lg">
-              <Sparkles className="w-4 h-4" />
+            <div className="inline-flex items-center gap-1.5 xs:gap-2 px-3 xs:px-4 sm:px-5 py-1.5 xs:py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 backdrop-blur-sm border border-primary/20 text-primary text-xs xs:text-sm font-semibold animate-fade-in-up shadow-lg">
+              <Sparkles className="w-3 h-3 xs:w-4 xs:h-4" />
               <span>Your Green Companion</span>
             </div>
 
             {/* Premium Gradient Heading */}
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] animate-fade-in-up animation-delay-100">
+            <h1 className="font-display text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] animate-fade-in-up animation-delay-100">
               <span className="text-foreground">Perfect</span>{" "}
               <span className="gradient-text">Gardener</span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up animation-delay-200">
+            <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up animation-delay-200">
               From tiny saplings to lush home gardens, we help you grow with nature beautifully.
             </p>
 
             {/* Premium CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-fade-in-up animation-delay-300">
+            <div className="flex flex-col sm:flex-row gap-2 xs:gap-3 sm:gap-4 justify-center lg:justify-start animate-fade-in-up animation-delay-300">
               <Button 
                 asChild 
                 size="lg" 
-                className="btn-gradient group relative overflow-hidden px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg font-semibold w-full sm:w-auto"
+                className="btn-gradient group relative overflow-hidden px-4 xs:px-5 sm:px-6 md:px-8 py-3 xs:py-4 sm:py-5 md:py-6 text-xs xs:text-sm sm:text-base md:text-lg font-semibold w-full sm:w-auto"
               >
                 <Link to="/products" className="relative z-10 flex items-center justify-center">
                   Browse Products
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5 ml-1.5 xs:ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button 
                 asChild 
                 variant="outline" 
                 size="lg" 
-                className="px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg font-semibold border-2 hover:bg-primary/5 hover:border-primary/30 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto"
+                className="px-4 xs:px-5 sm:px-6 md:px-8 py-3 xs:py-4 sm:py-5 md:py-6 text-xs xs:text-sm sm:text-base md:text-lg font-semibold border-2 hover:bg-primary/5 hover:border-primary/30 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto"
               >
                 <Link to="/posts">Read Posts</Link>
               </Button>
             </div>
 
             {/* Premium Stats */}
-            <div className="flex items-center justify-center lg:justify-start gap-6 sm:gap-8 pt-6 sm:pt-8 animate-fade-in-up animation-delay-400">
+            <div className="flex items-center justify-center lg:justify-start gap-3 xs:gap-4 sm:gap-6 md:gap-8 pt-4 xs:pt-5 sm:pt-6 md:pt-8 animate-fade-in-up animation-delay-400">
               <div className="text-center group">
-                <p className="font-display text-3xl sm:text-4xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300">50+</p>
-                <p className="text-xs sm:text-sm text-muted-foreground font-medium">Products curated</p>
+                <p className="font-display text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold gradient-text mb-0.5 xs:mb-1 group-hover:scale-110 transition-transform duration-300">50+</p>
+                <p className="text-[10px] xs:text-xs sm:text-sm text-muted-foreground font-medium">Products curated</p>
               </div>
-              <div className="w-px h-12 sm:h-16 bg-gradient-to-b from-transparent via-border to-transparent" />
+              <div className="w-px h-8 xs:h-10 sm:h-12 md:h-16 bg-gradient-to-b from-transparent via-border to-transparent" />
               <div className="text-center group">
-                <p className="font-display text-3xl sm:text-4xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300">10K+</p>
-                <p className="text-xs sm:text-sm text-muted-foreground font-medium">Happy Gardeners</p>
+                <p className="font-display text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold gradient-text mb-0.5 xs:mb-1 group-hover:scale-110 transition-transform duration-300">10K+</p>
+                <p className="text-[10px] xs:text-xs sm:text-sm text-muted-foreground font-medium">Happy Gardeners</p>
               </div>
             </div>
           </div>
@@ -185,10 +185,14 @@ export function HeroSection() {
                       animation: "float 4s ease-in-out infinite"
                     }}
                     onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                      const parent = (e.target as HTMLImageElement).parentElement;
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = "none";
+                      const parent = target.parentElement;
                       if (parent) {
-                        parent.innerHTML = '<div class="text-8xl animate-float">🌱</div>';
+                        const fallback = document.createElement('div');
+                        fallback.className = "text-8xl animate-float";
+                        fallback.textContent = '🌱';
+                        parent.appendChild(fallback);
                       }
                     }}
                   />
@@ -287,10 +291,14 @@ export function HeroSection() {
                     className="relative w-full h-full object-contain animate-float"
                     style={{ animation: "float 4s ease-in-out infinite" }}
                     onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                      const parent = (e.target as HTMLImageElement).parentElement;
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = "none";
+                      const parent = target.parentElement;
                       if (parent) {
-                        parent.innerHTML = '<div class="text-6xl animate-float">🌱</div>';
+                        const fallback = document.createElement('div');
+                        fallback.className = "text-6xl animate-float";
+                        fallback.textContent = '🌱';
+                        parent.appendChild(fallback);
                       }
                     }}
                   />

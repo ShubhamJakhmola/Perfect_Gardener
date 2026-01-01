@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { SEO } from "@/components/SEO";
 
 // Indian regions with climate characteristics
 const regions = [

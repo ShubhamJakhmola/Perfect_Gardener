@@ -32,6 +32,8 @@ import {
   ExternalLink,
   Upload,
   FileSpreadsheet,
+  LogOut,
+  Leaf,
 } from "lucide-react";
 import * as XLSX from "xlsx";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
@@ -51,6 +53,7 @@ import {
   validateUrl,
 } from "@/lib/security";
 import { detectSourceFromUrl } from "@/lib/product-utils";
+import { plantsAPI } from "@/lib/api-client";
 
 // Import existing products and posts data to seed on first load
 import { Product } from "@/components/ProductCard";
@@ -109,6 +112,7 @@ const Admin = () => {
   const { toast } = useToast();
   const [products, setProducts] = useState<AdminProduct[]>([]);
   const [posts, setPosts] = useState<AdminPost[]>([]);
+  const [plants, setPlants] = useState<any[]>([]);
 
   // Check authentication on mount
   useEffect(() => {
@@ -117,6 +121,21 @@ const Admin = () => {
       navigate("/admin/login");
     }
   }, [navigate]);
+
+  // Logout handler
+  const handleLogout = () => {
+    // Clear all authentication state
+    sessionStorage.removeItem("admin_authenticated");
+    sessionStorage.removeItem("admin_user");
+    
+    // Redirect to login page
+    navigate("/admin/login");
+    
+    toast({
+      title: "Logged Out",
+      description: "You have been successfully logged out.",
+    });
+  };
 
   // Product form state
   const [productForm, setProductForm] = useState<Omit<AdminProduct, "id">>({
@@ -146,35 +165,80 @@ const Admin = () => {
   });
   const [editingPostId, setEditingPostId] = useState<string | null>(null);
 
+  // Plant form state
+  const [plantForm, setPlantForm] = useState({
+    name: "",
+    region: "",
+    growingMonths: "",
+    season: "",
+    soilRequirements: "",
+    bloomHarvestTime: "",
+    sunlightNeeds: "",
+    careInstructions: "",
+    image: "",
+    plantType: "",
+  });
+  const [editingPlantId, setEditingPlantId] = useState<string | null>(null);
+
   // Delete confirmation dialogs
   const [deleteProductId, setDeleteProductId] = useState<string | null>(null);
   const [deletePostId, setDeletePostId] = useState<string | null>(null);
+  const [deletePlantId, setDeletePlantId] = useState<string | null>(null);
 
   // Load data on mount
   useEffect(() => {
-    // Load products from localStorage or initialize with sample data
-    const storedProducts = productStorage.getAll();
-    if (storedProducts.length === 0) {
-      // First time: seed with initial data
-      initialProducts.forEach((p) => productStorage.add(p));
-      setProducts(initialProducts);
-    } else {
-      setProducts(storedProducts);
-    }
+    const loadData = async () => {
+      try {
+        // Load products from API
+        const storedProducts = await productStorage.getAll();
+        if (storedProducts.length === 0) {
+          // First time: seed with initial data
+          const seededProducts: AdminProduct[] = [];
+          for (const p of initialProducts) {
+            const created = await productStorage.add(p);
+            seededProducts.push(created);
+          }
+          setProducts(seededProducts);
+        } else {
+          setProducts(storedProducts);
+        }
 
-    // Load posts from localStorage or initialize with sample data
-    const storedPosts = postStorage.getAll();
-    if (storedPosts.length === 0) {
-      // First time: seed with initial data
-      initialPosts.forEach((p) => postStorage.add(p));
-      setPosts(initialPosts);
-    } else {
-      setPosts(storedPosts);
-    }
+        // Load posts from API
+        const storedPosts = await postStorage.getAll();
+        if (storedPosts.length === 0) {
+          // First time: seed with initial data
+          const seededPosts: AdminPost[] = [];
+          for (const p of initialPosts) {
+            const created = await postStorage.add(p);
+            seededPosts.push(created);
+          }
+          setPosts(seededPosts);
+        } else {
+          setPosts(storedPosts);
+        }
+
+        // Load plants from API
+        try {
+          const allPlants = await plantsAPI.getAll();
+          setPlants(allPlants);
+        } catch (error) {
+          console.error('Error loading plants:', error);
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+        toast({
+          title: "Error Loading Data",
+          description: "Failed to load products and posts. Please refresh the page.",
+          variant: "destructive",
+        });
+      }
+    };
+
+    loadData();
   }, []);
 
   // Product Management Functions
-  const handleProductSubmit = (e: React.FormEvent) => {
+  const handleProductSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
@@ -244,8 +308,9 @@ const Admin = () => {
 
       if (editingProductId) {
         // Update existing product
-        productStorage.update(editingProductId, productData);
-        setProducts(productStorage.getAll());
+        await productStorage.update(editingProductId, productData);
+        const updatedProducts = await productStorage.getAll();
+        setProducts(updatedProducts);
         toast({
           title: "Product Updated",
           description: "Product has been successfully updated.",
@@ -253,8 +318,9 @@ const Admin = () => {
         setEditingProductId(null);
       } else {
         // Add new product
-        productStorage.add(productData);
-        setProducts(productStorage.getAll());
+        await productStorage.add(productData);
+        const updatedProducts = await productStorage.getAll();
+        setProducts(updatedProducts);
         toast({
           title: "Product Added",
           description: "New product has been added successfully.",
@@ -307,14 +373,24 @@ const Admin = () => {
     document.getElementById("product-form")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleDeleteProduct = (id: string) => {
-    productStorage.delete(id);
-    setProducts(productStorage.getAll());
-    setDeleteProductId(null);
-    toast({
-      title: "Product Deleted",
-      description: "Product has been removed successfully.",
-    });
+  const handleDeleteProduct = async (id: string) => {
+    try {
+      await productStorage.delete(id);
+      const updatedProducts = await productStorage.getAll();
+      setProducts(updatedProducts);
+      setDeleteProductId(null);
+      toast({
+        title: "Product Deleted",
+        description: "Product has been removed successfully.",
+      });
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      toast({
+        title: "Error",
+        description: "Failed to delete product. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const cancelProductEdit = () => {
@@ -333,13 +409,14 @@ const Admin = () => {
   };
 
   // Post Management Functions
-  const handlePostSubmit = (e: React.FormEvent) => {
+  const handlePostSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (editingPostId) {
       // Update existing post
-      postStorage.update(editingPostId, postForm);
-      setPosts(postStorage.getAll());
+      await postStorage.update(editingPostId, postForm);
+      const updatedPosts = await postStorage.getAll();
+      setPosts(updatedPosts);
       toast({
         title: "Post Updated",
         description: "Post has been successfully updated.",
@@ -353,8 +430,9 @@ const Admin = () => {
         date: postForm.date || new Date().toISOString().split("T")[0],
         author: postForm.author || "Perfect Gardener",
       };
-      postStorage.add(newPost);
-      setPosts(postStorage.getAll());
+      await postStorage.add(newPost);
+      const updatedPosts = await postStorage.getAll();
+      setPosts(updatedPosts);
       toast({
         title: "Post Created",
         description: `New post created! It will be available at /blog/${newPost.slug}`,
@@ -392,14 +470,24 @@ const Admin = () => {
     document.getElementById("post-form")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleDeletePost = (id: string) => {
-    postStorage.delete(id);
-    setPosts(postStorage.getAll());
-    setDeletePostId(null);
-    toast({
-      title: "Post Deleted",
-      description: "Post has been removed successfully.",
-    });
+  const handleDeletePost = async (id: string) => {
+    try {
+      await postStorage.delete(id);
+      const updatedPosts = await postStorage.getAll();
+      setPosts(updatedPosts);
+      setDeletePostId(null);
+      toast({
+        title: "Post Deleted",
+        description: "Post has been removed successfully.",
+      });
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      toast({
+        title: "Error",
+        description: "Failed to delete post. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const cancelPostEdit = () => {
@@ -424,6 +512,248 @@ const Admin = () => {
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
+  };
+
+  // Plant Management Functions
+  const handlePlantSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      if (!plantForm.name.trim()) {
+        toast({
+          title: "Validation Error",
+          description: "Plant name is required.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (editingPlantId) {
+        // Update existing plant
+        await plantsAPI.update(editingPlantId, plantForm);
+        const updatedPlants = await plantsAPI.getAll();
+        setPlants(updatedPlants);
+        toast({
+          title: "Plant Updated",
+          description: "Plant has been successfully updated.",
+        });
+        setEditingPlantId(null);
+      } else {
+        // Add new plant
+        await plantsAPI.create({
+          ...plantForm,
+          dataSource: 'manual'
+        });
+        const updatedPlants = await plantsAPI.getAll();
+        setPlants(updatedPlants);
+        toast({
+          title: "Plant Added",
+          description: "New plant has been added successfully.",
+        });
+      }
+
+      // Reset form
+      setPlantForm({
+        name: "",
+        region: "",
+        growingMonths: "",
+        season: "",
+        soilRequirements: "",
+        bloomHarvestTime: "",
+        sunlightNeeds: "",
+        careInstructions: "",
+        image: "",
+        plantType: "",
+      });
+    } catch (error: any) {
+      console.error("Error saving plant:", error);
+      toast({
+        title: "Error",
+        description: error.message || "An error occurred while saving the plant. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleEditPlant = (plant: any) => {
+    setPlantForm({
+      name: plant.name || "",
+      region: plant.region || "",
+      growingMonths: plant.growing_months || "",
+      season: plant.season || "",
+      soilRequirements: plant.soil_requirements || "",
+      bloomHarvestTime: plant.bloom_harvest_time || "",
+      sunlightNeeds: plant.sunlight_needs || "",
+      careInstructions: plant.care_instructions || "",
+      image: plant.image || "",
+      plantType: plant.plant_type || "",
+    });
+    setEditingPlantId(plant.id);
+    document.getElementById("plant-form")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleDeletePlant = async (id: string) => {
+    try {
+      await plantsAPI.delete(id);
+      const updatedPlants = await plantsAPI.getAll();
+      setPlants(updatedPlants);
+      setDeletePlantId(null);
+      toast({
+        title: "Plant Deleted",
+        description: "Plant has been removed successfully.",
+      });
+    } catch (error: any) {
+      console.error("Error deleting plant:", error);
+      toast({
+        title: "Error",
+        description: error.message || "An error occurred while deleting the plant. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const cancelPlantEdit = () => {
+    setEditingPlantId(null);
+    setPlantForm({
+      name: "",
+      region: "",
+      growingMonths: "",
+      season: "",
+      soilRequirements: "",
+      bloomHarvestTime: "",
+      sunlightNeeds: "",
+      careInstructions: "",
+      image: "",
+      plantType: "",
+    });
+  };
+
+  // Handle Plant File Import (CSV, XLSX, JSON)
+  const handlePlantFileImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const fileExtension = file.name.split('.').pop()?.toLowerCase();
+    if (!fileExtension || (fileExtension !== 'csv' && fileExtension !== 'xlsx' && fileExtension !== 'xls' && fileExtension !== 'json')) {
+      toast({
+        title: "Invalid File",
+        description: "Please upload a CSV, XLSX, or JSON file.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      let jsonData: any[] = [];
+
+      if (fileExtension === 'json') {
+        // Parse JSON
+        const text = await file.text();
+        const parsed = JSON.parse(text);
+        // Handle both array and object with Plants array
+        if (Array.isArray(parsed)) {
+          jsonData = parsed;
+        } else if (parsed.Plants && Array.isArray(parsed.Plants)) {
+          jsonData = parsed.Plants;
+        } else {
+          throw new Error('Invalid JSON format');
+        }
+      } else {
+        // Parse CSV/XLSX
+        const fileData = await file.arrayBuffer();
+        const workbook = XLSX.read(fileData, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        jsonData = XLSX.utils.sheet_to_json(worksheet);
+      }
+
+      if (jsonData.length === 0) {
+        toast({
+          title: "Empty File",
+          description: "The file contains no data.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Normalize column names
+      const normalizeKey = (key: string) => {
+        const normalized = key.toLowerCase().trim().replace(/[\s_]/g, '');
+        const mappings: Record<string, string> = {
+          'plantname': 'name',
+          'name': 'name',
+          'title': 'name',
+          'region': 'region',
+          'growingmonths': 'growingMonths',
+          'growing_months': 'growingMonths',
+          'season': 'season',
+          'soilrequirements': 'soilRequirements',
+          'soil_requirements': 'soilRequirements',
+          'bloomharvesttime': 'bloomHarvestTime',
+          'bloom_harvest_time': 'bloomHarvestTime',
+          'sunlightneeds': 'sunlightNeeds',
+          'sunlight_needs': 'sunlightNeeds',
+          'careinstructions': 'careInstructions',
+          'care_instructions': 'careInstructions',
+          'image': 'image',
+          'planttype': 'plantType',
+          'plant_type': 'plantType',
+        };
+        return mappings[normalized] || normalized;
+      };
+
+      let importedCount = 0;
+      let skippedCount = 0;
+
+      for (const row of jsonData) {
+        const normalizedRow: any = {};
+        Object.keys(row).forEach(key => {
+          const normalizedKey = normalizeKey(key);
+          normalizedRow[normalizedKey] = row[key];
+        });
+
+        // Validate required fields
+        if (!normalizedRow.name) {
+          skippedCount++;
+          continue;
+        }
+
+        // Create plant
+        const newPlant = {
+          name: String(normalizedRow.name || '').trim(),
+          region: normalizedRow.region ? String(normalizedRow.region).trim() : undefined,
+          growingMonths: normalizedRow.growingMonths ? String(normalizedRow.growingMonths).trim() : undefined,
+          season: normalizedRow.season ? String(normalizedRow.season).trim() : undefined,
+          soilRequirements: normalizedRow.soilRequirements ? String(normalizedRow.soilRequirements).trim() : undefined,
+          bloomHarvestTime: normalizedRow.bloomHarvestTime ? String(normalizedRow.bloomHarvestTime).trim() : undefined,
+          sunlightNeeds: normalizedRow.sunlightNeeds ? String(normalizedRow.sunlightNeeds).trim() : undefined,
+          careInstructions: normalizedRow.careInstructions ? String(normalizedRow.careInstructions).trim() : undefined,
+          image: normalizedRow.image ? String(normalizedRow.image).trim() : undefined,
+          plantType: normalizedRow.plantType ? String(normalizedRow.plantType).trim() : undefined,
+          dataSource: fileExtension === 'json' ? 'imported_json' : fileExtension === 'csv' ? 'imported_csv' : 'imported_xlsx'
+        };
+
+        await plantsAPI.create(newPlant);
+        importedCount++;
+      }
+
+      const updatedPlants = await plantsAPI.getAll();
+      setPlants(updatedPlants);
+      toast({
+        title: "Import Successful",
+        description: `Imported ${importedCount} plant(s). ${skippedCount > 0 ? `${skippedCount} row(s) skipped due to missing required fields.` : ''}`,
+      });
+
+      // Reset file input
+      e.target.value = '';
+    } catch (error: any) {
+      console.error('Plant import error:', error);
+      toast({
+        title: "Import Failed",
+        description: error.message || "An error occurred while importing the file. Please check the file format.",
+        variant: "destructive",
+      });
+    }
   };
 
   // Handle CSV/XLSX file import
@@ -472,7 +802,7 @@ const Admin = () => {
       let importedCount = 0;
       let skippedCount = 0;
 
-      jsonData.forEach((row: any) => {
+      for (const row of jsonData) {
         // Normalize column names (case-insensitive, handle spaces/underscores)
         const normalizeKey = (key: string) => {
           const normalized = key.toLowerCase().trim().replace(/[\s_]/g, '');
@@ -530,11 +860,12 @@ const Admin = () => {
           subCategory: detectedSource !== "unknown" && detectedSource !== "other" ? detectedSource : undefined,
         };
 
-        productStorage.add(newProduct);
+        await productStorage.add(newProduct);
         importedCount++;
-      });
+      }
 
-      setProducts(productStorage.getAll());
+      const updatedProducts = await productStorage.getAll();
+      setProducts(updatedProducts);
       toast({
         title: "Import Successful",
         description: `Imported ${importedCount} product(s). ${skippedCount > 0 ? `${skippedCount} row(s) skipped due to missing required fields.` : ''}`,
@@ -560,21 +891,33 @@ const Admin = () => {
         {/* Hero Section */}
         <section className="py-8 md:py-12 bg-gradient-to-br from-primary/10 to-accent/5 border-b border-border">
           <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
-              Admin Dashboard
-            </h1>
-            <p className="text-muted-foreground max-w-2xl">
-              Manage products, blog posts, and content from a powerful admin panel.
-              All data is persisted in your browser's localStorage.
-            </p>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
+                  Admin Dashboard
+                </h1>
+                <p className="text-muted-foreground max-w-2xl">
+                  Manage products, blog posts, and content from a powerful admin panel.
+                  All data is persisted in your browser's localStorage.
+                </p>
+              </div>
+              <Button
+                variant="outline"
+                onClick={handleLogout}
+                className="flex items-center gap-2 shrink-0"
+              >
+                <LogOut className="w-4 h-4" />
+                Logout
+              </Button>
+            </div>
           </div>
         </section>
 
         {/* Main Content */}
-        <section className="py-8">
-          <div className="container mx-auto px-4">
-            <Tabs defaultValue="products" className="space-y-6">
-              <TabsList className="grid w-full grid-cols-2">
+        <section className="py-8 w-full">
+          <div className="container mx-auto px-4 w-full">
+            <Tabs defaultValue="products" className="space-y-6 w-full">
+              <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="products" className="flex items-center gap-2">
                   <Package className="w-4 h-4" />
                   Products ({products.length})
@@ -582,6 +925,10 @@ const Admin = () => {
                 <TabsTrigger value="posts" className="flex items-center gap-2">
                   <FileText className="w-4 h-4" />
                   Posts ({posts.length})
+                </TabsTrigger>
+                <TabsTrigger value="plants" className="flex items-center gap-2">
+                  <Leaf className="w-4 h-4" />
+                  Plants ({plants.length})
                 </TabsTrigger>
               </TabsList>
 
@@ -1058,6 +1405,277 @@ const Admin = () => {
                   </Card>
                 )}
               </TabsContent>
+
+              {/* Plants Tab */}
+              <TabsContent value="plants" className="space-y-6 w-full">
+                {/* Bulk Import Section */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <FileSpreadsheet className="w-5 h-5" />
+                      Import Plant Dataset
+                    </CardTitle>
+                    <CardDescription>
+                      Import multiple plants from CSV, XLSX, or JSON file. Expected columns: name, region, growing_months, season, soil_requirements, bloom_harvest_time, sunlight_needs, care_instructions, image, plant_type.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-center gap-4">
+                      <Input
+                        type="file"
+                        accept=".csv,.xlsx,.xls,.json"
+                        onChange={handlePlantFileImport}
+                        className="flex-1"
+                        id="plant-file-import"
+                      />
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => document.getElementById('plant-file-import')?.click()}
+                        className="flex items-center gap-2"
+                      >
+                        <Upload className="w-4 h-4" />
+                        Choose File
+                      </Button>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-2">
+                      Supported formats: CSV, XLSX, XLS, JSON
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Plant Form */}
+                <Card id="plant-form">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      {editingPlantId ? (
+                        <>
+                          <Edit className="w-4 h-4" />
+                          Edit Plant
+                        </>
+                      ) : (
+                        <>
+                          <Plus className="w-4 h-4" />
+                          Add Plant
+                        </>
+                      )}
+                    </CardTitle>
+                    <CardDescription>
+                      {editingPlantId
+                        ? "Update the plant information below."
+                        : "Fill in the details to add a new plant to the database."}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <form onSubmit={handlePlantSubmit} className="space-y-4">
+                      <div className="grid gap-4 md:grid-cols-2">
+                        <div className="space-y-2 md:col-span-2">
+                          <Label htmlFor="plant-name">Plant Name *</Label>
+                          <Input
+                            id="plant-name"
+                            name="name"
+                            value={plantForm.name}
+                            onChange={(e) =>
+                              setPlantForm({ ...plantForm, name: e.target.value })
+                            }
+                            required
+                            placeholder="e.g. Marigold, Tomato, Rose"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="plant-region">Region</Label>
+                          <Input
+                            id="plant-region"
+                            name="region"
+                            value={plantForm.region}
+                            onChange={(e) =>
+                              setPlantForm({ ...plantForm, region: e.target.value })
+                            }
+                            placeholder="e.g. North India, South India"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="plant-type">Plant Type</Label>
+                          <Input
+                            id="plant-type"
+                            name="plantType"
+                            value={plantForm.plantType}
+                            onChange={(e) =>
+                              setPlantForm({ ...plantForm, plantType: e.target.value })
+                            }
+                            placeholder="e.g. flower, vegetable, herb, fruit"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="plant-growing-months">Growing Months</Label>
+                          <Input
+                            id="plant-growing-months"
+                            name="growingMonths"
+                            value={plantForm.growingMonths}
+                            onChange={(e) =>
+                              setPlantForm({ ...plantForm, growingMonths: e.target.value })
+                            }
+                            placeholder="e.g. January-March, June-September"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="plant-season">Season</Label>
+                          <Input
+                            id="plant-season"
+                            name="season"
+                            value={plantForm.season}
+                            onChange={(e) =>
+                              setPlantForm({ ...plantForm, season: e.target.value })
+                            }
+                            placeholder="e.g. Summer, Winter, Monsoon"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="plant-bloom-harvest">Bloom/Harvest Time</Label>
+                          <Input
+                            id="plant-bloom-harvest"
+                            name="bloomHarvestTime"
+                            value={plantForm.bloomHarvestTime}
+                            onChange={(e) =>
+                              setPlantForm({ ...plantForm, bloomHarvestTime: e.target.value })
+                            }
+                            placeholder="e.g. 60-90 days, March-April"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="plant-sunlight">Sunlight Needs</Label>
+                          <Input
+                            id="plant-sunlight"
+                            name="sunlightNeeds"
+                            value={plantForm.sunlightNeeds}
+                            onChange={(e) =>
+                              setPlantForm({ ...plantForm, sunlightNeeds: e.target.value })
+                            }
+                            placeholder="e.g. Full sun, Partial shade"
+                          />
+                        </div>
+                        <div className="space-y-2 md:col-span-2">
+                          <Label htmlFor="plant-soil">Soil Requirements</Label>
+                          <Textarea
+                            id="plant-soil"
+                            name="soilRequirements"
+                            value={plantForm.soilRequirements}
+                            onChange={(e) =>
+                              setPlantForm({ ...plantForm, soilRequirements: e.target.value })
+                            }
+                            rows={2}
+                            placeholder="e.g. Well-drained, loamy soil with pH 6.0-7.0"
+                          />
+                        </div>
+                        <div className="space-y-2 md:col-span-2">
+                          <Label htmlFor="plant-care">Care Instructions</Label>
+                          <Textarea
+                            id="plant-care"
+                            name="careInstructions"
+                            value={plantForm.careInstructions}
+                            onChange={(e) =>
+                              setPlantForm({ ...plantForm, careInstructions: e.target.value })
+                            }
+                            rows={4}
+                            placeholder="Detailed care instructions..."
+                          />
+                        </div>
+                        <div className="space-y-2 md:col-span-2">
+                          <ImageUpload
+                            value={plantForm.image || ""}
+                            onChange={(value) =>
+                              setPlantForm({ ...plantForm, image: value })
+                            }
+                            label="Plant Image URL"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        {editingPlantId && (
+                          <Button
+                            type="button"
+                            variant="outline"
+                            onClick={cancelPlantEdit}
+                          >
+                            Cancel
+                          </Button>
+                        )}
+                        <Button type="submit" className="flex-1">
+                          <Save className="w-4 h-4 mr-2" />
+                          {editingPlantId ? "Update Plant" : "Add Plant"}
+                        </Button>
+                      </div>
+                    </form>
+                  </CardContent>
+                </Card>
+
+                {/* Plants List */}
+                {plants.length > 0 && (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>All Plants ({plants.length})</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        {plants.map((plant) => (
+                          <Card key={plant.id}>
+                            <CardContent className="p-4">
+                              {plant.image && (
+                                <img
+                                  src={plant.image}
+                                  alt={plant.name}
+                                  className="w-full h-48 object-cover rounded-lg mb-3"
+                                  onError={(e) => {
+                                    (e.target as HTMLImageElement).style.display = "none";
+                                  }}
+                                />
+                              )}
+                              <h3 className="font-semibold text-foreground mb-2 line-clamp-2">
+                                {plant.name}
+                              </h3>
+                              {plant.plant_type && (
+                                <p className="text-xs text-muted-foreground mb-2">
+                                  Type: {plant.plant_type}
+                                </p>
+                              )}
+                              {plant.region && (
+                                <p className="text-xs text-muted-foreground mb-2">
+                                  Region: {plant.region}
+                                </p>
+                              )}
+                              {plant.season && (
+                                <p className="text-xs text-muted-foreground mb-2">
+                                  Season: {plant.season}
+                                </p>
+                              )}
+                              <div className="flex gap-2 mt-4">
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => handleEditPlant(plant)}
+                                  className="flex-1"
+                                >
+                                  <Edit className="w-3 h-3 mr-1" />
+                                  Edit
+                                </Button>
+                                <Button
+                                  size="sm"
+                                  variant="destructive"
+                                  onClick={() => setDeletePlantId(plant.id)}
+                                  className="flex-1"
+                                >
+                                  <Trash2 className="w-3 h-3 mr-1" />
+                                  Delete
+                                </Button>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+              </TabsContent>
             </Tabs>
           </div>
         </section>
@@ -1108,6 +1726,31 @@ const Admin = () => {
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={() => deletePostId && handleDeletePost(deletePostId)}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Delete Plant Confirmation Dialog */}
+      <AlertDialog
+        open={deletePlantId !== null}
+        onOpenChange={() => setDeletePlantId(null)}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete Plant?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete the plant
+              from your database.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => deletePlantId && handleDeletePlant(deletePlantId)}
               className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
             >
               Delete

@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { findBestMatch } from "@/lib/search-utils";
+import { plantsAPI } from "@/lib/api-client";
+import { SEO } from "@/components/SEO";
 
 interface PlantData {
   name: string;
@@ -172,9 +174,12 @@ const BloomCalculator = () => {
   const [sowingMonth, setSowingMonth] = useState("");
   const [result, setResult] = useState<BloomResult | null>(null);
   const [plantsDatabase, setPlantsDatabase] = useState<PlantData[]>([]);
+  const [dbPlants, setDbPlants] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingAI, setIsLoadingAI] = useState(false);
+  const [aiResponse, setAiResponse] = useState<string | null>(null);
 
-  // Load PlantsDatabase.json
+  // Load PlantsDatabase.json (Local/Hardcoded Data - Tier 1)
   useEffect(() => {
     const loadPlantsDatabase = async () => {
       try {
@@ -187,7 +192,7 @@ const BloomCalculator = () => {
         setIsLoading(false);
         toast({
           title: "Warning",
-          description: "Could not load plants database. Using fallback data.",
+          description: "Could not load local plants database. Will use database and AI fallback.",
           variant: "destructive",
         });
       }
@@ -195,8 +200,22 @@ const BloomCalculator = () => {
     loadPlantsDatabase();
   }, [toast]);
 
-  // Find plant in database (case-insensitive, partial match with auto-correct)
-  const findPlantInDatabase = (searchName: string): { plant: PlantData | null; suggestedName?: string } => {
+  // Load plants from Neon DB (Tier 2)
+  useEffect(() => {
+    const loadDbPlants = async () => {
+      try {
+        const plants = await plantsAPI.getAll();
+        setDbPlants(plants || []);
+      } catch (error) {
+        console.error("Failed to load plants from database:", error);
+        // Don't show error toast, just log it - DB is optional fallback
+      }
+    };
+    loadDbPlants();
+  }, []);
+
+  // Find plant in local database (Tier 1 - Local/Hardcoded Data)
+  const findPlantInLocalDatabase = (searchName: string): { plant: PlantData | null; suggestedName?: string } => {
     const normalizedSearch = searchName.toLowerCase().trim();
     
     if (!normalizedSearch) {
@@ -236,6 +255,62 @@ const BloomCalculator = () => {
     return { plant: null };
   };
 
+  // Find plant in Neon DB (Tier 2 - Database)
+  const findPlantInDb = (searchName: string): { plant: any | null; suggestedName?: string } => {
+    const normalizedSearch = searchName.toLowerCase().trim();
+    
+    if (!normalizedSearch || dbPlants.length === 0) {
+      return { plant: null };
+    }
+    
+    // Exact match first
+    let found = dbPlants.find(
+      (p) => p.name.toLowerCase() === normalizedSearch
+    );
+    
+    if (found) {
+      return { plant: found };
+    }
+    
+    // Partial match if no exact match
+    found = dbPlants.find(
+      (p) => p.name.toLowerCase().includes(normalizedSearch) || 
+             normalizedSearch.includes(p.name.toLowerCase())
+    );
+    
+    if (found) {
+      return { plant: found };
+    }
+    
+    // Try fuzzy matching
+    const allPlantNames = dbPlants.map(p => p.name);
+    const { match: bestMatch } = findBestMatch(searchName, allPlantNames, 0.5);
+    
+    if (bestMatch) {
+      const matchedPlant = dbPlants.find(p => p.name === bestMatch);
+      if (matchedPlant) {
+        return { plant: matchedPlant, suggestedName: bestMatch };
+      }
+    }
+    
+    return { plant: null };
+  };
+
+  // Convert DB plant to PlantData format
+  const convertDbPlantToPlantData = (dbPlant: any): PlantData => {
+    return {
+      name: dbPlant.name,
+      Region: dbPlant.region || '',
+      "Growing Months": dbPlant.growing_months || '',
+      Season: dbPlant.season || '',
+      "Soil Requirements": dbPlant.soil_requirements || '',
+      "Bloom and Harvest Time": dbPlant.bloom_harvest_time || '',
+      "Sunlight Needs": dbPlant.sunlight_needs || '',
+      "Care Instructions": dbPlant.care_instructions || '',
+      Image: dbPlant.image || '',
+    };
+  };
+
   // Convert plant data to bloom data format
   const convertPlantToBloomData = (plant: PlantData) => {
     // Estimate days based on growing months and bloom time
@@ -265,7 +340,7 @@ const BloomCalculator = () => {
 
   // Update flower options to include popular plants from database
   const getPopularPlants = () => {
-    if (plantsDatabase.length === 0) return flowerOptions;
+    if (plantsDatabase.length === 0 && dbPlants.length === 0) return flowerOptions;
     
     const popularNames = [
       "Rose", "Marigold", "Sunflower", "Tulip", "Jasmine", 
@@ -273,8 +348,17 @@ const BloomCalculator = () => {
       "Mango", "Banana", "Papaya", "Guava", "Lemon"
     ];
     
+    // Check both local and DB plants
     const foundPlants = popularNames
-      .map(name => findPlantInDatabase(name))
+      .map(name => {
+        const localResult = findPlantInLocalDatabase(name);
+        if (localResult.plant) return localResult;
+        const dbResult = findPlantInDb(name);
+        if (dbResult.plant) {
+          return { plant: convertDbPlantToPlantData(dbResult.plant), suggestedName: dbResult.suggestedName };
+        }
+        return { plant: null };
+      })
       .filter(result => result.plant !== null)
       .map(result => ({ value: result.plant!.name, label: result.plant!.name }));
     
@@ -285,7 +369,7 @@ const BloomCalculator = () => {
     ];
   };
 
-  const calculateBloomTime = () => {
+  const calculateBloomTime = async () => {
     let selectedFlower = flowerName;
 
     if (!selectedFlower || !sowingMonth) {
@@ -311,45 +395,120 @@ const BloomCalculator = () => {
 
     // Reset result when changing plant
     setResult(null);
+    setAiResponse(null);
 
-    // Try to find in database first
-    const { plant: plantData, suggestedName } = findPlantInDatabase(selectedFlower);
-    
     let data;
     let displayName = selectedFlower;
+    let dataSource = '';
 
-    if (plantData) {
-      // Use database data
-      data = convertPlantToBloomData(plantData);
-      displayName = plantData.name;
+    // TIER 1: Try local/hardcoded data first
+    const { plant: localPlantData, suggestedName: localSuggestedName } = findPlantInLocalDatabase(selectedFlower);
+    
+    if (localPlantData) {
+      // Use local database data
+      data = convertPlantToBloomData(localPlantData);
+      displayName = localPlantData.name;
+      dataSource = 'local';
       
       // Show suggestion if name was corrected
-      if (suggestedName && suggestedName !== selectedFlower) {
+      if (localSuggestedName && localSuggestedName !== selectedFlower) {
         toast({
-          title: "Plant Found",
-          description: `Did you mean "${suggestedName}"? Using that instead.`,
+          title: "Plant Found (Local Data)",
+          description: `Did you mean "${localSuggestedName}"? Using that instead.`,
         });
       }
     } else {
-      // Fallback to original bloomData
+      // Check hardcoded bloomData
       const normalizedName = selectedFlower.charAt(0).toUpperCase() + selectedFlower.slice(1).toLowerCase();
       const fallbackData = bloomData[normalizedName];
       
-      if (!fallbackData) {
-        // Show suggestion if available
-        const suggestionText = suggestedName 
-          ? ` Did you mean "${suggestedName}"?`
-          : "";
-        toast({
-          title: "Plant Not Found",
-          description: `Data for "${selectedFlower}" is not available.${suggestionText} Please try a different name or select from the predefined list.`,
-          variant: "destructive",
-        });
-        return;
+      if (fallbackData) {
+        data = fallbackData;
+        displayName = normalizedName;
+        dataSource = 'hardcoded';
+      } else {
+        // TIER 2: Try Neon DB plants table
+        const { plant: dbPlantData, suggestedName: dbSuggestedName } = findPlantInDb(selectedFlower);
+        
+        if (dbPlantData) {
+          // Convert DB plant to PlantData format and then to bloom data
+          const plantData = convertDbPlantToPlantData(dbPlantData);
+          data = convertPlantToBloomData(plantData);
+          displayName = dbPlantData.name;
+          dataSource = 'database';
+          
+          if (dbSuggestedName && dbSuggestedName !== selectedFlower) {
+            toast({
+              title: "Plant Found (Database)",
+              description: `Found in database. Did you mean "${dbSuggestedName}"?`,
+            });
+          } else {
+            toast({
+              title: "Plant Found (Database)",
+              description: "Found plant information in our database.",
+            });
+          }
+        } else {
+          // TIER 3: Fallback to AI
+          setIsLoadingAI(true);
+          setAiResponse(null);
+          
+          try {
+            const aiResponse = await fetch('/.netlify/functions/plant-ai-fallback', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                plantName: selectedFlower,
+                query: `bloom time and timeline for ${selectedFlower}`,
+                context: `User is asking about bloom timeline for ${selectedFlower} planted in ${sowingMonth}`
+              })
+            });
+
+            if (aiResponse.ok) {
+              const aiData = await aiResponse.json();
+              if (aiData.success && aiData.response) {
+                setAiResponse(aiData.response);
+                dataSource = 'ai';
+                
+                // Use generic bloom data with AI response
+                data = {
+                  daysToGermination: 10,
+                  daysToMaturity: 60,
+                  bloomDuration: 90,
+                  care: ['Follow general plant care guidelines', 'Refer to AI response for specific details']
+                };
+                
+                toast({
+                  title: "AI Information Available",
+                  description: "Using AI-generated information for this plant. Check the results below.",
+                });
+              } else {
+                throw new Error('AI response not available');
+              }
+            } else {
+              throw new Error('AI service unavailable');
+            }
+          } catch (error) {
+            console.error('AI fallback error:', error);
+            setIsLoadingAI(false);
+            
+            // Show error if all tiers failed
+            const suggestionText = dbSuggestedName 
+              ? ` Did you mean "${dbSuggestedName}"?`
+              : localSuggestedName
+              ? ` Did you mean "${localSuggestedName}"?`
+              : "";
+            toast({
+              title: "Plant Not Found",
+              description: `Data for "${selectedFlower}" is not available in our databases, and AI service is unavailable.${suggestionText} Please try a different name.`,
+              variant: "destructive",
+            });
+            return;
+          }
+          
+          setIsLoadingAI(false);
+        }
       }
-      
-      data = fallbackData;
-      displayName = normalizedName;
     }
 
     // Timeline calculation
@@ -373,10 +532,18 @@ const BloomCalculator = () => {
     setCustomFlowerName("");
     setSowingMonth("");
     setResult(null);
+    setAiResponse(null);
+    setIsLoadingAI(false);
   };
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Flower Bloom Time Calculator"
+        description="Calculate when your flowers will bloom based on planting time and flower type. Free online tool to predict bloom timeline for marigold, rose, sunflower, and more. Perfect for planning your garden."
+        keywords="bloom time calculator, flower bloom calculator, when do flowers bloom, flower planting calendar, bloom timeline, flower growth calculator, gardening calculator, plant bloom time"
+        url="https://perfectgardener.netlify.app/tools/bloom-calculator"
+      />
       <Header />
       
       <main id="main-content" className="pt-20">
@@ -459,8 +626,8 @@ const BloomCalculator = () => {
             </div>
 
             <div className="flex flex-wrap gap-4 mt-6">
-              <Button onClick={calculateBloomTime} className="flex-1 sm:flex-none">
-                Calculate Bloom Time
+              <Button onClick={calculateBloomTime} disabled={isLoadingAI} className="flex-1 sm:flex-none">
+                {isLoadingAI ? "Loading AI Info..." : "Calculate Bloom Time"}
               </Button>
               <Button onClick={resetForm} variant="secondary" className="flex-1 sm:flex-none">
                 Reset
@@ -528,6 +695,26 @@ const BloomCalculator = () => {
                   ))}
                 </ul>
               </div>
+
+              {/* AI Response Section */}
+              {aiResponse && (
+                <div className="mt-6 p-4 bg-accent/10 border border-accent/20 rounded-lg">
+                  <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <span>🤖</span> AI Information
+                  </h3>
+                  <div className="text-sm text-muted-foreground whitespace-pre-wrap">
+                    {aiResponse}
+                  </div>
+                </div>
+              )}
+
+              {isLoadingAI && (
+                <div className="mt-6 p-4 bg-accent/10 border border-accent/20 rounded-lg">
+                  <p className="text-sm text-muted-foreground">
+                    🤖 Fetching AI information about this plant...
+                  </p>
+                </div>
+              )}
             </div>
           )}
         </div>

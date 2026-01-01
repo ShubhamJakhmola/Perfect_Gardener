@@ -24,43 +24,46 @@ const ProductDetail = () => {
   const [similarProducts, setSimilarProducts] = useState<AdminProduct[]>([]);
 
   useEffect(() => {
-    try {
-      if (!id) {
-        setError("Product ID is required");
+    const loadProduct = async () => {
+      try {
+        if (!id) {
+          setError("Product ID is required");
+          setLoading(false);
+          return;
+        }
+
+        const allProducts = await productStorage.getAll();
+        const foundProduct = allProducts.find((p) => p.id === id);
+
+        if (!foundProduct) {
+          setError("Product not found");
+          setLoading(false);
+          return;
+        }
+
+        setProduct(foundProduct);
+        
+        // Find similar products (same name but different sources)
+        if (foundProduct.name) {
+          const similar = allProducts.filter(
+            (p) => 
+              p.id !== foundProduct.id && 
+              p.name.toLowerCase().trim() === foundProduct.name.toLowerCase().trim() &&
+              p.subCategory && 
+              p.subCategory !== foundProduct.subCategory
+          );
+          setSimilarProducts(similar);
+        }
+        
         setLoading(false);
-        return;
-      }
-
-      const allProducts = productStorage.getAll();
-      const foundProduct = allProducts.find((p) => p.id === id);
-
-      if (!foundProduct) {
-        setError("Product not found");
+      } catch (err) {
+        console.error("Error loading product:", err);
+        setError("Failed to load product. Please try again.");
         setLoading(false);
-        return;
       }
+    };
 
-      setProduct(foundProduct);
-      
-      // Find similar products (same name but different sources)
-      if (foundProduct.name) {
-        const allProducts = productStorage.getAll();
-        const similar = allProducts.filter(
-          (p) => 
-            p.id !== foundProduct.id && 
-            p.name.toLowerCase().trim() === foundProduct.name.toLowerCase().trim() &&
-            p.subCategory && 
-            p.subCategory !== foundProduct.subCategory
-        );
-        setSimilarProducts(similar);
-      }
-      
-      setLoading(false);
-    } catch (err) {
-      console.error("Error loading product:", err);
-      setError("Failed to load product. Please try again.");
-      setLoading(false);
-    }
+    loadProduct();
   }, [id]);
 
   // Get all images (support both legacy single image and new images array)
