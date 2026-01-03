@@ -166,8 +166,48 @@ const BlogPost = () => {
             {/* Post Content */}
             <Card className="mb-8">
               <CardContent className="p-6 sm:p-8 lg:p-10">
+                <style>{`
+                  .blog-post-content.prose p {
+                    margin-top: 0.75em;
+                    margin-bottom: 0.75em;
+                    line-height: 1.7;
+                  }
+                  .blog-post-content.prose p:first-child {
+                    margin-top: 0;
+                  }
+                  .blog-post-content.prose p:last-child {
+                    margin-bottom: 0;
+                  }
+                  .blog-post-content.prose h1,
+                  .blog-post-content.prose h2,
+                  .blog-post-content.prose h3,
+                  .blog-post-content.prose h4 {
+                    margin-top: 1.25em;
+                    margin-bottom: 0.5em;
+                    line-height: 1.3;
+                  }
+                  .blog-post-content.prose h1:first-child,
+                  .blog-post-content.prose h2:first-child,
+                  .blog-post-content.prose h3:first-child,
+                  .blog-post-content.prose h4:first-child {
+                    margin-top: 0;
+                  }
+                  .blog-post-content.prose ul,
+                  .blog-post-content.prose ol {
+                    margin-top: 0.75em;
+                    margin-bottom: 0.75em;
+                  }
+                  .blog-post-content.prose li {
+                    margin-top: 0.25em;
+                    margin-bottom: 0.25em;
+                  }
+                  .blog-post-content.prose img {
+                    margin-top: 1em;
+                    margin-bottom: 1em;
+                  }
+                `}</style>
                 <div
-                  className="prose prose-lg dark:prose-invert max-w-none
+                  className="blog-post-content prose prose-lg dark:prose-invert max-w-none
                     prose-headings:font-display prose-headings:text-foreground
                     prose-p:text-foreground/90 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                     prose-strong:text-foreground prose-img:rounded-lg prose-img:shadow-lg
@@ -176,8 +216,8 @@ const BlogPost = () => {
                     prose-pre:bg-muted prose-pre:text-foreground"
                   dangerouslySetInnerHTML={{ 
                     __html: DOMPurify.sanitize(post.content, {
-                      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre', 'div', 'span'],
-                      ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'id', 'target', 'rel'],
+                      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre', 'div', 'span', 'table', 'thead', 'tbody', 'tr', 'td', 'th', 'hr'],
+                      ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'id', 'target', 'rel', 'style'],
                       ALLOW_DATA_ATTR: false
                     })
                   }}

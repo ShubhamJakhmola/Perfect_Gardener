@@ -13,13 +13,14 @@ export const handler = async (event) => {
     // GET /posts/:slug - Get post by slug
     if (event.httpMethod === 'GET') {
       if (path && path !== '/') {
-        // Get single post by slug
+        // Get single post by slug - uses indexed slug column
         const slug = path.replace('/', '');
         const result = await queryDb(
           `SELECT id, title, slug, excerpt, content, date, read_time, category, author, image, featured, created_at, updated_at 
            FROM posts 
            WHERE slug = $1`,
-          [slug]
+          [slug],
+          { isWrite: false, logSlow: false }
         );
 
         if (result.rows.length === 0) {
@@ -28,11 +29,13 @@ export const handler = async (event) => {
 
         return createResponse(200, { post: result.rows[0] });
       } else {
-        // Get all posts
+        // Get all posts - uses indexed created_at column for ordering
         const result = await queryDb(
           `SELECT id, title, slug, excerpt, content, date, read_time, category, author, image, featured, created_at, updated_at 
            FROM posts 
-           ORDER BY created_at DESC`
+           ORDER BY created_at DESC`,
+          [],
+          { isWrite: false, logSlow: true }
         );
 
         return createResponse(200, { posts: result.rows });
@@ -68,10 +71,11 @@ export const handler = async (event) => {
       // Normalize slug (trim and lowercase)
       const normalizedSlug = slug.trim().toLowerCase();
       
-      // Check if slug already exists (case-insensitive)
+      // Check if slug already exists (case-insensitive) - optimized query
       const existing = await queryDb(
-        'SELECT id FROM posts WHERE LOWER(TRIM(slug)) = $1',
-        [normalizedSlug]
+        'SELECT id FROM posts WHERE LOWER(TRIM(slug)) = $1 LIMIT 1',
+        [normalizedSlug],
+        { isWrite: false, logSlow: false }
       );
       if (existing.rows.length > 0) {
         return createResponse(409, { 
@@ -95,7 +99,8 @@ export const handler = async (event) => {
           author || 'Perfect Gardener',
           image || null,
           featured || false
-        ]
+        ],
+        { isWrite: true, logSlow: true }
       );
 
       return createResponse(201, {
@@ -128,12 +133,26 @@ export const handler = async (event) => {
         featured
       } = body;
 
-      // Check if slug is being changed and conflicts with another post
-      if (slug) {
-        const normalizedSlug = slug.trim().toLowerCase();
+      // Get current post to check if slug is actually changing (optimization)
+      const currentPost = await queryDb(
+        'SELECT slug FROM posts WHERE id = $1 LIMIT 1',
+        [id],
+        { isWrite: false, logSlow: false }
+      );
+
+      if (currentPost.rows.length === 0) {
+        return createResponse(404, { error: 'Post not found' });
+      }
+
+      const currentSlug = currentPost.rows[0].slug?.toLowerCase().trim();
+      const newSlug = slug ? slug.trim().toLowerCase() : null;
+
+      // Only check for duplicate slug if it's actually changing
+      if (slug && newSlug !== currentSlug) {
         const existing = await queryDb(
-          'SELECT id FROM posts WHERE LOWER(TRIM(slug)) = $1 AND id != $2',
-          [normalizedSlug, id]
+          'SELECT id FROM posts WHERE LOWER(TRIM(slug)) = $1 AND id != $2 LIMIT 1',
+          [newSlug, id],
+          { isWrite: false, logSlow: false }
         );
         if (existing.rows.length > 0) {
           return createResponse(409, { 
@@ -151,6 +170,7 @@ export const handler = async (event) => {
         }
       }
 
+      // Update using indexed id column (fast)
       const result = await queryDb(
         `UPDATE posts 
          SET title = COALESCE($1, title),
@@ -178,16 +198,19 @@ export const handler = async (event) => {
           image !== undefined ? image : null,
           featured !== undefined ? featured : null,
           id
-        ]
+        ],
+        { isWrite: true, logSlow: true }
       );
 
-      if (result.rows.length === 0) {
-        return createResponse(404, { error: 'Post not found' });
-      }
-
+      // Return minimal response for faster network transfer
       return createResponse(200, {
         success: true,
-        post: result.rows[0]
+        post: {
+          id: result.rows[0].id,
+          title: result.rows[0].title,
+          slug: result.rows[0].slug,
+          updated_at: result.rows[0].updated_at
+        }
       });
     }
 
@@ -201,7 +224,11 @@ export const handler = async (event) => {
         return createResponse(400, { error: 'Post ID is required' });
       }
 
-      const result = await queryDb('DELETE FROM posts WHERE id = $1 RETURNING id', [id]);
+      const result = await queryDb(
+        'DELETE FROM posts WHERE id = $1 RETURNING id', 
+        [id],
+        { isWrite: true, logSlow: true }
+      );
 
       if (result.rows.length === 0) {
         return createResponse(404, { error: 'Post not found' });

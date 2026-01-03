@@ -472,8 +472,10 @@ const Admin = () => {
       };
 
       if (editingPostId) {
-        // Update existing post
-        await postStorage.update(editingPostId, sanitizedPostForm);
+        // Update existing post - wait for backend confirmation
+        const updatedPost = await postStorage.update(editingPostId, sanitizedPostForm);
+        
+        // Only refresh list and show success after backend confirms
         const updatedPosts = await postStorage.getAll();
         setPosts(updatedPosts);
         toast({
@@ -482,23 +484,25 @@ const Admin = () => {
         });
         setEditingPostId(null);
       } else {
-        // Add new post
+        // Add new post - wait for backend confirmation
         const newPost: AdminPost = {
           id: crypto.randomUUID(),
           ...sanitizedPostForm,
           date: sanitizedPostForm.date || new Date().toISOString().split("T")[0],
           author: sanitizedPostForm.author || "Perfect Gardener",
         };
-        await postStorage.add(newPost);
+        const createdPost = await postStorage.add(newPost);
+        
+        // Only refresh list and show success after backend confirms
         const updatedPosts = await postStorage.getAll();
         setPosts(updatedPosts);
         toast({
           title: "Post Created",
-          description: `New post created! It will be available at /blog/${newPost.slug}`,
+          description: `New post created! It will be available at /blog/${createdPost.slug}`,
         });
       }
 
-      // Reset form
+      // Reset form only after successful save
       setPostForm({
         title: "",
         slug: "",
@@ -512,11 +516,30 @@ const Admin = () => {
       });
     } catch (error: any) {
       console.error("Error saving post:", error);
+      
+      // Determine error type for better messaging
+      let errorTitle = "Error Saving Post";
+      let errorMessage = error.message || "An error occurred while saving the post. Please try again.";
+      
+      // Check for specific error types
+      if (error.message?.includes("timeout") || error.message?.includes("Network error")) {
+        errorTitle = "Request Timeout";
+        errorMessage = "The request took too long. Please check if the post was saved and try again if needed.";
+      } else if (error.message?.includes("409") || error.message?.includes("already exists")) {
+        errorTitle = "Duplicate Entry";
+        errorMessage = error.message || "A post with this slug already exists. Please use a different slug.";
+      } else if (error.message?.includes("400") || error.message?.includes("Validation")) {
+        errorTitle = "Validation Error";
+        errorMessage = error.message || "Please check your input and try again.";
+      }
+      
       toast({
-        title: "Error Saving Post",
-        description: error.message || "An error occurred while saving the post. Please try again.",
+        title: errorTitle,
+        description: errorMessage,
         variant: "destructive",
       });
+      
+      // Do NOT auto-retry on timeout errors - let user decide
     } finally {
       setSavingPost(false);
     }

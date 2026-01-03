@@ -13,7 +13,7 @@ export const handler = async (event) => {
     // GET /plants/:id - Get plant by ID
     if (event.httpMethod === 'GET') {
       if (path && path !== '/') {
-        // Get single plant by ID
+        // Get single plant by ID - uses primary key index
         const id = path.replace('/', '');
         const result = await queryDb(
           `SELECT id, name, region, growing_months, season, soil_requirements, 
@@ -21,7 +21,8 @@ export const handler = async (event) => {
                   plant_type, data_source, created_at, updated_at
            FROM plants
            WHERE id = $1`,
-          [id]
+          [id],
+          { isWrite: false, logSlow: false }
         );
 
         if (result.rows.length === 0) {
@@ -30,13 +31,15 @@ export const handler = async (event) => {
 
         return createResponse(200, { plant: result.rows[0] });
       } else {
-        // Get all plants
+        // Get all plants - uses indexed name column for ordering
         const result = await queryDb(
           `SELECT id, name, region, growing_months, season, soil_requirements, 
                   bloom_harvest_time, sunlight_needs, care_instructions, image, 
                   plant_type, data_source, created_at, updated_at
            FROM plants
-           ORDER BY name ASC`
+           ORDER BY name ASC`,
+          [],
+          { isWrite: false, logSlow: true }
         );
 
         return createResponse(200, { plants: result.rows });
@@ -67,10 +70,11 @@ export const handler = async (event) => {
       // Normalize name (trim and case-insensitive check)
       const normalizedName = name.trim();
       
-      // Check for duplicate plant name (case-insensitive)
+      // Check for duplicate plant name (case-insensitive) - optimized query
       const existing = await queryDb(
-        'SELECT id FROM plants WHERE LOWER(TRIM(name)) = LOWER($1)',
-        [normalizedName]
+        'SELECT id FROM plants WHERE LOWER(TRIM(name)) = LOWER($1) LIMIT 1',
+        [normalizedName],
+        { isWrite: false, logSlow: false }
       );
       if (existing.rows.length > 0) {
         return createResponse(409, { 
@@ -99,7 +103,8 @@ export const handler = async (event) => {
           image ? image.trim() : null,
           plantType ? plantType.trim() : null,
           dataSource || 'manual'
-        ]
+        ],
+        { isWrite: true, logSlow: true }
       );
 
       return createResponse(201, {
@@ -133,12 +138,13 @@ export const handler = async (event) => {
         dataSource
       } = body;
 
-      // Check for duplicate name if name is being updated (case-insensitive, excluding current plant)
+      // Check for duplicate name if name is being updated (case-insensitive, excluding current plant) - optimized query
       if (name) {
         const normalizedName = name.trim();
         const existing = await queryDb(
-          'SELECT id FROM plants WHERE LOWER(TRIM(name)) = LOWER($1) AND id != $2',
-          [normalizedName, id]
+          'SELECT id FROM plants WHERE LOWER(TRIM(name)) = LOWER($1) AND id != $2 LIMIT 1',
+          [normalizedName, id],
+          { isWrite: false, logSlow: false }
         );
         if (existing.rows.length > 0) {
           return createResponse(409, { 
@@ -179,7 +185,8 @@ export const handler = async (event) => {
           plantType !== undefined ? (plantType ? plantType.trim() : null) : null,
           dataSource !== undefined ? dataSource : null,
           id
-        ]
+        ],
+        { isWrite: true, logSlow: true }
       );
 
       if (result.rows.length === 0) {
@@ -202,7 +209,11 @@ export const handler = async (event) => {
         return createResponse(400, { error: 'Plant ID is required' });
       }
 
-      const result = await queryDb('DELETE FROM plants WHERE id = $1 RETURNING id', [id]);
+      const result = await queryDb(
+        'DELETE FROM plants WHERE id = $1 RETURNING id', 
+        [id],
+        { isWrite: true, logSlow: true }
+      );
 
       if (result.rows.length === 0) {
         return createResponse(404, { error: 'Plant not found' });

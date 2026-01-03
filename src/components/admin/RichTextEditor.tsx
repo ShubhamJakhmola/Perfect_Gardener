@@ -531,21 +531,50 @@ export function RichTextEditor({
 
         {/* Image Dialog */}
         <Dialog open={showImageDialog} onOpenChange={setShowImageDialog}>
-          <DialogContent>
+          <DialogContent className="max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Insert Image</DialogTitle>
               <DialogDescription>
-                Enter image URL and optional settings. Alt text is required for accessibility.
+                Upload an image from your computer or enter an image URL. Alt text is required for accessibility.
               </DialogDescription>
             </DialogHeader>
-            <div className="space-y-4">
+            <div className="space-y-4 max-h-[calc(90vh-200px)] overflow-y-auto pr-2">
               <div className="space-y-2">
-                <Label htmlFor="image-url">Image URL *</Label>
+                <Label htmlFor="image-upload">Upload Image from Computer</Label>
+                <Input
+                  id="image-upload"
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      // Check file size (max 5MB)
+                      if (file.size > 5 * 1024 * 1024) {
+                        alert("Image size must be less than 5MB");
+                        return;
+                      }
+                      const reader = new FileReader();
+                      reader.onload = (event) => {
+                        const dataUrl = event.target?.result as string;
+                        setImageData({ ...imageData, url: dataUrl });
+                      };
+                      reader.onerror = () => {
+                        alert("Error reading image file");
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
+                  className="cursor-pointer"
+                />
+                <p className="text-xs text-muted-foreground">Or enter URL below</p>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="image-url">Image URL</Label>
                 <Input
                   id="image-url"
                   value={imageData.url}
                   onChange={(e) => setImageData({ ...imageData, url: e.target.value })}
-                  placeholder="https://example.com/image.jpg"
+                  placeholder="https://example.com/image.jpg or upload from computer above"
                 />
               </div>
               <div className="space-y-2">

@@ -7,12 +7,14 @@ export const handler = async (event) => {
   }
 
   try {
-    // GET /products - Get all products
+    // GET /products - Get all products - uses indexed created_at column
     if (event.httpMethod === 'GET') {
       const result = await queryDb(
         `SELECT id, name, price, image, images, link, category, description, source, sub_category, created_at, updated_at 
          FROM products 
-         ORDER BY created_at DESC`
+         ORDER BY created_at DESC`,
+        [],
+        { isWrite: false, logSlow: true }
       );
 
       // Convert JSONB arrays to JavaScript arrays
@@ -47,10 +49,11 @@ export const handler = async (event) => {
       // Normalize name (trim and case-insensitive check)
       const normalizedName = name.trim();
       
-      // Check for duplicate product name (case-insensitive)
+      // Check for duplicate product name (case-insensitive) - optimized query
       const existing = await queryDb(
-        'SELECT id FROM products WHERE LOWER(TRIM(name)) = LOWER($1)',
-        [normalizedName]
+        'SELECT id FROM products WHERE LOWER(TRIM(name)) = LOWER($1) LIMIT 1',
+        [normalizedName],
+        { isWrite: false, logSlow: false }
       );
       if (existing.rows.length > 0) {
         return createResponse(409, { 
@@ -77,7 +80,8 @@ export const handler = async (event) => {
           description ? description.trim() : null,
           source ? source.trim() : null,
           subCategory ? subCategory.trim() : null
-        ]
+        ],
+        { isWrite: true, logSlow: true }
       );
 
       const product = result.rows[0];
@@ -114,12 +118,13 @@ export const handler = async (event) => {
         subCategory
       } = body;
 
-      // Check for duplicate name if name is being updated (case-insensitive, excluding current product)
+      // Check for duplicate name if name is being updated (case-insensitive, excluding current product) - optimized query
       if (name) {
         const normalizedName = name.trim();
         const existing = await queryDb(
-          'SELECT id FROM products WHERE LOWER(TRIM(name)) = LOWER($1) AND id != $2',
-          [normalizedName, id]
+          'SELECT id FROM products WHERE LOWER(TRIM(name)) = LOWER($1) AND id != $2 LIMIT 1',
+          [normalizedName, id],
+          { isWrite: false, logSlow: false }
         );
         if (existing.rows.length > 0) {
           return createResponse(409, { 
@@ -158,7 +163,8 @@ export const handler = async (event) => {
           source !== undefined ? (source ? source.trim() : null) : null,
           subCategory !== undefined ? (subCategory ? subCategory.trim() : null) : null,
           id
-        ]
+        ],
+        { isWrite: true, logSlow: true }
       );
 
       if (result.rows.length === 0) {
@@ -186,7 +192,11 @@ export const handler = async (event) => {
         return createResponse(400, { error: 'Product ID is required' });
       }
 
-      const result = await queryDb('DELETE FROM products WHERE id = $1 RETURNING id', [id]);
+      const result = await queryDb(
+        'DELETE FROM products WHERE id = $1 RETURNING id', 
+        [id],
+        { isWrite: true, logSlow: true }
+      );
 
       if (result.rows.length === 0) {
         return createResponse(404, { error: 'Product not found' });

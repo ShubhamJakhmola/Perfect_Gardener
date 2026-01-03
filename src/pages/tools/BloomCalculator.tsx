@@ -188,17 +188,14 @@ const BloomCalculator = () => {
         setPlantsDatabase(data.Plants || []);
         setIsLoading(false);
       } catch (error) {
-        console.error("Failed to load plants database:", error);
+        console.error("Failed to load local plants database (this is normal if file doesn't exist):", error);
         setIsLoading(false);
-        toast({
-          title: "Warning",
-          description: "Could not load local plants database. Will use database and AI fallback.",
-          variant: "destructive",
-        });
+        // Don't show warning toast - local database is optional, we have DB and AI fallbacks
+        // The warning was annoying users unnecessarily
       }
     };
     loadPlantsDatabase();
-  }, [toast]);
+  }, []);
 
   // Load plants from Neon DB (Tier 2)
   useEffect(() => {

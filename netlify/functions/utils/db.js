@@ -29,19 +29,60 @@ function getDbClient() {
 
 /**
  * Execute a database query with error handling
+ * Optimized for faster connection handling
+ * @param {string} text - SQL query
+ * @param {Array} params - Query parameters
+ * @param {Object} options - Query options { isWrite: boolean, logSlow: boolean }
  */
-async function queryDb(text, params = []) {
+async function queryDb(text, params = [], options = {}) {
+  const { isWrite = false, logSlow = true } = options;
   const client = getDbClient();
+  const startTime = Date.now();
   
   try {
-    await client.connect();
-    const result = await client.query(text, params);
+    // Connect with timeout to prevent hanging (only for connection, not queries)
+    await Promise.race([
+      client.connect(),
+      new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Connection timeout')), 5000)
+      )
+    ]);
+    
+    // Execute query - NO timeout for write operations to prevent false failures
+    // Only log slow queries instead of killing them
+    let result;
+    if (isWrite) {
+      // Write operations: no timeout, just execute
+      result = await client.query(text, params);
+    } else {
+      // Read operations: can have timeout for safety
+      result = await Promise.race([
+        client.query(text, params),
+        new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Query timeout')), 15000)
+        )
+      ]);
+    }
+    
+    // Log slow queries for monitoring
+    const duration = Date.now() - startTime;
+    if (logSlow && duration > 1000) {
+      console.warn(`Slow query detected (${duration}ms):`, text.substring(0, 100));
+    }
+    
     return result;
   } catch (error) {
-    console.error('Database query error:', error);
+    const duration = Date.now() - startTime;
+    console.error(`Database query error (${duration}ms):`, error.message, text.substring(0, 100));
     throw error;
   } finally {
-    await client.end();
+    // Ensure connection is closed
+    try {
+      await client.end();
+    } catch (closeError) {
+      // Ignore close errors - connection may already be closed
+      console.warn('Error closing database connection:', closeError);
+    }
   }
 }
 

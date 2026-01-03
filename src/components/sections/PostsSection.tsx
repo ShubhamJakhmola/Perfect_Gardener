@@ -83,8 +83,8 @@ export function PostsSection({ limit = 3 }: PostsSectionProps) {
 
     loadPosts();
     
-    // Refresh posts every 30 seconds
-    const interval = setInterval(loadPosts, 30000);
+    // Refresh posts every 5 minutes (reduced from 30 seconds for better performance)
+    const interval = setInterval(loadPosts, 300000);
     
     return () => {
       clearInterval(interval);

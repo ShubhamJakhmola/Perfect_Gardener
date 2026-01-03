@@ -222,17 +222,52 @@ export const postStorage = {
     }
   },
 
-  update: async (id: string, updates: Partial<AdminPost>): Promise<void> => {
+  update: async (id: string, updates: Partial<AdminPost>): Promise<AdminPost> => {
     try {
-      await postsAPI.update(id, updates);
+      const updated = await postsAPI.update(id, updates);
       
-      // Update cache
+      // Update cache with full post data
       if (postsCache) {
         const index = postsCache.findIndex((p) => p.id === id);
         if (index !== -1) {
+          // Fetch full post data if backend only returned minimal response
+          if (!updated.content) {
+            const fullPost = await postsAPI.getBySlug(updated.slug);
+            if (fullPost) {
+              postsCache[index] = {
+                id: fullPost.id,
+                title: fullPost.title,
+                slug: fullPost.slug,
+                excerpt: fullPost.excerpt,
+                content: fullPost.content,
+                date: fullPost.date,
+                readTime: fullPost.read_time,
+                category: fullPost.category,
+                author: fullPost.author,
+                image: fullPost.image,
+                featured: fullPost.featured,
+              };
+              return postsCache[index];
+            }
+          }
           postsCache[index] = { ...postsCache[index], ...updates };
         }
       }
+      
+      // Return normalized post
+      return {
+        id: updated.id,
+        title: updated.title || updates.title || '',
+        slug: updated.slug || updates.slug || '',
+        excerpt: updates.excerpt !== undefined ? updates.excerpt : postsCache?.find(p => p.id === id)?.excerpt || '',
+        content: updates.content !== undefined ? updates.content : postsCache?.find(p => p.id === id)?.content || '',
+        date: updates.date || postsCache?.find(p => p.id === id)?.date,
+        readTime: updates.readTime || postsCache?.find(p => p.id === id)?.readTime,
+        category: updates.category !== undefined ? updates.category : postsCache?.find(p => p.id === id)?.category,
+        author: updates.author || postsCache?.find(p => p.id === id)?.author,
+        image: updates.image !== undefined ? updates.image : postsCache?.find(p => p.id === id)?.image,
+        featured: updates.featured !== undefined ? updates.featured : postsCache?.find(p => p.id === id)?.featured,
+      };
     } catch (error) {
       console.error('Failed to update post:', error);
       throw error;
