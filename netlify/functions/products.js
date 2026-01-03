@@ -44,6 +44,21 @@ export const handler = async (event) => {
         return createResponse(400, { error: 'Name and price are required' });
       }
 
+      // Normalize name (trim and case-insensitive check)
+      const normalizedName = name.trim();
+      
+      // Check for duplicate product name (case-insensitive)
+      const existing = await queryDb(
+        'SELECT id FROM products WHERE LOWER(TRIM(name)) = LOWER($1)',
+        [normalizedName]
+      );
+      if (existing.rows.length > 0) {
+        return createResponse(409, { 
+          error: 'A product with this name already exists. Please use a different name or update the existing product.',
+          duplicateField: 'name'
+        });
+      }
+
       // Use images array if provided, otherwise use single image
       const imagesArray = images && images.length > 0 ? images : (image ? [image] : []);
       const primaryImage = imagesArray.length > 0 ? imagesArray[0] : null;
@@ -53,15 +68,15 @@ export const handler = async (event) => {
          VALUES ($1, $2, $3, $4::jsonb, $5, $6, $7, $8, $9) 
          RETURNING id, name, price, image, images, link, category, description, source, sub_category, created_at, updated_at`,
         [
-          name,
-          price,
+          normalizedName,
+          price.trim(),
           primaryImage,
           JSON.stringify(imagesArray),
-          link || null,
-          category || null,
-          description || null,
-          source || null,
-          subCategory || null
+          link ? link.trim() : null,
+          category ? category.trim() : null,
+          description ? description.trim() : null,
+          source ? source.trim() : null,
+          subCategory ? subCategory.trim() : null
         ]
       );
 
@@ -99,6 +114,21 @@ export const handler = async (event) => {
         subCategory
       } = body;
 
+      // Check for duplicate name if name is being updated (case-insensitive, excluding current product)
+      if (name) {
+        const normalizedName = name.trim();
+        const existing = await queryDb(
+          'SELECT id FROM products WHERE LOWER(TRIM(name)) = LOWER($1) AND id != $2',
+          [normalizedName, id]
+        );
+        if (existing.rows.length > 0) {
+          return createResponse(409, { 
+            error: 'A product with this name already exists. Please use a different name.',
+            duplicateField: 'name'
+          });
+        }
+      }
+
       // Use images array if provided, otherwise use single image
       const imagesArray = images && images.length > 0 ? images : (image ? [image] : []);
       const primaryImage = imagesArray.length > 0 ? imagesArray[0] : null;
@@ -118,15 +148,15 @@ export const handler = async (event) => {
          WHERE id = $10
          RETURNING id, name, price, image, images, link, category, description, source, sub_category, created_at, updated_at`,
         [
-          name || null,
-          price || null,
+          name ? name.trim() : null,
+          price ? price.trim() : null,
           primaryImage,
           imagesArray.length > 0 ? JSON.stringify(imagesArray) : null,
-          link !== undefined ? link : null,
-          category !== undefined ? category : null,
-          description !== undefined ? description : null,
-          source !== undefined ? source : null,
-          subCategory !== undefined ? subCategory : null,
+          link !== undefined ? (link ? link.trim() : null) : null,
+          category !== undefined ? (category ? category.trim() : null) : null,
+          description !== undefined ? (description ? description.trim() : null) : null,
+          source !== undefined ? (source ? source.trim() : null) : null,
+          subCategory !== undefined ? (subCategory ? subCategory.trim() : null) : null,
           id
         ]
       );

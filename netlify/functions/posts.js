@@ -59,10 +59,25 @@ export const handler = async (event) => {
         return createResponse(400, { error: 'Title, slug, and content are required' });
       }
 
-      // Check if slug already exists
-      const existing = await queryDb('SELECT id FROM posts WHERE slug = $1', [slug]);
+      // Validate that content is not just empty HTML
+      const contentText = content.replace(/<[^>]*>/g, '').trim();
+      if (!contentText || contentText === '') {
+        return createResponse(400, { error: 'Post content cannot be empty' });
+      }
+
+      // Normalize slug (trim and lowercase)
+      const normalizedSlug = slug.trim().toLowerCase();
+      
+      // Check if slug already exists (case-insensitive)
+      const existing = await queryDb(
+        'SELECT id FROM posts WHERE LOWER(TRIM(slug)) = $1',
+        [normalizedSlug]
+      );
       if (existing.rows.length > 0) {
-        return createResponse(409, { error: 'Post with this slug already exists' });
+        return createResponse(409, { 
+          error: 'A post with this slug already exists. Please use a different slug.',
+          duplicateField: 'slug'
+        });
       }
 
       const result = await queryDb(
@@ -70,13 +85,13 @@ export const handler = async (event) => {
          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) 
          RETURNING id, title, slug, excerpt, content, date, read_time, category, author, image, featured, created_at, updated_at`,
         [
-          title,
-          slug,
-          excerpt || null,
+          title.trim(),
+          normalizedSlug,
+          excerpt ? excerpt.trim() : null,
           content,
           date || new Date().toISOString().split('T')[0],
           readTime || null,
-          category || null,
+          category ? category.trim() : null,
           author || 'Perfect Gardener',
           image || null,
           featured || false
@@ -115,12 +130,24 @@ export const handler = async (event) => {
 
       // Check if slug is being changed and conflicts with another post
       if (slug) {
+        const normalizedSlug = slug.trim().toLowerCase();
         const existing = await queryDb(
-          'SELECT id FROM posts WHERE slug = $1 AND id != $2',
-          [slug, id]
+          'SELECT id FROM posts WHERE LOWER(TRIM(slug)) = $1 AND id != $2',
+          [normalizedSlug, id]
         );
         if (existing.rows.length > 0) {
-          return createResponse(409, { error: 'Post with this slug already exists' });
+          return createResponse(409, { 
+            error: 'A post with this slug already exists. Please use a different slug.',
+            duplicateField: 'slug'
+          });
+        }
+      }
+
+      // Validate content if provided
+      if (content !== undefined) {
+        const contentText = content.replace(/<[^>]*>/g, '').trim();
+        if (!contentText || contentText === '') {
+          return createResponse(400, { error: 'Post content cannot be empty' });
         }
       }
 

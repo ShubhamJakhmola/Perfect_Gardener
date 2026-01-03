@@ -64,6 +64,21 @@ export const handler = async (event) => {
         return createResponse(400, { error: 'Plant name is required' });
       }
 
+      // Normalize name (trim and case-insensitive check)
+      const normalizedName = name.trim();
+      
+      // Check for duplicate plant name (case-insensitive)
+      const existing = await queryDb(
+        'SELECT id FROM plants WHERE LOWER(TRIM(name)) = LOWER($1)',
+        [normalizedName]
+      );
+      if (existing.rows.length > 0) {
+        return createResponse(409, { 
+          error: 'A plant with this name already exists. Please use a different name or update the existing plant.',
+          duplicateField: 'name'
+        });
+      }
+
       const result = await queryDb(
         `INSERT INTO plants (name, region, growing_months, season, soil_requirements, 
                             bloom_harvest_time, sunlight_needs, care_instructions, image, 
@@ -73,16 +88,16 @@ export const handler = async (event) => {
                    bloom_harvest_time, sunlight_needs, care_instructions, image, 
                    plant_type, data_source, created_at, updated_at`,
         [
-          name,
-          region || null,
-          growingMonths || null,
-          season || null,
-          soilRequirements || null,
-          bloomHarvestTime || null,
-          sunlightNeeds || null,
-          careInstructions || null,
-          image || null,
-          plantType || null,
+          normalizedName,
+          region ? region.trim() : null,
+          growingMonths ? growingMonths.trim() : null,
+          season ? season.trim() : null,
+          soilRequirements ? soilRequirements.trim() : null,
+          bloomHarvestTime ? bloomHarvestTime.trim() : null,
+          sunlightNeeds ? sunlightNeeds.trim() : null,
+          careInstructions ? careInstructions.trim() : null,
+          image ? image.trim() : null,
+          plantType ? plantType.trim() : null,
           dataSource || 'manual'
         ]
       );
@@ -118,6 +133,21 @@ export const handler = async (event) => {
         dataSource
       } = body;
 
+      // Check for duplicate name if name is being updated (case-insensitive, excluding current plant)
+      if (name) {
+        const normalizedName = name.trim();
+        const existing = await queryDb(
+          'SELECT id FROM plants WHERE LOWER(TRIM(name)) = LOWER($1) AND id != $2',
+          [normalizedName, id]
+        );
+        if (existing.rows.length > 0) {
+          return createResponse(409, { 
+            error: 'A plant with this name already exists. Please use a different name.',
+            duplicateField: 'name'
+          });
+        }
+      }
+
       const result = await queryDb(
         `UPDATE plants
          SET name = COALESCE($1, name),
@@ -137,16 +167,16 @@ export const handler = async (event) => {
                    bloom_harvest_time, sunlight_needs, care_instructions, image, 
                    plant_type, data_source, created_at, updated_at`,
         [
-          name || null,
-          region !== undefined ? region : null,
-          growingMonths !== undefined ? growingMonths : null,
-          season !== undefined ? season : null,
-          soilRequirements !== undefined ? soilRequirements : null,
-          bloomHarvestTime !== undefined ? bloomHarvestTime : null,
-          sunlightNeeds !== undefined ? sunlightNeeds : null,
-          careInstructions !== undefined ? careInstructions : null,
-          image !== undefined ? image : null,
-          plantType !== undefined ? plantType : null,
+          name ? name.trim() : null,
+          region !== undefined ? (region ? region.trim() : null) : null,
+          growingMonths !== undefined ? (growingMonths ? growingMonths.trim() : null) : null,
+          season !== undefined ? (season ? season.trim() : null) : null,
+          soilRequirements !== undefined ? (soilRequirements ? soilRequirements.trim() : null) : null,
+          bloomHarvestTime !== undefined ? (bloomHarvestTime ? bloomHarvestTime.trim() : null) : null,
+          sunlightNeeds !== undefined ? (sunlightNeeds ? sunlightNeeds.trim() : null) : null,
+          careInstructions !== undefined ? (careInstructions ? careInstructions.trim() : null) : null,
+          image !== undefined ? (image ? image.trim() : null) : null,
+          plantType !== undefined ? (plantType ? plantType.trim() : null) : null,
           dataSource !== undefined ? dataSource : null,
           id
         ]

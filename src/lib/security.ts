@@ -3,16 +3,31 @@
  * Input sanitization, XSS protection, and validation
  */
 
+import DOMPurify from 'dompurify';
+
 /**
  * Sanitize HTML content to prevent XSS attacks
+ * Uses DOMPurify to allow safe HTML while removing dangerous scripts
  */
 export function sanitizeHtml(html: string): string {
   if (!html) return "";
   
-  // Create a temporary div element
-  const div = document.createElement("div");
-  div.textContent = html;
-  return div.innerHTML;
+  // Configure DOMPurify to allow safe HTML elements and attributes
+  const config = {
+    ALLOWED_TAGS: [
+      'p', 'br', 'strong', 'em', 'u', 's', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+      'ul', 'ol', 'li', 'blockquote', 'code', 'pre', 'a', 'img', 'table', 'thead',
+      'tbody', 'tr', 'td', 'th', 'hr', 'div', 'span', 'iframe'
+    ],
+    ALLOWED_ATTR: [
+      'href', 'src', 'alt', 'title', 'class', 'style', 'width', 'height',
+      'frameborder', 'allowfullscreen', 'allow', 'target', 'rel'
+    ],
+    ALLOW_DATA_ATTR: false,
+    ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp|data):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
+  };
+  
+  return DOMPurify.sanitize(html, config);
 }
 
 /**

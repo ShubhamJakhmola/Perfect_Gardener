@@ -51,6 +51,7 @@ import {
   sanitizeDescription,
   sanitizeUrl,
   validateUrl,
+  sanitizeHtml,
 } from "@/lib/security";
 import { detectSourceFromUrl } from "@/lib/product-utils";
 import { plantsAPI } from "@/lib/api-client";
@@ -185,6 +186,13 @@ const Admin = () => {
   const [deletePostId, setDeletePostId] = useState<string | null>(null);
   const [deletePlantId, setDeletePlantId] = useState<string | null>(null);
 
+  // Loading states
+  const [savingPost, setSavingPost] = useState(false);
+  const [savingProduct, setSavingProduct] = useState(false);
+  const [savingPlant, setSavingPlant] = useState(false);
+  const [importingProducts, setImportingProducts] = useState(false);
+  const [importingPlants, setImportingPlants] = useState(false);
+
   // Load data on mount
   useEffect(() => {
     const loadData = async () => {
@@ -240,6 +248,8 @@ const Admin = () => {
   // Product Management Functions
   const handleProductSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    setSavingProduct(true);
     
     try {
       // Auto-detect source if not set
@@ -339,13 +349,15 @@ const Admin = () => {
         source: "",
         subCategory: "",
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error saving product:", error);
       toast({
-        title: "Error",
-        description: "An error occurred while saving the product. Please try again.",
+        title: "Error Saving Product",
+        description: error.message || "An error occurred while saving the product. Please try again.",
         variant: "destructive",
       });
+    } finally {
+      setSavingProduct(false);
     }
   };
 
@@ -412,45 +424,102 @@ const Admin = () => {
   const handlePostSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (editingPostId) {
-      // Update existing post
-      await postStorage.update(editingPostId, postForm);
-      const updatedPosts = await postStorage.getAll();
-      setPosts(updatedPosts);
+    // Validate required fields
+    if (!postForm.title?.trim()) {
       toast({
-        title: "Post Updated",
-        description: "Post has been successfully updated.",
+        title: "Validation Error",
+        description: "Post title is required.",
+        variant: "destructive",
       });
-      setEditingPostId(null);
-    } else {
-      // Add new post
-      const newPost: AdminPost = {
-        id: crypto.randomUUID(),
-        ...postForm,
-        date: postForm.date || new Date().toISOString().split("T")[0],
-        author: postForm.author || "Perfect Gardener",
-      };
-      await postStorage.add(newPost);
-      const updatedPosts = await postStorage.getAll();
-      setPosts(updatedPosts);
-      toast({
-        title: "Post Created",
-        description: `New post created! It will be available at /blog/${newPost.slug}`,
-      });
+      return;
     }
 
-    // Reset form
-    setPostForm({
-      title: "",
-      slug: "",
-      excerpt: "",
-      content: "",
-      category: "",
-      author: "Perfect Gardener",
-      date: new Date().toISOString().split("T")[0],
-      readTime: "5 min read",
-      featured: false,
-    });
+    if (!postForm.slug?.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Post slug is required.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!postForm.content?.trim() || postForm.content.trim() === '<p><br></p>') {
+      toast({
+        title: "Validation Error",
+        description: "Post content cannot be empty.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!postForm.excerpt?.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Post excerpt is required.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setSavingPost(true);
+    
+    try {
+      // Sanitize HTML content before saving
+      const sanitizedContent = sanitizeHtml(postForm.content);
+      const sanitizedPostForm = {
+        ...postForm,
+        content: sanitizedContent,
+      };
+
+      if (editingPostId) {
+        // Update existing post
+        await postStorage.update(editingPostId, sanitizedPostForm);
+        const updatedPosts = await postStorage.getAll();
+        setPosts(updatedPosts);
+        toast({
+          title: "Post Updated",
+          description: "Post has been successfully updated.",
+        });
+        setEditingPostId(null);
+      } else {
+        // Add new post
+        const newPost: AdminPost = {
+          id: crypto.randomUUID(),
+          ...sanitizedPostForm,
+          date: sanitizedPostForm.date || new Date().toISOString().split("T")[0],
+          author: sanitizedPostForm.author || "Perfect Gardener",
+        };
+        await postStorage.add(newPost);
+        const updatedPosts = await postStorage.getAll();
+        setPosts(updatedPosts);
+        toast({
+          title: "Post Created",
+          description: `New post created! It will be available at /blog/${newPost.slug}`,
+        });
+      }
+
+      // Reset form
+      setPostForm({
+        title: "",
+        slug: "",
+        excerpt: "",
+        content: "",
+        category: "",
+        author: "Perfect Gardener",
+        date: new Date().toISOString().split("T")[0],
+        readTime: "5 min read",
+        featured: false,
+      });
+    } catch (error: any) {
+      console.error("Error saving post:", error);
+      toast({
+        title: "Error Saving Post",
+        description: error.message || "An error occurred while saving the post. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setSavingPost(false);
+    }
   };
 
   const handleEditPost = (post: AdminPost) => {
@@ -518,6 +587,8 @@ const Admin = () => {
   const handlePlantSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    setSavingPlant(true);
+    
     try {
       if (!plantForm.name.trim()) {
         toast({
@@ -567,11 +638,28 @@ const Admin = () => {
       });
     } catch (error: any) {
       console.error("Error saving plant:", error);
+      let errorMessage = "An error occurred while saving the plant. Please try again.";
+      
+      // Provide specific error messages
+      if (error.message) {
+        if (error.message.includes("required")) {
+          errorMessage = error.message;
+        } else if (error.message.includes("Network error")) {
+          errorMessage = "Network error: Unable to connect to server. Please check your connection.";
+        } else if (error.message.includes("duplicate") || error.message.includes("already exists")) {
+          errorMessage = "A plant with this name already exists. Please use a different name.";
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      
       toast({
-        title: "Error",
-        description: error.message || "An error occurred while saving the plant. Please try again.",
+        title: "Error Saving Plant",
+        description: errorMessage,
         variant: "destructive",
       });
+    } finally {
+      setSavingPlant(false);
     }
   };
 
@@ -643,6 +731,8 @@ const Admin = () => {
       return;
     }
 
+    setImportingPlants(true);
+    
     try {
       let jsonData: any[] = [];
 
@@ -718,31 +808,53 @@ const Admin = () => {
           continue;
         }
 
-        // Create plant
-        const newPlant = {
-          name: String(normalizedRow.name || '').trim(),
-          region: normalizedRow.region ? String(normalizedRow.region).trim() : undefined,
-          growingMonths: normalizedRow.growingMonths ? String(normalizedRow.growingMonths).trim() : undefined,
-          season: normalizedRow.season ? String(normalizedRow.season).trim() : undefined,
-          soilRequirements: normalizedRow.soilRequirements ? String(normalizedRow.soilRequirements).trim() : undefined,
-          bloomHarvestTime: normalizedRow.bloomHarvestTime ? String(normalizedRow.bloomHarvestTime).trim() : undefined,
-          sunlightNeeds: normalizedRow.sunlightNeeds ? String(normalizedRow.sunlightNeeds).trim() : undefined,
-          careInstructions: normalizedRow.careInstructions ? String(normalizedRow.careInstructions).trim() : undefined,
-          image: normalizedRow.image ? String(normalizedRow.image).trim() : undefined,
-          plantType: normalizedRow.plantType ? String(normalizedRow.plantType).trim() : undefined,
-          dataSource: fileExtension === 'json' ? 'imported_json' : fileExtension === 'csv' ? 'imported_csv' : 'imported_xlsx'
-        };
+        try {
+          // Create plant
+          const newPlant = {
+            name: String(normalizedRow.name || '').trim(),
+            region: normalizedRow.region ? String(normalizedRow.region).trim() : undefined,
+            growingMonths: normalizedRow.growingMonths ? String(normalizedRow.growingMonths).trim() : undefined,
+            season: normalizedRow.season ? String(normalizedRow.season).trim() : undefined,
+            soilRequirements: normalizedRow.soilRequirements ? String(normalizedRow.soilRequirements).trim() : undefined,
+            bloomHarvestTime: normalizedRow.bloomHarvestTime ? String(normalizedRow.bloomHarvestTime).trim() : undefined,
+            sunlightNeeds: normalizedRow.sunlightNeeds ? String(normalizedRow.sunlightNeeds).trim() : undefined,
+            careInstructions: normalizedRow.careInstructions ? String(normalizedRow.careInstructions).trim() : undefined,
+            image: normalizedRow.image ? String(normalizedRow.image).trim() : undefined,
+            plantType: normalizedRow.plantType ? String(normalizedRow.plantType).trim() : undefined,
+            dataSource: fileExtension === 'json' ? 'imported_json' : fileExtension === 'csv' ? 'imported_csv' : 'imported_xlsx'
+          };
 
-        await plantsAPI.create(newPlant);
-        importedCount++;
+          await plantsAPI.create(newPlant);
+          importedCount++;
+        } catch (rowError: any) {
+          errorCount++;
+          const plantName = String(normalizedRow.name || '').trim();
+          errors.push(`Row "${plantName}": ${rowError.message || 'Unknown error'}`);
+          // Continue processing other rows
+        }
       }
 
       const updatedPlants = await plantsAPI.getAll();
       setPlants(updatedPlants);
-      toast({
-        title: "Import Successful",
-        description: `Imported ${importedCount} plant(s). ${skippedCount > 0 ? `${skippedCount} row(s) skipped due to missing required fields.` : ''}`,
-      });
+      
+      // Show detailed import results
+      const totalProcessed = jsonData.length;
+      const successMessage = `Import completed: ${importedCount} inserted, ${skippedCount} skipped, ${errorCount} errors out of ${totalProcessed} total records.`;
+      
+      if (errorCount > 0 && errors.length > 0) {
+        // Show first 3 errors in toast, full list in console
+        console.error('Import errors:', errors);
+        toast({
+          title: "Import Completed with Errors",
+          description: `${successMessage} First errors: ${errors.slice(0, 3).join('; ')}${errors.length > 3 ? '...' : ''}`,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Import Successful",
+          description: successMessage,
+        });
+      }
 
       // Reset file input
       e.target.value = '';
@@ -753,6 +865,8 @@ const Admin = () => {
         description: error.message || "An error occurred while importing the file. Please check the file format.",
         variant: "destructive",
       });
+    } finally {
+      setImportingPlants(false);
     }
   };
 
@@ -771,6 +885,8 @@ const Admin = () => {
       return;
     }
 
+    setImportingProducts(true);
+    
     try {
       const fileData = await file.arrayBuffer();
       let jsonData: any[] = [];
@@ -801,6 +917,8 @@ const Admin = () => {
       // Expected columns: name, price, image, link, category, description
       let importedCount = 0;
       let skippedCount = 0;
+      let errorCount = 0;
+      const errors: string[] = [];
 
       for (const row of jsonData) {
         // Normalize column names (case-insensitive, handle spaces/underscores)
@@ -840,46 +958,70 @@ const Admin = () => {
         // Validate required fields
         if (!normalizedRow.name || !normalizedRow.price) {
           skippedCount++;
-          return;
+          continue;
         }
 
-        // Detect source from link
-        const link = String(normalizedRow.link || '').trim();
-        const detectedSource = detectSourceFromUrl(link);
+        try {
+          // Detect source from link
+          const link = String(normalizedRow.link || '').trim();
+          const detectedSource = detectSourceFromUrl(link);
 
-        // Create product
-        const newProduct: AdminProduct = {
-          id: crypto.randomUUID(),
-          name: String(normalizedRow.name || '').trim(),
-          price: String(normalizedRow.price || '').trim(),
-          image: String(normalizedRow.image || '').trim(),
-          link: link,
-          category: String(normalizedRow.category || '').trim(),
-          description: String(normalizedRow.description || '').trim(),
-          source: detectedSource !== "unknown" && detectedSource !== "other" ? detectedSource : undefined,
-          subCategory: detectedSource !== "unknown" && detectedSource !== "other" ? detectedSource : undefined,
-        };
+          // Create product
+          const newProduct: AdminProduct = {
+            id: crypto.randomUUID(),
+            name: String(normalizedRow.name || '').trim(),
+            price: String(normalizedRow.price || '').trim(),
+            image: String(normalizedRow.image || '').trim(),
+            link: link,
+            category: String(normalizedRow.category || '').trim(),
+            description: String(normalizedRow.description || '').trim(),
+            source: detectedSource !== "unknown" && detectedSource !== "other" ? detectedSource : undefined,
+            subCategory: detectedSource !== "unknown" && detectedSource !== "other" ? detectedSource : undefined,
+          };
 
-        await productStorage.add(newProduct);
-        importedCount++;
+          await productStorage.add(newProduct);
+          importedCount++;
+        } catch (rowError: any) {
+          errorCount++;
+          const productName = String(normalizedRow.name || '').trim();
+          errors.push(`Row "${productName}": ${rowError.message || 'Unknown error'}`);
+          // Continue processing other rows
+        }
       }
 
       const updatedProducts = await productStorage.getAll();
       setProducts(updatedProducts);
-      toast({
-        title: "Import Successful",
-        description: `Imported ${importedCount} product(s). ${skippedCount > 0 ? `${skippedCount} row(s) skipped due to missing required fields.` : ''}`,
-      });
+      
+      // Show detailed import results
+      const totalProcessed = jsonData.length;
+      const successMessage = `Import completed: ${importedCount} inserted, ${skippedCount} skipped, ${errorCount} errors out of ${totalProcessed} total records.`;
+      
+      if (errorCount > 0 && errors.length > 0) {
+        // Show first 3 errors in toast, full list in console
+        console.error('Import errors:', errors);
+        toast({
+          title: "Import Completed with Errors",
+          description: `${successMessage} First errors: ${errors.slice(0, 3).join('; ')}${errors.length > 3 ? '...' : ''}`,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Import Successful",
+          description: successMessage,
+        });
+      }
 
       // Reset file input
       e.target.value = '';
-    } catch (error) {
+    } catch (error: any) {
       console.error('Import error:', error);
       toast({
         title: "Import Failed",
-        description: "An error occurred while importing the file. Please check the file format.",
+        description: error.message || "An error occurred while importing the file. Please check the file format.",
         variant: "destructive",
       });
+    } finally {
+      setImportingProducts(false);
     }
   };
 
@@ -959,9 +1101,10 @@ const Admin = () => {
                         variant="outline"
                         onClick={() => document.getElementById('file-import')?.click()}
                         className="flex items-center gap-2"
+                        disabled={importingProducts}
                       >
                         <Upload className="w-4 h-4" />
-                        Choose File
+                        {importingProducts ? "Importing..." : "Choose File"}
                       </Button>
                     </div>
                     <p className="text-xs text-muted-foreground mt-2">
@@ -1126,9 +1269,9 @@ const Admin = () => {
                             Cancel
                           </Button>
                         )}
-                        <Button type="submit">
+                        <Button type="submit" disabled={savingProduct}>
                           <Save className="w-4 h-4 mr-2" />
-                          {editingProductId ? "Update Product" : "Add Product"}
+                          {savingProduct ? "Saving..." : editingProductId ? "Update Product" : "Add Product"}
                         </Button>
                       </div>
                     </form>
@@ -1327,9 +1470,9 @@ const Admin = () => {
                             Cancel
                           </Button>
                         )}
-                        <Button type="submit">
+                        <Button type="submit" disabled={savingPost}>
                           <Save className="w-4 h-4 mr-2" />
-                          {editingPostId ? "Update Post" : "Create Post"}
+                          {savingPost ? "Saving..." : editingPostId ? "Update Post" : "Create Post"}
                         </Button>
                       </div>
                     </form>
@@ -1433,9 +1576,10 @@ const Admin = () => {
                         variant="outline"
                         onClick={() => document.getElementById('plant-file-import')?.click()}
                         className="flex items-center gap-2"
+                        disabled={importingPlants}
                       >
                         <Upload className="w-4 h-4" />
-                        Choose File
+                        {importingPlants ? "Importing..." : "Choose File"}
                       </Button>
                     </div>
                     <p className="text-xs text-muted-foreground mt-2">
@@ -1600,9 +1744,9 @@ const Admin = () => {
                             Cancel
                           </Button>
                         )}
-                        <Button type="submit" className="flex-1">
+                        <Button type="submit" className="flex-1" disabled={savingPlant}>
                           <Save className="w-4 h-4 mr-2" />
-                          {editingPlantId ? "Update Plant" : "Add Plant"}
+                          {savingPlant ? "Saving..." : editingPlantId ? "Update Plant" : "Add Plant"}
                         </Button>
                       </div>
                     </form>
