@@ -89,7 +89,7 @@ const initialPosts: AdminPost[] = [
     slug: "beginner-gardening-tips",
     excerpt: "Starting a garden can feel overwhelming, but with these simple tips you'll be growing beautiful plants in no time.",
     content: "<p>Starting a garden is an exciting journey! Here are 10 essential tips to get you started:</p><h2>1. Choose the Right Location</h2><p>Most plants need at least 6 hours of sunlight per day. Observe your space to find the best spot.</p><h2>2. Start with Good Soil</h2><p>Quality soil is the foundation of a healthy garden. Invest in good potting mix or enrich your garden soil with compost.</p>",
-    date: "2024-12-15",
+    date: "2025-12-15",
     readTime: "5 min read",
     category: "Beginner Guides",
     author: "Perfect Gardener",
@@ -101,7 +101,7 @@ const initialPosts: AdminPost[] = [
     slug: "low-light-indoor-plants",
     excerpt: "Not all plants need bright sunlight. Discover the best varieties for darker corners of your home.",
     content: "<p>Low light doesn't mean no plants! Here are some excellent options:</p><h2>Snake Plant</h2><p>Extremely hardy and can survive in very low light conditions.</p><h2>ZZ Plant</h2><p>Another tough plant that thrives in low light and requires minimal care.</p>",
-    date: "2024-12-10",
+    date: "2025-12-10",
     readTime: "4 min read",
     category: "Indoor Gardening",
     author: "Perfect Gardener",
@@ -817,6 +817,8 @@ const Admin = () => {
 
       let importedCount = 0;
       let skippedCount = 0;
+      let errorCount = 0;
+      const errors: string[] = [];
 
       for (const row of jsonData) {
         const normalizedRow: any = {};

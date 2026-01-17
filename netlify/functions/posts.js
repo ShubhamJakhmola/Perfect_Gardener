@@ -29,16 +29,44 @@ export const handler = async (event) => {
 
         return createResponse(200, { post: result.rows[0] });
       } else {
-        // Get all posts - uses indexed created_at column for ordering
+        // Get paginated posts list - exclude heavy content field for performance
+        const queryParams = event.queryStringParameters || {};
+        const page = parseInt(queryParams.page) || 1;
+        const limit = Math.min(parseInt(queryParams.limit) || 6, 20); // Max 20 per page
+        const offset = (page - 1) * limit;
+
         const result = await queryDb(
-          `SELECT id, title, slug, excerpt, content, date, read_time, category, author, image, featured, created_at, updated_at 
-           FROM posts 
-           ORDER BY created_at DESC`,
-          [],
+          `SELECT id, title, slug, excerpt, date, read_time, category, author, image, featured, created_at
+           FROM posts
+           ORDER BY created_at DESC
+           LIMIT $1 OFFSET $2`,
+          [limit, offset],
           { isWrite: false, logSlow: true }
         );
 
-        return createResponse(200, { posts: result.rows });
+        // Get total count for pagination
+        const countResult = await queryDb(
+          'SELECT COUNT(*) as total FROM posts',
+          [],
+          { logSlow: false }
+        );
+
+        const total = parseInt(countResult.rows[0].total);
+        const totalPages = Math.ceil(total / limit);
+
+        return createResponse(200, {
+          posts: result.rows,
+          pagination: {
+            page,
+            limit,
+            total,
+            totalPages,
+            hasNext: page < totalPages,
+            hasPrev: page > 1
+          }
+        }, {
+          'Cache-Control': 'public, max-age=180' // Cache for 3 minutes
+        });
       }
     }
 

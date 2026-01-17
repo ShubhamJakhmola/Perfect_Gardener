@@ -50,9 +50,9 @@ let postsCache: AdminPost[] | null = null;
 export const productStorage = {
   getAll: async (): Promise<AdminProduct[]> => {
     try {
-      const products = await productsAPI.getAll();
+      const response = await productsAPI.getAll(1, 1000); // Get all for admin use
       // Normalize products to match AdminProduct interface
-      const normalized = products.map((p: any) => ({
+      const normalized = response.products.map((p: any) => ({
         id: p.id,
         name: p.name,
         price: p.price,
@@ -155,9 +155,9 @@ export const productStorage = {
 export const postStorage = {
   getAll: async (): Promise<AdminPost[]> => {
     try {
-      const posts = await postsAPI.getAll();
+      const response = await postsAPI.getAll(1, 1000); // Get all for admin use
       // Normalize posts to match AdminPost interface
-      const normalized = posts.map((p: any) => ({
+      const normalized = response.posts.map((p: any) => ({
         id: p.id,
         title: p.title,
         slug: p.slug,

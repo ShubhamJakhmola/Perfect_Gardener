@@ -54,21 +54,21 @@ export function PostsSection({ limit = 3 }: PostsSectionProps) {
               id: "1",
               title: "10 Essential Tips for Beginning Gardeners",
               excerpt: "Starting a garden can feel overwhelming, but with these simple tips you'll be growing beautiful plants in no time.",
-              date: "2024-12-15",
-              readTime: "5 min read",
+              date: "2025-12-15",
+              readTime: "10 min read",
             },
             {
               id: "2",
               title: "Best Indoor Plants for Low Light Conditions",
               excerpt: "Not all plants need bright sunlight. Discover the best varieties for darker corners of your home.",
-              date: "2024-12-10",
-              readTime: "4 min read",
+              date: "2025-12-10",
+              readTime: "8 min read",
             },
             {
               id: "3",
               title: "How to Make Your Own Organic Compost",
               excerpt: "Turn your kitchen scraps into black gold for your garden with this simple composting guide.",
-              date: "2024-12-05",
+              date: "2025-12-05",
               readTime: "6 min read",
             },
           ].slice(0, limit));
@@ -92,7 +92,7 @@ export function PostsSection({ limit = 3 }: PostsSectionProps) {
   }, [limit]);
 
   return (
-    <section id="posts" className="py-20 md:py-32 relative overflow-hidden wavy-top wavy-bottom">
+    <section id="posts" className="py-12 md:py-20 relative overflow-hidden wavy-top wavy-bottom">
       {/* Premium Background Gradient */}
       <div 
         className="absolute inset-0 -z-10"
@@ -102,9 +102,16 @@ export function PostsSection({ limit = 3 }: PostsSectionProps) {
       />
       
       <div className="section-container">
+        {/* Intro Text */}
+        <div className="text-center mb-8">
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            We write about real gardening experiences and practical advice that we've tested ourselves. These posts cover everything from beginner tips to advanced techniques.
+          </p>
+        </div>
+
         {/* Premium Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6">
             <span className="gradient-text">Latest Posts</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -139,7 +146,7 @@ export function PostsSection({ limit = 3 }: PostsSectionProps) {
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {/* Thumbnail Image */}
-                    {post.image && (
+                    {post.image && post.image.startsWith("http") &&(
                       <div className="relative w-full h-48 overflow-hidden bg-muted">
                         <img 
                           src={post.image} 

@@ -1,102 +1,104 @@
 /**
  * Database Connection Utility
  * Shared utility for connecting to Neon PostgreSQL database
+ * Optimized for serverless with connection pooling and keep-alive
  */
 
 import pg from 'pg';
-const { Client } = pg;
+const { Pool } = pg;
+
+// Connection pool for better performance
+let pool = null;
 
 /**
- * Get a database client connection
- * Uses NETLIFY_DATABASE_URL environment variable
+ * Get database pool (creates if doesn't exist)
+ * Uses connection pooling to reduce connection overhead
  */
-function getDbClient() {
-  const databaseUrl = process.env.NETLIFY_DATABASE_URL;
-  
-  if (!databaseUrl) {
-    throw new Error('NETLIFY_DATABASE_URL environment variable is not set');
+function getDbPool() {
+  if (!pool) {
+    const databaseUrl = process.env.NETLIFY_DATABASE_URL;
+
+    if (!databaseUrl) {
+      throw new Error('NETLIFY_DATABASE_URL environment variable is not set');
+    }
+
+    // Parse connection string for pool config
+    const url = new URL(databaseUrl);
+
+    pool = new Pool({
+      host: url.hostname,
+      port: parseInt(url.port || '5432'),
+      database: url.pathname.slice(1),
+      user: url.username,
+      password: url.password,
+      ssl: {
+        rejectUnauthorized: false
+      },
+      // Pool configuration for serverless
+      max: 5, // Maximum 5 connections
+      min: 0, // Minimum 0 connections
+      idleTimeoutMillis: 30000, // Close idle connections after 30s
+      connectionTimeoutMillis: 5000, // Connection timeout 5s
+      acquireTimeoutMillis: 10000, // Acquire timeout 10s
+    });
+
+    // Handle pool errors
+    pool.on('error', (err) => {
+      console.error('Unexpected error on idle client', err);
+    });
   }
 
-  const client = new Client({
-    connectionString: databaseUrl,
-    ssl: {
-      rejectUnauthorized: false
-    }
-  });
-
-  return client;
+  return pool;
 }
 
 /**
- * Execute a database query with error handling
- * Optimized for faster connection handling
+ * Execute a database query with connection pooling
  * @param {string} text - SQL query
  * @param {Array} params - Query parameters
- * @param {Object} options - Query options { isWrite: boolean, logSlow: boolean }
+ * @param {Object} options - Query options { isWrite: boolean, logSlow: boolean, cacheSeconds: number }
  */
 async function queryDb(text, params = [], options = {}) {
-  const { isWrite = false, logSlow = true } = options;
-  const client = getDbClient();
+  const { isWrite = false, logSlow = true, cacheSeconds = 0 } = options;
+  const pool = getDbPool();
   const startTime = Date.now();
-  
+
+  const client = await pool.connect();
+
   try {
-    // Connect with timeout to prevent hanging (only for connection, not queries)
-    await Promise.race([
-      client.connect(),
-      new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('Connection timeout')), 5000)
-      )
-    ]);
-    
-    // Execute query - NO timeout for write operations to prevent false failures
-    // Only log slow queries instead of killing them
-    let result;
-    if (isWrite) {
-      // Write operations: no timeout, just execute
-      result = await client.query(text, params);
-    } else {
-      // Read operations: can have timeout for safety
-      result = await Promise.race([
-        client.query(text, params),
-        new Promise((_, reject) => 
-          setTimeout(() => reject(new Error('Query timeout')), 15000)
-        )
-      ]);
-    }
-    
+    const result = await client.query(text, params);
+
     // Log slow queries for monitoring
     const duration = Date.now() - startTime;
     if (logSlow && duration > 1000) {
       console.warn(`Slow query detected (${duration}ms):`, text.substring(0, 100));
     }
-    
+
     return result;
   } catch (error) {
     const duration = Date.now() - startTime;
     console.error(`Database query error (${duration}ms):`, error.message, text.substring(0, 100));
     throw error;
   } finally {
-    // Ensure connection is closed
-    try {
-      await client.end();
-    } catch (closeError) {
-      // Ignore close errors - connection may already be closed
-      console.warn('Error closing database connection:', closeError);
-    }
+    // Return client to pool
+    client.release();
   }
 }
 
 /**
- * Helper to format API response
+ * Helper to format API response with optional caching
  */
 function createResponse(statusCode, body, headers = {}) {
+  const defaultHeaders = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  };
+
   return {
     statusCode,
     headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      ...defaultHeaders,
       ...headers
     },
     body: JSON.stringify(body)
@@ -104,7 +106,6 @@ function createResponse(statusCode, body, headers = {}) {
 }
 
 export {
-  getDbClient,
   queryDb,
   createResponse
 };

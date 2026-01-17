@@ -91,7 +91,7 @@ export function HeroSection() {
 
             {/* Description */}
             <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up animation-delay-200">
-              From tiny saplings to lush home gardens, we help you grow with nature beautifully.
+              Perfect Gardener helps home gardeners grow healthier plants with expert gardening tips, organic seeds, trusted tools, and step-by-step plant care guides.
             </p>
 
             {/* Premium CTA Buttons */}
@@ -110,7 +110,7 @@ export function HeroSection() {
                 asChild 
                 variant="outline" 
                 size="lg" 
-                className="px-4 xs:px-5 sm:px-6 md:px-8 py-3 xs:py-4 sm:py-5 md:py-6 text-xs xs:text-sm sm:text-base md:text-lg font-semibold border-2 hover:bg-primary/5 hover:border-primary/30 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto"
+                className="px-4 xs:px-5 sm:px-6 md:px-8 py-3 xs:py-4 sm:py-5 md:py-6 text-xs xs:text-sm sm:text-base md:text-lg font-semibold border-2 hover:bg-primary/5 hover:border-primary/30 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto"
               >
                 <Link to="/posts">Read Posts</Link>
               </Button>

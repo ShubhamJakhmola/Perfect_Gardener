@@ -3,8 +3,15 @@ import { Button } from "@/components/ui/button";
 
 export function YouTubeSection() {
   return (
-    <section id="youtube" className="py-16 md:py-24 bg-secondary/30">
+    <section id="youtube" className="py-12 md:py-16 bg-secondary/30">
       <div className="section-container">
+        {/* Intro Text */}
+        <div className="text-center mb-8">
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Our YouTube channel shows step-by-step gardening videos, plant care demos, and behind-the-scenes looks at our own garden experiments.
+          </p>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-6 text-center lg:text-left">

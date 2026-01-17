@@ -31,18 +31,44 @@ export const handler = async (event) => {
 
         return createResponse(200, { plant: result.rows[0] });
       } else {
-        // Get all plants - uses indexed name column for ordering
+        // Get paginated plants list - exclude heavy text fields for performance
+        const queryParams = event.queryStringParameters || {};
+        const page = parseInt(queryParams.page) || 1;
+        const limit = Math.min(parseInt(queryParams.limit) || 20, 50); // Max 50 per page
+        const offset = (page - 1) * limit;
+
         const result = await queryDb(
-          `SELECT id, name, region, growing_months, season, soil_requirements, 
-                  bloom_harvest_time, sunlight_needs, care_instructions, image, 
-                  plant_type, data_source, created_at, updated_at
+          `SELECT id, name, region, growing_months, season, bloom_harvest_time, sunlight_needs, image, plant_type, data_source, created_at
            FROM plants
-           ORDER BY name ASC`,
-          [],
+           ORDER BY name ASC
+           LIMIT $1 OFFSET $2`,
+          [limit, offset],
           { isWrite: false, logSlow: true }
         );
 
-        return createResponse(200, { plants: result.rows });
+        // Get total count for pagination
+        const countResult = await queryDb(
+          'SELECT COUNT(*) as total FROM plants',
+          [],
+          { logSlow: false }
+        );
+
+        const total = parseInt(countResult.rows[0].total);
+        const totalPages = Math.ceil(total / limit);
+
+        return createResponse(200, {
+          plants: result.rows,
+          pagination: {
+            page,
+            limit,
+            total,
+            totalPages,
+            hasNext: page < totalPages,
+            hasPrev: page > 1
+          }
+        }, {
+          'Cache-Control': 'public, max-age=300' // Cache for 5 minutes
+        });
       }
     }
 

@@ -64,6 +64,13 @@ export function ProductsSection({ limit = 5, showViewAll = true }: ProductsSecti
       />
       
       <div className="section-container">
+        {/* Intro Text */}
+        <div className="text-center mb-8">
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            We recommend these gardening tools and supplies based on what works well for home gardeners. These are affiliate links, so we may earn a small commission if you buy through them.
+          </p>
+        </div>
+
         {/* Premium Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">

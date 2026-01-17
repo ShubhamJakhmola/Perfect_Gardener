@@ -1,5 +1,5 @@
 import { queryDb, createResponse } from './utils/db.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 export const handler = async (event) => {
   // Handle CORS preflight

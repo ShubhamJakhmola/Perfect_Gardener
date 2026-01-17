@@ -37,7 +37,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
     <>
       <article
         className={cn(
-          "group glass-card rounded-2xl overflow-hidden animate-fade-in transition-all duration-500 hover:shadow-2xl hover:border-primary/40 hover:-translate-y-2 hover:scale-[1.02]",
+          "group glass-card rounded-2xl overflow-hidden animate-fade-in transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:-translate-y-1",
           className
         )}
         style={{ animationDelay: `${index * 100}ms` }}
@@ -49,7 +49,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
               src={primaryImage}
               alt={product.name}
               loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23e5e7eb' width='400' height='400'/%3E%3Ctext fill='%239ca3af' font-family='system-ui' font-size='20' x='50%25' y='50%25' text-anchor='middle' dy='.3em'%3ENo Image%3C/text%3E%3C/svg%3E";
               }}

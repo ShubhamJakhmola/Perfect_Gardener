@@ -76,7 +76,7 @@ export function RichTextEditor({
     if (!range) return;
 
     // Build image style with alignment and width
-    let styleParts: string[] = [];
+    const styleParts: string[] = [];
     
     // Add width constraint
     if (imageData.width) {
@@ -131,7 +131,7 @@ export function RichTextEditor({
 
     if (embedData.type === "youtube") {
       // Extract YouTube video ID
-      const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+      const youtubeRegex = new RegExp('(?:youtube\\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\\.be/)([^"&?/\\s]{11})');
       const match = embedData.url.match(youtubeRegex);
       if (match && match[1]) {
         const videoId = match[1];

@@ -97,8 +97,24 @@ export const usersAPI = {
  * Products API
  */
 export const productsAPI = {
-  getAll: async () => {
-    const response = await apiRequest<{ products: any[] }>('/products');
+  getAll: async (page = 1, limit = 12) => {
+    const params = new URLSearchParams({ page: page.toString(), limit: limit.toString() });
+    const response = await apiRequest<{
+      products: any[];
+      pagination: {
+        page: number;
+        limit: number;
+        total: number;
+        totalPages: number;
+        hasNext: boolean;
+        hasPrev: boolean;
+      }
+    }>(`/products?${params}`);
+    return response;
+  },
+
+  getAllSimple: async () => {
+    const response = await productsAPI.getAll(1, 1000); // Get up to 1000 for admin use
     return response.products || [];
   },
 
@@ -135,8 +151,24 @@ export const productsAPI = {
  * Posts API
  */
 export const postsAPI = {
-  getAll: async () => {
-    const response = await apiRequest<{ posts: any[] }>('/posts');
+  getAll: async (page = 1, limit = 6) => {
+    const params = new URLSearchParams({ page: page.toString(), limit: limit.toString() });
+    const response = await apiRequest<{
+      posts: any[];
+      pagination: {
+        page: number;
+        limit: number;
+        total: number;
+        totalPages: number;
+        hasNext: boolean;
+        hasPrev: boolean;
+      }
+    }>(`/posts?${params}`);
+    return response;
+  },
+
+  getAllSimple: async () => {
+    const response = await postsAPI.getAll(1, 1000); // Get up to 1000 for admin use
     return response.posts || [];
   },
 

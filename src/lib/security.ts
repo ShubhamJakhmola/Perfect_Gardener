@@ -24,7 +24,7 @@ export function sanitizeHtml(html: string): string {
       'frameborder', 'allowfullscreen', 'allow', 'target', 'rel'
     ],
     ALLOW_DATA_ATTR: false,
-    ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp|data):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
+    ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp|data):|[^a-z]|[a-z+.\-\w]+(?:[^a-z+.\-:]|$))/i,
   };
   
   return DOMPurify.sanitize(html, config);

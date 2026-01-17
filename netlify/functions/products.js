@@ -7,15 +7,33 @@ export const handler = async (event) => {
   }
 
   try {
-    // GET /products - Get all products - uses indexed created_at column
+    // GET /products - Get paginated products list
     if (event.httpMethod === 'GET') {
+      // Parse query parameters for pagination
+      const queryParams = event.queryStringParameters || {};
+      const page = parseInt(queryParams.page) || 1;
+      const limit = Math.min(parseInt(queryParams.limit) || 12, 50); // Max 50 per page
+      const offset = (page - 1) * limit;
+
+      // For list view, exclude heavy fields like description
       const result = await queryDb(
-        `SELECT id, name, price, image, images, link, category, description, source, sub_category, created_at, updated_at 
-         FROM products 
-         ORDER BY created_at DESC`,
-        [],
+        `SELECT id, name, price, image, images, link, category, source, sub_category, created_at
+         FROM products
+         ORDER BY created_at DESC
+         LIMIT $1 OFFSET $2`,
+        [limit, offset],
         { isWrite: false, logSlow: true }
       );
+
+      // Get total count for pagination info
+      const countResult = await queryDb(
+        'SELECT COUNT(*) as total FROM products',
+        [],
+        { logSlow: false }
+      );
+
+      const total = parseInt(countResult.rows[0].total);
+      const totalPages = Math.ceil(total / limit);
 
       // Convert JSONB arrays to JavaScript arrays
       const products = result.rows.map(row => ({
@@ -24,7 +42,19 @@ export const handler = async (event) => {
         subCategory: row.sub_category
       }));
 
-      return createResponse(200, { products });
+      return createResponse(200, {
+        products,
+        pagination: {
+          page,
+          limit,
+          total,
+          totalPages,
+          hasNext: page < totalPages,
+          hasPrev: page > 1
+        }
+      }, {
+        'Cache-Control': 'public, max-age=300' // Cache for 5 minutes
+      });
     }
 
     // POST /products - Create product

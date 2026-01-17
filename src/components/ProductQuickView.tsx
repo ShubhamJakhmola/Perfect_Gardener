@@ -59,14 +59,12 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function ProductQuickView({ product, open, onOpenChange }: ProductQuickViewProps) {
-  if (!product) return null;
-
-  const { rating, reviews } = getMockRating(product.id);
+  const { rating, reviews } = getMockRating(product?.id || '');
   
   // Get all images (support both legacy single image and new images array)
-  const allImages = product.images && product.images.length > 0 
+  const allImages = product?.images && product.images.length > 0 
     ? product.images 
-    : product.image 
+    : product?.image 
       ? [product.image] 
       : [];
   
@@ -80,6 +78,8 @@ export function ProductQuickView({ product, open, onOpenChange }: ProductQuickVi
       setCurrentImageIndex(0);
     }
   }, [open]);
+
+  if (!product) return null;
 
   const minSwipeDistance = 50;
 

@@ -83,11 +83,18 @@ export function CommentsSection() {
   };
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-12 md:py-16 bg-green-50/30">
       <div className="section-container">
         <div className="max-w-3xl mx-auto">
+          {/* Intro Text */}
+          <div className="text-center mb-8">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Have a gardening question or want to share your own tips? This is where our community discusses plant care, solves problems, and helps each other grow better gardens.
+            </p>
+          </div>
+
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-            Comments & Reviews
+            Community Questions & Answers
           </h2>
 
           {/* Comment Form */}
