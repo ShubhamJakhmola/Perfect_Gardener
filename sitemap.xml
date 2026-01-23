@@ -1,82 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Home Page -->
+
+  <!-- Home -->
   <url>
-    <loc>https://perfectgardener.netlify.app/</loc>
-    <lastmod>2025-01-17</lastmod>
+    <loc>https://perfectgardener.in/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Products Page -->
+  <!-- Core Pages -->
   <url>
-    <loc>https://perfectgardener.netlify.app/products</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Posts Page -->
-  <url>
-    <loc>https://perfectgardener.netlify.app/posts</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- About Page -->
-  <url>
-    <loc>https://perfectgardener.netlify.app/about</loc>
-    <lastmod>2025-01-17</lastmod>
+    <loc>https://perfectgardener.in/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Contact Page -->
   <url>
-    <loc>https://perfectgardener.netlify.app/contact</loc>
-    <lastmod>2025-01-17</lastmod>
+    <loc>https://perfectgardener.in/contact</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://perfectgardener.in/products</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Privacy Policy -->
   <url>
-    <loc>https://perfectgardener.netlify.app/privacy</loc>
-    <lastmod>2025-01-17</lastmod>
+    <loc>https://perfectgardener.in/posts</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://perfectgardener.in/privacy</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.3</priority>
   </url>
 
-  <!-- Tools Pages -->
+  <!-- Tools -->
   <url>
-    <loc>https://perfectgardener.netlify.app/tools</loc>
-    <lastmod>2025-01-17</lastmod>
+    <loc>https://perfectgardener.in/tools</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://perfectgardener.in/tools/budget-planner</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://perfectgardener.netlify.app/tools/pot-calculator</loc>
-    <lastmod>2025-01-17</lastmod>
+    <loc>https://perfectgardener.in/tools/bloom-calculator</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://perfectgardener.netlify.app/tools/bloom-calculator</loc>
-    <lastmod>2025-01-17</lastmod>
+    <loc>https://perfectgardener.in/tools/pot-calculator</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://perfectgardener.netlify.app/tools/budget-planner</loc>
-    <lastmod>2025-01-17</lastmod>
+    <loc>https://perfectgardener.in/tools/flower-calendar</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
+
+  <!-- Blog Posts -->
   <url>
-    <loc>https://perfectgardener.netlify.app/tools/flower-calendar</loc>
-    <lastmod>2025-01-17</lastmod>
+    <loc>https://perfectgardener.in/blog/the-big-5-the-only-fertilizers-your-garden-actually-needs</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
+
+  <url>
+    <loc>https://perfectgardener.in/blog/easy-organic-garden-hacks-natural-pest-and-weed-control-for-beginners</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://perfectgardener.in/blog/best-indoor-plants-for-low-light-conditions</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://perfectgardener.in/blog/beginner-gardening-tips</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
