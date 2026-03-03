@@ -3,7 +3,7 @@
   Perfect Gardener   is a modern gardening and plant-focused web platform designed to help users explore plants, gardening products, and informative posts in one place.  
 It combines a fast frontend, a structured backend, and a scalable database to deliver a smooth and user-friendly experience.
 
-🔗   Live Site:   https://perfectgardener.netlify.app/
+🔗   Live Site:   https://perfectgardener.in/
 
 ---
 
